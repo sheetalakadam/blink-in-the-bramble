@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/characters/Player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/characters/Vyn.tscn" id="2_vyn"]
+
+[node name="TestVynAI" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(100, 100)
+
+[node name="Vyn" parent="." instance=ExtResource("2_vyn")]
+position = Vector2(50, 50)
+follow_target_path = NodePath("../Player")
+
+[node name="Instructions" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Use Arrow Keys to move Zi. Vyn (Orange) should follow at a distance."
