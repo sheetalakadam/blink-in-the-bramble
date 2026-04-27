@@ -25,6 +25,9 @@ WorldManager="*res://scripts/systems/WorldManager.gd"
 DialogueManager="*res://scripts/systems/DialogueManager.gd"
 MomentumSystem="*res://scripts/systems/MomentumSystem.gd"
 CombatManager="*res://scripts/systems/CombatManager.gd"
+SaveManager="*res://scripts/systems/SaveManager.gd"
+GlobalFlags="*res://scripts/systems/GlobalFlags.gd"
+CombatVFXManager="*res://scripts/systems/CombatVFXManager.gd"
 
 [display]
 

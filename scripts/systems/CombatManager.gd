@@ -22,13 +22,15 @@ func _sort_queue() -> void:
 	turn_queue.sort_custom(func(a, b): return a.get("speed", 0) > b.get("speed", 0))
 
 func _start_current_turn() -> void:
-	var entity = turn_queue[active_entity_index]
-	print("[CombatManager] Turn started for: ", entity.get("name", "Unknown"))
-	turn_started.emit(entity)
+	if turn_queue.size() > 0:
+		var entity = turn_queue[active_entity_index]
+		print("[CombatManager] Turn started for: ", entity.get("name", "Unknown"))
+		turn_started.emit(entity)
 
 func advance_turn() -> void:
-	active_entity_index = (active_entity_index + 1) % turn_queue.size()
-	_start_current_turn()
+	if turn_queue.size() > 0:
+		active_entity_index = (active_entity_index + 1) % turn_queue.size()
+		_start_current_turn()
 
 func end_combat() -> void:
 	is_in_combat = false
