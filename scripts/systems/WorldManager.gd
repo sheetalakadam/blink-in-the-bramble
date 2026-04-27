@@ -2,6 +2,16 @@ extends Node
 
 signal chunk_loaded(coord: Vector2i)
 signal chunk_unloaded(coord: Vector2i)
+signal region_changed(new_region: String)
+
+enum Region { VALDRIHN, SOLENNE, EREIVYN, VELUNDRATH, NONE }
+
+var active_region: String = "NONE":
+	set(val):
+		if active_region != val:
+			active_region = val
+			region_changed.emit(active_region)
+			print("[WorldManager] Region changed to: ", active_region)
 
 @export var chunk_size: Vector2i = Vector2i(64, 64)
 @export var tile_size: int = 32

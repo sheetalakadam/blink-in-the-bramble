@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/characters/Player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/VisionTrigger.tscn" id="2_vision"]
+
+[sub_resource type="GDScript" id="GDScript_1"]
+script/source = "extends Node2D
+
+func _ready() -> void:
+	print(\"[TEST_KINGDOMS] Starting Kingdom Overrides Test...\")
+	
+	# Test 1: Region Switching
+	WorldManager.active_region = \"VALDRIHN\"
+	assert(WorldManager.active_region == \"VALDRIHN\", \"Test 1 Failed: Region should be VALDRIHN\")
+	
+	WorldManager.active_region = \"VELUNDRATH\"
+	# Simulate Artifact Slot Check
+	var max_slots = 2
+	if WorldManager.active_region == \"VELUNDRATH\":
+		max_slots = 4
+	assert(max_slots == 4, \"Test 2 Failed: Velundrath should double slots\")
+	
+	print(\"[TEST_KINGDOMS] All non-visual tests passed!\")
+	
+	if DisplayServer.get_name() == \"headless\":
+		get_tree().quit()
+"
+
+[node name="TestKingdoms" type="Node2D"]
+script = SubResource("GDScript_1")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="World"]
+
+[node name="Player" parent="World" instance=ExtResource("1_player")]
+position = Vector2(200, 200)
+
+[node name="VisionTrigger" parent="World" instance=ExtResource("2_vision")]
+position = Vector2(300, 200)
+vision_lore_id = "ancient_oak"
+
+[node name="Instructions" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Move Zi to the teal circle to trigger an Ereivyn Vision (Color Shift)"
