@@ -1,0 +1,22 @@
+{
+  "id": "test_intro",
+  "start_node": "intro",
+  "nodes": {
+    "intro": {
+      "lines": [
+        {
+          "speaker": "Zi",
+          "text": "Fine.",
+          "monologue": "I don't know what to do when people stay.",
+          "portrait": "neutral"
+        },
+        {
+          "speaker": "Vyn",
+          "text": "[Low, inquisitive growl]",
+          "portrait": "alert"
+        }
+      ],
+      "next_node": null
+    }
+  }
+}
