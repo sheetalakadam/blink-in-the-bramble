@@ -16,12 +16,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Blink in the Bramble"
 run/main_scene="res://scenes/world/NaevoriaRuins.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 WorldManager="*res://scripts/systems/WorldManager.gd"
+DialogueManager="*res://scripts/systems/DialogueManager.gd"
 
 [display]
 
@@ -30,10 +31,6 @@ window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
-
-[gui]
-
-theme/custom_font="res://assets/fonts/main_font.tres"
 
 [rendering]
 

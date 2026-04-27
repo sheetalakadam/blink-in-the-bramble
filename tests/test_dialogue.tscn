@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3]
+
+[sub_resource type="GDScript" id="GDScript_1"]
+script/source = "extends Node2D
+
+var lines_received = 0
+var dialogue_finished = false
+
+func _ready() -> void:
+	print(\"[TEST] Starting DialogueManager Test...\")
+	
+	# Connect to signals
+	DialogueManager.line_presented.connect(_on_line_presented)
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+	
+	# Test 1: Start Dialogue
+	DialogueManager.start_dialogue(\"test_intro\")
+	assert(DialogueManager.is_active == true, \"Test 1 Failed: Manager should be active\")
+	
+	# Test 2: Advance Dialogue
+	DialogueManager.advance_dialogue()
+	assert(lines_received == 2, \"Test 2 Failed: Should have received 2 lines total\")
+	
+	# Test 3: End Dialogue
+	DialogueManager.advance_dialogue()
+	assert(DialogueManager.is_active == false, \"Test 3 Failed: Manager should be inactive\")
+	assert(dialogue_finished == true, \"Test 3 Failed: Should have received ended signal\")
+	
+	print(\"[TEST] All DialogueManager tests passed!\")
+	# If running via CLI/CI, we would quit here
+	# get_tree().quit()
+
+func _on_line_presented(_line_data: Dictionary) -> void:
+	lines_received += 1
+	print(\"[TEST] Line presented received. Count: \", lines_received)
+
+func _on_dialogue_ended() -> void:
+	dialogue_finished = true
+	print(\"[TEST] Dialogue ended signal received.\")
+"
+
+[node name="TestDialogue" type="Node2D"]
+script = SubResource("GDScript_1")
