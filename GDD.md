@@ -16,23 +16,15 @@ Emotionally grounded. Quiet. Deeply personal. Epic world, intimate story.
 
 ---
 
-## Tone & References
+## Design Principles
 
-| Reference | What We Take From It |
-|-----------|---------------------|
-| **Chained Echoes** | Open world pixel art, turn-based combat, no random encounters |
-| **Fire Emblem Three Houses** | Support system, base activities, relationship depth, multiple routes |
-| **Hades** | Relationships built through repeated small interactions, characters react to progress |
-| **Skyrim** | Environmental storytelling, exploration rewards, faction complexity, ancient forces |
-| **Cyberpunk 2077** | Dialogue choices with real weight, emotionally rich side quests, character backstory affects options |
-| **AC Odyssey** | Romance freedom, mythological depth woven into world, diverse biomes |
-| **Code Geass** | Moral ambiguity, someone becoming what they fought, endings that cost something |
-| **Death Note** | Power + certainty = corruption, ideological antagonists who aren't simply wrong |
-| **Steins;Gate** | Convergence — certain costs cannot be avoided, knowing the price before paying it |
-| **86 (Eighty-Six)** | Systemic atrocity dressed as policy, the comfortable lie, complicity through silence |
-| **Ikoku Nikki** | Emotional tone — quiet grief, slow relationships, awkward intimacy, real feelings |
-
-**Design principle:** No RPG stereotypes. Every character is a person first. Emotional moments are quiet and earned. Love is shown in accommodation and action, not declarations. Neurodivergence, trauma, and anxiety are written with tenderness — never as quirks or plot devices.
+- No character archetypes. Every character is a person first — with something they want, something they fear, and something they can't say out loud.
+- Emotional moments are quiet and earned, not announced.
+- Love is shown through accommodation and action, not declarations.
+- Neurodivergence, trauma, and social anxiety are written with tenderness — never as quirks or comic devices.
+- Dialogue has subtext. Nobody says exactly what they mean. The space between what's said and what's meant is where character lives.
+- Small moments carry more weight than large ones.
+- Moral conflict has no clean resolution. Nobody is simply the villain.
 
 ---
 
@@ -216,11 +208,11 @@ He lost everything including the memory of that choice. Fell. Has been rebuildin
 - The only person Zi accepts help from without argument — mostly because Suri doesn't ask, she just helps.
 - Her warmth is real, not performance. She genuinely likes people.
 - Bisexual, openly. Has had relationships. Is in that specific phase of knowing exactly who she is.
-- Her own romantic arc develops through the story — mirrors the Zi/Caelan dynamic in tone but warmer, more openly emotional.
+- Her own romantic arc develops through the story — warmer, more openly emotional than Zi's.
 
 **The secret:** She found out about Zi's operation — what Zi was used for in the corrupted zones — before Zi knew the full picture. She kept it because she was protecting Zi from something she didn't think Zi could handle yet. She was wrong to keep it. She was right about why she kept it.
 
-When it comes out it's not a dramatic confrontation. It's two people who love each other unable to look at each other for three days. Small careful moves toward repair. Written exactly as Ikoku Nikki would write it.
+When it comes out it's not a dramatic confrontation. It's two people who love each other unable to look at each other for three days. Small careful moves toward repair.
 
 **Arc:** Tells the truth. Zi forgives her — not immediately, not easily. The friendship survives and is different after. Better, but only because they went through the hard thing.
 
@@ -241,7 +233,7 @@ When it comes out it's not a dramatic confrontation. It's two people who love ea
 - Warmth shows up as actions — leaves things people need without commenting, remembers everything anyone mentioned once.
 - The friction with Zi is real but functional — they think similarly, approach things differently, and the moment they stop fighting and start cooperating they become genuinely dangerous together.
 
-**The thing in her past:** In the years of accumulating resources, Rynn made a specific choice that hurt someone who couldn't afford to be hurt. She told herself the story of necessity. She hasn't looked at it directly since. It's smaller than Vaera's wrongness. It's the same structure.
+**The thing in her past:** In the years of accumulating resources, Rynn made a specific choice that hurt someone who couldn't afford to be hurt. She told herself the story of necessity. She hasn't looked at it directly since.
 
 **Arc:** Lets people help her. The settlement gets reclaimed — not because she finally had enough alone, but because the party did it with her. She didn't know how to ask. She didn't have to.
 
@@ -250,17 +242,16 @@ When it comes out it's not a dramatic confrontation. It's two people who love ea
 ### LEX — Anthropologist, male
 
 > *"I need to sit with this for a minute."*
-> *(to Zi, quietly, after her negotiation): "You changed register three times in that room. Did you know you were doing it?"*
+> *(observing Zi after her negotiation): "You changed register three times in that room. Did you know you were doing it?"*
 > *(to Lyenne, in a vision): "You keep coming back. I've stopped asking why. I've started asking what it's costing you."*
 
 **Origin:** Velundrath. A Sinker's son who came to the surface to study living cultures and never went back.
 
-**Who he is — the distinction that matters:**
-He is not a historian. He is an anthropologist. He doesn't study the past from documents — he lives inside living cultures. Months at a time. Learns the language from inside it. Participates in the rituals. Earns trust slowly. Has lived in all four kingdoms. Knows the Velundran Descent song because he sang it with a family when their grandmother went down. Knows the Ereivyn Asking because he sat in silence for three days in a forest that wasn't his.
+**Who he is:** He doesn't study the past from documents — he lives inside living cultures. Months at a time. Learns the language from inside it. Participates in rituals. Earns trust slowly. Has lived in all four kingdoms. Knows the Velundran Descent song because he sang it with a family when their grandmother went down. Knows the Ereivyn Asking because he sat in silence for three days in a forest that wasn't his.
 
 He knows people the way someone knows a place they've lived in, not visited.
 
-**The mystery:** He observes with an intensity that takes a moment to land — not watching you the way someone who wants something watches you, but the way someone who finds you genuinely interesting does. Rarer. Somehow more unsettling. He moves differently in ritual spaces — unhurried, at home. Has been everywhere and belongs nowhere. His connection to the god Lyenne deflects every direct question with a patience that implies the answer is complicated.
+**The mystery:** Observes with an intensity that takes a moment to land — not watching you the way someone who wants something watches you, but the way someone who finds you genuinely interesting does. Rarer. Somehow more unsettling. Moves differently in ritual spaces — unhurried, at home. Has been everywhere and belongs nowhere. His connection to the god Lyenne deflects every direct question with a patience that implies the answer is complicated.
 
 He doesn't explain himself. Not defensively. He just doesn't feel the need.
 
@@ -273,10 +264,9 @@ What helps: specific routines. Knowing where his things are. Having a defined ro
 
 The party learns his signals before he tells them. Suri figures it out first — starts creating exits for him before he needs them, never says why. He knows she knows. Neither of them names it.
 
-**The convergence he carries:**
-Lyenne has been visiting him since childhood in fragments. She's been building — across years, in pieces she can't hold all at once — the knowledge of what the third path costs. He carries what she keeps losing. He has been sitting with this knowledge for years, trying to find another way. There isn't one.
+**The convergence he carries:** Lyenne has been visiting him since childhood in fragments — building, across years, the knowledge of what the third path costs. He carries what she keeps losing. He has been sitting with this knowledge for years, trying to find another way. There isn't one.
 
-**Arc:** Something foundational about what he believes happened at The Fracture is wrong. He finds out through Caelan's fragmenting memory, through the forests' recollections, through what Velundrath has been keeping. He doesn't fall apart dramatically. He goes very quiet for a few days. Does his routines. Makes his notes. Comes back to the party and says: *"I need to start over with some of this."* The party understands this is enormous. Nobody says so.
+**Arc:** Something foundational about what he believes happened at The Fracture is wrong. He doesn't fall apart dramatically. He goes very quiet for a few days. Does his routines. Makes his notes. Comes back to the party and says: *"I need to start over with some of this."* The party understands this is enormous. Nobody says so.
 
 ---
 
@@ -333,8 +323,6 @@ Since falling: diminished. A fraction of what they were. They want the restorati
 Auryn believes Sariel is an ally. Sariel is using Auryn.
 
 **The specific wrong thing:** Sariel suppressed Caelan's memory deliberately. They know what Caelan chose at The Fracture — that Caelan remembers fully would complicate the restoration. So they did something to the wound to prevent it healing cleanly. Caelan's fractured memory is not accidental.
-
-**What makes them compelling:** Sariel doesn't believe they're wrong. They believe power is its own justification — whoever has it uses it, that's how things have always worked. They're not lying to themselves. They have a value system that is genuinely, straightforwardly wrong.
 
 ---
 
@@ -398,7 +386,7 @@ The party travels all four kingdoms. Each is being affected differently by the w
 
 **Caelan's memory returns in pieces throughout Act Two** — fragments triggered by specific things. Each fragment is a quiet scene. He tells Zi what he was before she finds out another way. He doesn't ask forgiveness. He waits.
 
-**The fracture in the party:** Suri's secret comes out. The repair is slow and real. Written as Ikoku Nikki would write it — not a dramatic blow-up, just two people who love each other unable to look at each other for three days, and careful moves toward something that holds.
+**The fracture in the party:** Suri's secret comes out. The repair is slow and real — not a dramatic blow-up, just two people who love each other unable to look at each other for three days, and careful moves toward something that holds.
 
 **Act Two ends:** The party has the full picture. Lyenne's fragments have finally assembled into something Lex understands completely. He knows what the third path costs. He carries this alone for longer than he should.
 
@@ -452,13 +440,11 @@ The confrontation that needs to happen is not a battle. It is a conversation —
 
 ### 1. Exploration
 - Top-down open world, 8-directional movement
-- Enemies visible on map — contact triggers battle (no random encounters)
+- Enemies visible on map — contact triggers battle, no random encounters
 - Environmental storytelling: ruins, scattered journals, angelic artifacts, lore fragments
-- Ghibli-style living world: forests have moods, spirits drift between trees, some areas require ritual to enter
+- Living world: forests have moods, spirits drift between trees, some areas require ritual to enter
 
-### 2. Combat (JRPG Turn-Based — Chained Echoes style)
-
-**References:** Chained Echoes (gauge, readability), Ghost of Tsushima (stances), Hades (god boons), Fire Emblem (unlock curve, support bonuses). Avoid: Disgaea complexity, Ni No Kuni blandness.
+### 2. Combat (Turn-Based)
 
 **Core rule: Every character deals direct damage. Nobody is purely passive.**
 
@@ -477,10 +463,10 @@ Shared party resource. Three states:
 - **SURGE:** +40% damage dealt, +30% damage taken. Risk/reward.
 
 Filled by: dealing damage, offensive skills, crits, Vyn attacks.
-Drained by: taking damage, Defend, Rynn's Crosswind, certain enemy abilities.
+Drained by: taking damage, Defend, Rynn's Trade Secret, certain enemy abilities.
 Enemies can actively push your gauge. Managing it is the core tactical tension.
 
-#### Stance System (Ghost of Tsushima)
+#### Stance System
 Each character has 3 stances. Switching is free, once per turn.
 Enemy armor type shown clearly at battle start — no guessing.
 
@@ -507,7 +493,7 @@ Highest single-target damage. No magic. Pure blade.
 High magic damage. Abilities evolve mechanically as his memory returns through story.
 - Stances: Threshold / Gentle Current / Fractured Form (costs HP)
 - Starts with: Divine Strike, Remnant Light
-- Early: Surge Burst has 20% misfire. Story milestone stabilizes it.
+- Early: Surge Burst has 20% misfire chance. Story milestone stabilizes it.
 - Full kit: Divine Strike, Threshold Hold, Fracture Touch, Remnant Light, Surge Burst
 
 **SURI — Proactive Hybrid**
@@ -516,11 +502,18 @@ Every action deals damage OR amplifies next ally's damage. Never purely passive.
 - Starts with: Quick Strike, Setup Strike (damages + marks enemy for +30% next hit)
 - Full kit: Quick Strike, Double Tap, Setup Strike, Momentum, Stand Beside, Bond Strike
 
-**RYNN — Weather / Indirect Damage**
-Damage through lightning, wind, and conditions. Different vectors, always contributing.
-- Stances: Static Charge / Gale Force / Pressure Drop
-- Starts with: Lightning Strike (ignores armor), Pressure Drop
-- Full kit: Lightning Strike, Static Field, Cyclone, Pressure Drop, Chain Lightning, Crosswind
+**RYNN — Forest Craft + Trader's Arsenal**
+Ereivyn forest survival as foundation. Years of trading across all four kingdoms means she's collected something from everywhere. She doesn't have a power — she has preparation.
+- Stances: Forest Floor (vs Heavy) / Trader's Eye (vs Magic/Corrupted) / Prepared Ground (vs Agile)
+- Starts with: Ereivyn Toxin (poison DoT, bypasses armor), Snare (damage + root 1 turn)
+- Full kit:
+  - *Ereivyn Toxin* — DoT poison, ignores armor class
+  - *Snare* — Direct damage + root
+  - *Valdrihn Flash Charge* (artifact) — Direct damage + stuns armored, cracks defense
+  - *Solenné Charm* (artifact) — Direct damage + confusion
+  - *Velundrath Pressure Vial* (artifact) — Area damage, all enemies
+  - *Prepared Ground* — Trap: triggers on enemy movement, damage + toxin
+  - *Trade Secret* — Utility: rearranges enemy formation, isolates targets
 
 **LEX — Precision / Knowledge Damage**
 Modest raw damage but bypasses defenses. Makes every other character more effective.
@@ -540,7 +533,7 @@ Partially autonomous. Always contributing damage. Passive: auto-intercepts when 
 |------|---------|--------|
 | Zi + Caelan | Zi uses Read → Caelan attacks | Guaranteed +50% vs revealed weakness |
 | Zi + Suri | Suri uses Setup Strike → Zi attacks | Setup bonus + armor pierce |
-| Rynn + Lex | Lex uses Field Notes → Rynn attacks | Lightning hits all weak points |
+| Rynn + Lex | Lex uses Field Notes → Rynn attacks | Artifacts hit all revealed weak points |
 | Suri + Vyn | Suri uses Stand Beside for Vyn | Vyn retaliates twice |
 | Caelan + Lex | Both in party vs spirits | Passive +20% spirit damage |
 
@@ -554,19 +547,19 @@ Invoked before battle at shrines. Costs shrine currency.
 | Varek | Surge duration doubled, Surge damage taken -20% |
 | Lyenne | One character gets a free extra turn, usable once |
 
-#### Progression — Fire Emblem Unlock Curve
+#### Progression — Progressive Unlock Curve
 Start simple. Complexity is a reward, not a barrier.
 - **Lv 1-5:** 2 actions per character. Clean, readable, nobody feels weak.
 - **Lv 6-10:** Stances unlock one at a time. Enemy variety demands switching.
-- **Lv 11-15:** Advanced actions unlock. Cleave, Chain Lightning, Pattern Break.
+- **Lv 11-15:** Advanced actions unlock.
 - **Lv 16-20:** Affinity combos, god-modified abilities, Caelan's Surge Burst stabilizes.
 Every level feels like a gift, not homework.
 
 #### What We're Not Including
 - ❌ Grinding — milestone progression only
 - ❌ Passive % buffs as primary rewards
-- ❌ Status effect stacking (Disgaea problem)
-- ❌ Purely passive characters (explicit rule: everyone damages HP)
+- ❌ Status effect stacking
+- ❌ Purely passive characters — everyone damages HP
 - ❌ RNG without telegraphing
 - ❌ Equipment as pure stat numbers (modifies stances and unlocks abilities)
 - ❌ More than 5 actions per character at any time
@@ -582,7 +575,7 @@ Every level feels like a gift, not homework.
 
 ### 4. Relationships & Affinity
 - Bond system per companion — builds through dialogue, camp scenes, gifts, shared meals
-- Hades-style: characters react to your progress, choices, and failures
+- Characters react to your progress, choices, and failures over time
 - Affinity levels unlock new story scenes and personal dialogue
 - Romance available with multiple characters
 - Inner monologue shows Zi's real thoughts vs what she says out loud
@@ -607,12 +600,11 @@ Every level feels like a gift, not homework.
 
 - [ ] Tile size: 16x16 or 32x32?
 - [ ] Combat: speed-based turn order or initiative system?
-- [ ] One action per turn or AP system?
 - [ ] Dialogue: build custom or use Dialogic plugin?
 - [ ] Data format: JSON or Godot Resources (.tres)?
 - [ ] Creature companion final name?
 - [ ] Suri's romantic arc: party member or someone they meet?
-- [ ] Lex/Lyenne relationship nature: what does their final scene look like?
+- [ ] Lex/Lyenne final scene: what does it look like?
 - [ ] Third path convergence cost: what specifically does someone sacrifice?
 - [ ] How many regions/base camps for the initial build?
 

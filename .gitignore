@@ -12,6 +12,9 @@
 data_*/
 mono_crash.*.json
 
+# Local dev notes — references, inspiration, design scratch
+_dev/
+
 # OS generated
 .DS_Store
 Thumbs.db
