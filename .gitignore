@@ -15,6 +15,11 @@ mono_crash.*.json
 # Local dev notes — references, inspiration, design scratch
 _dev/
 
+# AI tool configs — local only
+CLAUDE.md
+GEMINI.md
+.claude/
+
 # OS generated
 .DS_Store
 Thumbs.db
