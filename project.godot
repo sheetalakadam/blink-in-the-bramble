@@ -23,6 +23,8 @@ config/icon="res://icon.svg"
 
 WorldManager="*res://scripts/systems/WorldManager.gd"
 DialogueManager="*res://scripts/systems/DialogueManager.gd"
+MomentumSystem="*res://scripts/systems/MomentumSystem.gd"
+CombatManager="*res://scripts/systems/CombatManager.gd"
 
 [display]
 
