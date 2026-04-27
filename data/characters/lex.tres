@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/CharacterData.gd" id="1_char"]
+[ext_resource type="Resource" path="res://data/skills/lex_pressure_strike.tres" id="2_skill"]
+[ext_resource type="Resource" path="res://data/skills/lex_field_notes.tres" id="3_skill"]
+
+[resource]
+script = ExtResource("1_char")
+name = "Lex"
+bio = "A Velundran anthropologist who came to the surface to study living cultures. Carries the fragments of time Lyenne keeps losing."
+max_hp = 90
+attack = 9
+defense = 11
+speed = 10
+stances = ["Field Study", "Anatomical", "Pattern Read"]
+skills = [ExtResource("2_skill"), ExtResource("3_skill")]
+level = 1
+experience = 0
+affinity = 0

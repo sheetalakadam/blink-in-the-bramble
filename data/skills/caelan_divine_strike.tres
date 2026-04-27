@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/SkillData.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+name = "Divine Strike"
+description = "A strike imbued with fading celestial light."
+damage_multiplier = 1.3
+momentum_change = 8.0
+target_type = 0
+stamina_cost = 0
+status_effect = ""
+effect_chance = 0.0

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/CharacterData.gd" id="1_char"]
+[ext_resource type="Resource" path="res://data/skills/suri_quick_strike.tres" id="2_skill"]
+[ext_resource type="Resource" path="res://data/skills/suri_setup_strike.tres" id="3_skill"]
+
+[resource]
+script = ExtResource("1_char")
+name = "Suri"
+bio = "A merchant's daughter from Solenné. Zi's closest friend, whose warmth is both genuine and strategic."
+max_hp = 110
+attack = 11
+defense = 10
+speed = 13
+stances = ["Market Way", "Harbor Guard", "Open Hand"]
+skills = [ExtResource("2_skill"), ExtResource("3_skill")]
+level = 1
+experience = 0
+affinity = 0

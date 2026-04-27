@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/SkillData.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+name = "Setup Strike"
+description = "Damages and marks the enemy for increased damage from the next ally."
+damage_multiplier = 0.7
+momentum_change = 6.0
+target_type = 0
+stamina_cost = 0
+status_effect = "marked"
+effect_chance = 1.0
