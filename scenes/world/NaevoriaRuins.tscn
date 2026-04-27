@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/characters/Player.tscn" id="1_player"]
+
+[node name="NaevoriaRuins" type="Node2D"]
+
+[node name="Ground" type="ColorRect" parent="."]
+offset_right = 1000.0
+offset_bottom = 1000.0
+color = Color(0.12, 0.12, 0.12, 1)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Bramble1" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(200, 200)
+
+[node name="ColorRect" type="ColorRect" parent="Obstacles/Bramble1"]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+color = Color(0.3, 0.1, 0.1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Bramble1"]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="Bramble2" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(400, 150)
+
+[node name="ColorRect" type="ColorRect" parent="Obstacles/Bramble2"]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+color = Color(0.3, 0.1, 0.1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Bramble2"]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(32, 32)

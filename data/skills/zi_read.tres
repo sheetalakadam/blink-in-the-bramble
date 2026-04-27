@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/SkillData.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+name = "Read"
+description = "Zi observes the enemy's posture. Reveals armor type and next attack."
+damage_multiplier = 0.0
+momentum_change = 10.0
+target_type = 0
+stamina_cost = 0
+status_effect = "revealed"
+effect_chance = 1.0
