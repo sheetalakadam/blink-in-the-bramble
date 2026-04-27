@@ -284,6 +284,72 @@ The party learns his signals before he tells them. Suri figures it out first —
 
 ---
 
+## Character Voice — Domain Expertise
+
+Each character has a domain they think *in*. This bleeds into how they perceive and describe everything — not as exposition about their background, but as the specific lens through which they see the world. Their expertise shows in what they notice, not in what they explain.
+
+**The rule: nobody announces their field. Their field is just present in how they talk.**
+
+---
+
+### Zi — Thinks in tactical geometry
+Military background means she reads any space the way a soldier reads terrain — exits, sightlines, load-bearing angles, who has the actual power vs. who has the title. This happens automatically. She doesn't narrate it.
+
+In a crowded market: she's already clocked where the exits are and is standing near one.
+In a tense conversation: she identifies the person in the room with real leverage before anyone else has finished sizing up the social situation.
+Her tactical read leaks into casual settings. Campfire seating: she sits with her back to something solid without thinking about it.
+
+*She doesn't say "I'm assessing threats." She says "that man keeps looking at the door he came in through."*
+
+---
+
+### Caelan — Thinks in crossing and threshold
+Was a Threshold angel — someone who judged passage between realms. The instinct doesn't disappear just because his memory did.
+
+Notices when someone is at a decision point before they do. Creates space without naming why.
+Precise about permanence vs. temporariness — asks "is this a change or a stop?" more than context warrants.
+His metaphors tend toward arrival, crossing, whether something is still open.
+In damaged spaces — ruins, corrupted zones — he has a specific quality of attention, like someone reading the echo of what a place used to be. He doesn't perform this. He just goes quiet.
+
+*He doesn't say "I sense you're struggling." He says "this is the part where most people decide."*
+
+---
+
+### Suri — Thinks in social economy
+Grew up in Solenné's floating markets where reputation is currency and every interaction has a social layer. She's not calculating — she's just fluent in something most people aren't conscious of.
+
+Reads who owes who in a room within minutes. Tracks the unspoken party ledger — who hasn't been spoken to in two days, who is owed something that hasn't come. Quietly fixes these things without naming them.
+Distinguishes performed warmth from actual warmth instantly. Usually doesn't call it out.
+Understands grudges as a social technology — what they're for, when they're being used for something else.
+
+*She doesn't say "Rynn and Lex are in tension." She says "Rynn's been doing Lex's dishes for three nights and hasn't said what she wants yet."*
+
+---
+
+### Rynn — Thinks in logistics and leverage
+Years of trading across four kingdoms means everything runs through a value-calculation she doesn't notice she's doing.
+
+Estimates weight, volume, and price by eye. Notes discrepancies immediately — knows when something is double the going rate and what that implies about who is desperate.
+Spots the moment her leverage shifts in a negotiation before the other person does.
+Physical inventory of any new location within minutes: what's here, what's been moved, what's missing.
+Her Ereivyn background lives under this — she notices the health of living things before anyone else. The forest is wrong before they feel it. She describes it in practical terms: "the root systems are retreating."
+
+*She doesn't say "I have trading experience." She says "he already agreed, he's just making us wait."*
+
+---
+
+### Lex — Thinks in cultural practice and what it costs
+He doesn't study cultures as objects — he's lived inside them. Everything lands in the context of every adjacent practice he's encountered.
+
+Notices ritual and meaning in things that don't look like rituals: which door stays ajar, which word gets used when the standard word would do, who pours whose drink first.
+Can't observe a ceremony without feeling the weight of comparison. Not sentimentally — analytically. "The Solenné version of this is public. This one is private. That's doing something specific about where grief is allowed to live."
+Tracks language with the attention of someone who learned it as an adult. Register shifts. Code-switching. Words that only exist in one language.
+Carries a small journal. Marginalia, constantly. Not for anyone else.
+
+*He doesn't say "as someone who studied this culture." He says "they've skipped the third calling — either she wasn't respected, or she asked them to."*
+
+---
+
 ## Party Dynamic
 
 | | Zi | Caelan | Suri | Rynn | Lex |
