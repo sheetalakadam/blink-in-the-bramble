@@ -28,6 +28,7 @@ CombatManager="*res://scripts/systems/CombatManager.gd"
 SaveManager="*res://scripts/systems/SaveManager.gd"
 GlobalFlags="*res://scripts/systems/GlobalFlags.gd"
 CombatVFXManager="*res://scripts/systems/CombatVFXManager.gd"
+BattleTransition="*res://scripts/systems/BattleTransition.gd"
 
 [display]
 
