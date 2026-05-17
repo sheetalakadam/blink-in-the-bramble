@@ -1,18 +1,31 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/characters/Player.tscn" id="1_player"]
 [ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="2_ui"]
+[ext_resource type="PackedScene" path="res://scenes/characters/OverworldEnemy.tscn" id="3_enemy"]
 
 [sub_resource type="GDScript" id="GDScript_1"]
 script/source = "extends Node2D
 
 func _ready() -> void:
 	print(\"[NaevoriaRuins] Ready, starting test timer\")
+	_connect_enemies()
 	await get_tree().create_timer(1.0).timeout
 	if DialogueManager:
 		DialogueManager.start_dialogue(\"test_intro\")
 	else:
 		printerr(\"[NaevoriaRuins] DialogueManager not found!\")
+
+func _connect_enemies() -> void:
+	for enemy in get_tree().get_nodes_in_group(\"overworld_enemies\"):
+		if not enemy.player_contacted.is_connected(_on_enemy_contact):
+			enemy.player_contacted.connect(_on_enemy_contact)
+
+func _on_enemy_contact(enemy: CharacterBody2D) -> void:
+	if Engine.has_singleton(\"BattleTransition\") or get_tree().root.has_node(\"BattleTransition\"):
+		BattleTransition.start_transition(enemy)
+	else:
+		print(\"[NaevoriaRuins] BattleTransition not found, enemy contact ignored\")
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
@@ -58,3 +71,20 @@ shape = SubResource("RectangleShape2D_1")
 
 [node name="Player" parent="." instance=ExtResource("1_player")]
 position = Vector2(100, 100)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Slime1" parent="Enemies" instance=ExtResource("3_enemy")]
+position = Vector2(300, 300)
+enemy_name = "Green Slime"
+enemy_level = 1
+
+[node name="Slime2" parent="Enemies" instance=ExtResource("3_enemy")]
+position = Vector2(500, 250)
+enemy_name = "Green Slime"
+enemy_level = 2
+
+[node name="Slime3" parent="Enemies" instance=ExtResource("3_enemy")]
+position = Vector2(700, 500)
+enemy_name = "Green Slime"
+enemy_level = 1
