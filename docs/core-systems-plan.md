@@ -35,10 +35,9 @@ This plan outlines the technical foundation for the four remaining major pillars
     *   A shared global float variable (-100 to 100).
     *   States: Grounded (< -50), Balanced (-50 to 50), Surge (> 50).
     *   Emits signals when crossing state thresholds to instantly update UI visuals and character damage multipliers.
-*   **Modern Radial UI (`RadialMenu.tscn`):**
-    *   When a character's turn begins, the camera zooms in slightly.
-    *   A radial menu instances around the character's world position (`Sprite3D` or `Node2D` depending on the world rendering, but mapped to screen space).
-    *   Options: Attack, Skill (opens sub-wheel), Stance (opens sub-wheel), Defend.
+*   **Simple Vertical Menu UI (`ActionMenu.tscn`):**
+    *   When a character's turn begins, a dark semi-transparent panel appears with vertical buttons: Attack, Skill, Stance, Defend.
+    *   Sub-menus (skill list, stance selection) are also simple vertical lists. Clean and minimal.
 *   **Stance System:**
     *   Each character has an active `Stance` enum/resource.
     *   Switching stances is a free action handled by a state machine pattern within `CharacterCombat.gd`.
