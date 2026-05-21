@@ -1,0 +1,245 @@
+{
+  "id": "scene_01_the_fall",
+  "start_node": "the_crash",
+  "nodes": {
+    "the_crash": {
+      "lines": [
+        {
+          "speaker": "Zi",
+          "text": "...",
+          "monologue": "That wasn't thunder.",
+          "portrait": "zi_alert",
+          "lens": "tactical",
+          "events": ["shake_camera_heavy", "play_debris_fall"]
+        },
+        {
+          "speaker": "Zi",
+          "text": "...",
+          "monologue": "Impact point: thirty meters north. Load-bearing arch is still holding. Barely. Second collapse unlikely unless the eastern wall goes.",
+          "portrait": "zi_focused",
+          "lens": "tactical",
+          "events": ["dust_particles"]
+        },
+        {
+          "speaker": "Zi",
+          "text": "...",
+          "monologue": "Something came through the ceiling.",
+          "portrait": "zi_neutral",
+          "lens": "tactical"
+        }
+      ],
+      "next_node": "finding_him"
+    },
+    "finding_him": {
+      "lines": [
+        {
+          "speaker": "Zi",
+          "text": "...",
+          "monologue": "Not something. Someone.",
+          "portrait": "zi_alert",
+          "events": ["ambient_wind_low"]
+        },
+        {
+          "speaker": "Zi",
+          "text": "You're bleeding.",
+          "monologue": "Everywhere. He's bleeding everywhere.",
+          "portrait": "zi_neutral"
+        },
+        {
+          "speaker": "Caelan",
+          "text": "I don't... where...",
+          "portrait": "caelan_confused",
+          "events": ["play_pained_breath"]
+        },
+        {
+          "speaker": "Zi",
+          "text": "Don't move.",
+          "monologue": "Open fracture, left arm. At least two broken ribs from the way he's breathing. The rest I can't tell without better light.",
+          "portrait": "zi_focused",
+          "lens": "tactical"
+        }
+      ],
+      "next_node": "first_exchange"
+    },
+    "first_exchange": {
+      "lines": [
+        {
+          "speaker": "Zi",
+          "text": "Can you move?",
+          "monologue": "Please say yes. I can't carry someone this size.",
+          "portrait": "zi_neutral"
+        },
+        {
+          "speaker": "Caelan",
+          "text": "I... think I...",
+          "portrait": "caelan_confused",
+          "events": ["play_collapse_soft"]
+        },
+        {
+          "speaker": "Zi",
+          "text": "That's a no.",
+          "monologue": "Of course it is.",
+          "portrait": "zi_neutral"
+        },
+        {
+          "speaker": "Caelan",
+          "text": "What happened?",
+          "portrait": "caelan_confused"
+        },
+        {
+          "speaker": "Zi",
+          "text": "You came through the ceiling.",
+          "portrait": "zi_neutral"
+        },
+        {
+          "speaker": "Caelan",
+          "text": "I... I don't remember.",
+          "portrait": "caelan_confused"
+        }
+      ],
+      "choices": [
+        {
+          "label": "That makes two of us.",
+          "next_node": "response_dry",
+          "affinity_change": {}
+        },
+        {
+          "label": "What do you remember?",
+          "next_node": "response_direct",
+          "affinity_change": {}
+        }
+      ],
+      "next_node": "response_dry"
+    },
+    "response_dry": {
+      "lines": [
+        {
+          "speaker": "Zi",
+          "text": "That makes two of us.",
+          "monologue": "People don't fall through stone ceilings. Not from anything normal.",
+          "portrait": "zi_neutral"
+        }
+      ],
+      "next_node": "tending_wounds"
+    },
+    "response_direct": {
+      "lines": [
+        {
+          "speaker": "Zi",
+          "text": "What do you remember?",
+          "monologue": "People don't fall through stone ceilings. Not from anything normal.",
+          "portrait": "zi_neutral"
+        },
+        {
+          "speaker": "Caelan",
+          "text": "Light. Just... light.",
+          "portrait": "caelan_confused"
+        }
+      ],
+      "next_node": "tending_wounds"
+    },
+    "tending_wounds": {
+      "lines": [
+        {
+          "speaker": "Zi",
+          "text": "Hold still.",
+          "monologue": "The eastern wall has a lateral crack running from the impact site. If it gives, six tons of rubble land where we're sitting. I need him somewhere else.",
+          "portrait": "zi_focused",
+          "lens": "tactical"
+        },
+        {
+          "speaker": "Caelan",
+          "text": "Why are you helping me?",
+          "portrait": "caelan_confused"
+        },
+        {
+          "speaker": "Zi",
+          "text": "I haven't decided if I am.",
+          "monologue": "Already tearing bandages. Already helping.",
+          "portrait": "zi_neutral"
+        },
+        {
+          "speaker": "Caelan",
+          "text": "...",
+          "portrait": "caelan_confused",
+          "events": ["play_pained_breath"]
+        },
+        {
+          "speaker": "Zi",
+          "text": "What's your name?",
+          "portrait": "zi_neutral"
+        },
+        {
+          "speaker": "Caelan",
+          "text": "I don't... I can't...",
+          "portrait": "caelan_confused"
+        }
+      ],
+      "next_node": "the_naming"
+    },
+    "the_naming": {
+      "lines": [
+        {
+          "speaker": "Zi",
+          "text": "You need something I can call you.",
+          "monologue": "He doesn't even know his own name. What kind of fall takes that from someone?",
+          "portrait": "zi_neutral"
+        },
+        {
+          "speaker": "Zi",
+          "text": "Caelan.",
+          "monologue": "It was my grandfather's. Doesn't matter. It's just a word.",
+          "portrait": "zi_neutral"
+        },
+        {
+          "speaker": "Caelan",
+          "text": "Caelan.",
+          "portrait": "caelan_confused"
+        },
+        {
+          "speaker": "Zi",
+          "text": "Don't read into it. You needed a name. That was one.",
+          "portrait": "zi_neutral"
+        }
+      ],
+      "next_node": "the_decision"
+    },
+    "the_decision": {
+      "lines": [
+        {
+          "speaker": "Zi",
+          "text": "...",
+          "monologue": "The smart thing is to stabilize him and leave. Come back tomorrow. Check if he's still alive. That's the smart thing.",
+          "portrait": "zi_neutral",
+          "lens": "tactical"
+        },
+        {
+          "speaker": "Zi",
+          "text": "There's a camp. Half a kilometer east. Can you stand if I help?",
+          "monologue": "Not the smart thing, then.",
+          "portrait": "zi_neutral"
+        },
+        {
+          "speaker": "Caelan",
+          "text": "I'll try.",
+          "portrait": "caelan_confused"
+        },
+        {
+          "speaker": "Zi",
+          "text": "Try harder.",
+          "monologue": "He weighs twice what I do.",
+          "portrait": "zi_neutral"
+        },
+        {
+          "speaker": "Zi",
+          "text": "Lean on me. Watch the rubble.",
+          "monologue": "Eastern wall holding. For now.",
+          "portrait": "zi_focused",
+          "lens": "tactical",
+          "events": ["fade_music_out"]
+        }
+      ],
+      "next_node": null
+    }
+  }
+}
