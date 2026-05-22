@@ -8,13 +8,15 @@
 script/source = "extends Node2D
 
 func _ready() -> void:
-	print(\"[NaevoriaRuins] Ready, starting test timer\")
+	print(\"[NaevoriaRuins] Ready\")
 	_connect_enemies()
 	await get_tree().create_timer(1.0).timeout
-	if DialogueManager:
-		DialogueManager.start_dialogue(\"test_intro\")
-	else:
-		printerr(\"[NaevoriaRuins] DialogueManager not found!\")
+	if not GlobalFlags.get_flag(\"opening_dialogue_done\"):
+		GlobalFlags.set_flag(\"opening_dialogue_done\", true)
+		if DialogueManager:
+			DialogueManager.start_dialogue(\"scene_01_the_fall\")
+		else:
+			printerr(\"[NaevoriaRuins] DialogueManager not found!\")
 
 func _connect_enemies() -> void:
 	for enemy in get_tree().get_nodes_in_group(\"overworld_enemies\"):
