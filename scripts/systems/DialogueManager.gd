@@ -62,4 +62,9 @@ func _handle_node_completion(node: Dictionary) -> void:
 # Convenience for player input
 func _input(event: InputEvent) -> void:
 	if is_active and event.is_action_pressed("ui_accept"):
-		advance_dialogue()
+		# Check if DialogueUI is mid-typewriter; if so, skip instead of advancing
+		var dialogue_ui = get_tree().get_first_node_in_group("dialogue_ui")
+		if dialogue_ui and dialogue_ui.is_typewriting:
+			dialogue_ui.skip_typewriter()
+		else:
+			advance_dialogue()
