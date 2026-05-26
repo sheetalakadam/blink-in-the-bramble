@@ -6,8 +6,8 @@
 script = ExtResource("1_skill")
 name = "Remnant Light"
 description = "A burst of light that disorients the enemy."
-damage_multiplier = 0.6
-momentum_change = 12.0
+damage_multiplier = 0.8
+momentum_change = -5.0
 target_type = 0
 stamina_cost = 0
 status_effect = "disoriented"
