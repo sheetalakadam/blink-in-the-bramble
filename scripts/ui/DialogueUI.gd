@@ -1,12 +1,23 @@
 extends CanvasLayer
 
+const TYPEWRITER_SPEED := 0.03  # seconds per character
+
 @onready var spoken_text: RichTextLabel = $MainBox/SpokenText
 @onready var speaker_label: Label = $MainBox/SpeakerLabel
 @onready var inner_monologue: RichTextLabel = $InnerMonologue
+@onready var lens_label: Label = $LensLabel
+
+var is_typewriting := false
+var _typewriter_tween: Tween = null
+var _monologue_tween: Tween = null
 
 func _ready() -> void:
 	print("[DialogueUI] ready, connecting signals")
+	add_to_group("dialogue_ui")
 	visible = false
+	inner_monologue.modulate.a = 0.0
+	inner_monologue.visible = false
+	lens_label.visible = false
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	DialogueManager.line_presented.connect(_on_line_presented)
@@ -21,12 +32,69 @@ func _on_dialogue_ended() -> void:
 
 func _on_line_presented(line_data: Dictionary) -> void:
 	print("[DialogueUI] line_presented signal received for speaker: ", line_data.get("speaker"))
+
+	# Speaker name
 	speaker_label.text = line_data.get("speaker", "???")
+
+	# Spoken text with typewriter effect
 	spoken_text.text = line_data.get("text", "")
-	
+	_start_typewriter()
+
+	# Monologue display
 	var mono = line_data.get("monologue", "")
 	if mono != "":
 		inner_monologue.text = "[i]%s[/i]" % mono
-		inner_monologue.visible = true
+		_fade_monologue_in()
 	else:
-		inner_monologue.visible = false
+		_fade_monologue_out()
+
+	# Lens display
+	var lens = line_data.get("lens", "")
+	if lens != "":
+		lens_label.text = "[%s]" % lens.capitalize()
+		lens_label.visible = true
+	else:
+		lens_label.visible = false
+
+func _start_typewriter() -> void:
+	# Kill any existing typewriter tween
+	if _typewriter_tween and _typewriter_tween.is_valid():
+		_typewriter_tween.kill()
+
+	spoken_text.visible_ratio = 0.0
+	is_typewriting = true
+
+	var char_count = spoken_text.get_parsed_text().length()
+	var duration = char_count * TYPEWRITER_SPEED
+	if duration <= 0.0:
+		# Empty text, complete immediately
+		spoken_text.visible_ratio = 1.0
+		is_typewriting = false
+		return
+
+	_typewriter_tween = create_tween()
+	_typewriter_tween.tween_property(spoken_text, "visible_ratio", 1.0, duration)
+	_typewriter_tween.finished.connect(_on_typewriter_finished)
+
+func _on_typewriter_finished() -> void:
+	is_typewriting = false
+
+func skip_typewriter() -> void:
+	if _typewriter_tween and _typewriter_tween.is_valid():
+		_typewriter_tween.kill()
+	spoken_text.visible_ratio = 1.0
+	is_typewriting = false
+
+func _fade_monologue_in() -> void:
+	if _monologue_tween and _monologue_tween.is_valid():
+		_monologue_tween.kill()
+	inner_monologue.visible = true
+	_monologue_tween = create_tween()
+	_monologue_tween.tween_property(inner_monologue, "modulate:a", 1.0, 0.3)
+
+func _fade_monologue_out() -> void:
+	if _monologue_tween and _monologue_tween.is_valid():
+		_monologue_tween.kill()
+	# Instant hide for now (fade out would require await which complicates things)
+	inner_monologue.visible = false
+	inner_monologue.modulate.a = 0.0
