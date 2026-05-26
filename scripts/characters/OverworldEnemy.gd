@@ -65,6 +65,7 @@ func get_enemy_data() -> Dictionary:
 		"speed": 5,
 		"hp": 20 + enemy_level * 5,
 		"attack": 3 + enemy_level * 2,
+		"armor_type": "Agile",
 	}
 
 

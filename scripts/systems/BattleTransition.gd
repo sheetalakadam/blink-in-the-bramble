@@ -1,7 +1,7 @@
 extends Node
 
 ## Manages the transition between overworld and combat scenes.
-## Fades to black, loads a placeholder battle scene, and returns on victory.
+## Fades to black, loads the real CombatScene, and returns on victory.
 
 signal transition_started
 signal transition_completed
@@ -15,6 +15,12 @@ var _overlay: ColorRect = null
 var _is_transitioning: bool = false
 
 const FADE_DURATION: float = 0.5
+const COMBAT_SCENE_PATH: String = "res://scenes/combat/CombatScene.tscn"
+
+# Party character resource paths for MVP
+const PARTY_RESOURCES: Array[String] = [
+	"res://data/characters/zi.tres",
+]
 
 
 func _ready() -> void:
@@ -59,36 +65,11 @@ func _fade_to_black() -> void:
 
 
 func _load_battle_scene() -> void:
-	# Create a minimal placeholder battle scene
-	var battle_root = Node2D.new()
-	battle_root.name = "PlaceholderBattle"
+	var party_data = _build_party_data()
+	var enemy_combat_data = _build_enemy_combat_data()
 
-	var bg = ColorRect.new()
-	bg.color = Color(0.05, 0.05, 0.15, 1.0)
-	bg.offset_right = 640
-	bg.offset_bottom = 360
-	battle_root.add_child(bg)
-
-	var label = Label.new()
-	label.text = "COMBAT SCENE"
-	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	label.position = Vector2(220, 140)
-	label.add_theme_font_size_override("font_size", 32)
-	battle_root.add_child(label)
-
-	var enemy_label = Label.new()
-	enemy_label.text = "Enemy: %s (Lv.%d)" % [_enemy_data.get("name", "?"), _enemy_data.get("level", 1)]
-	enemy_label.position = Vector2(220, 200)
-	enemy_label.add_theme_font_size_override("font_size", 16)
-	battle_root.add_child(enemy_label)
-
-	# Auto-win timer for now (placeholder -- real combat UI is PR B)
-	var timer = Timer.new()
-	timer.wait_time = 2.0
-	timer.one_shot = true
-	timer.timeout.connect(_on_victory)
-	battle_root.add_child(timer)
+	# Load and instance the real combat scene
+	var combat_scene = load(COMBAT_SCENE_PATH).instantiate()
 
 	# Switch scene
 	var tree = get_tree()
@@ -96,20 +77,71 @@ func _load_battle_scene() -> void:
 	tree.root.remove_child(old_scene)
 	old_scene.queue_free()
 
-	tree.root.add_child(battle_root)
-	tree.current_scene = battle_root
+	tree.root.add_child(combat_scene)
+	tree.current_scene = combat_scene
+
+	# Connect victory/defeat signals
+	combat_scene.combat_won.connect(_on_victory)
+	combat_scene.combat_lost.connect(_on_defeat)
+
+	# Reset momentum for fresh battle
+	MomentumSystem.reset()
+
+	# Start combat
+	combat_scene.start(party_data, [enemy_combat_data])
 
 	# Fade in
 	var tween = create_tween()
 	tween.tween_property(_overlay, "color:a", 0.0, FADE_DURATION)
-	tween.tween_callback(func(): timer.start())
 
 	transition_completed.emit()
 	print("[BattleTransition] Entered combat with: ", _enemy_data.get("name", "?"))
 
 
+func _build_party_data() -> Array[Dictionary]:
+	var result: Array[Dictionary] = []
+	for path in PARTY_RESOURCES:
+		var char_data = load(path) as CharacterData
+		if char_data:
+			result.append(_char_to_dict(char_data))
+	return result
+
+
+func _build_enemy_combat_data() -> Dictionary:
+	return {
+		"name": _enemy_data.get("name", "Slime"),
+		"hp": _enemy_data.get("hp", 20),
+		"max_hp": _enemy_data.get("hp", 20),
+		"attack": _enemy_data.get("attack", 5),
+		"defense": 0,
+		"speed": _enemy_data.get("speed", 5),
+		"armor_type": _enemy_data.get("armor_type", "Agile"),
+		"is_enemy": true,
+	}
+
+
+static func _char_to_dict(char_data: CharacterData) -> Dictionary:
+	return {
+		"name": char_data.name,
+		"hp": char_data.max_hp,
+		"max_hp": char_data.max_hp,
+		"attack": char_data.attack,
+		"defense": char_data.defense,
+		"speed": char_data.speed,
+		"stances": char_data.stances.duplicate(),
+		"skills": char_data.skills.duplicate(),
+		"active_stance": char_data.stances[0] if char_data.stances.size() > 0 else "",
+		"is_enemy": false,
+	}
+
+
 func _on_victory() -> void:
 	print("[BattleTransition] Victory!")
+	_fade_to_overworld()
+
+
+func _on_defeat() -> void:
+	print("[BattleTransition] Defeat...")
 	_fade_to_overworld()
 
 
