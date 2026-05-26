@@ -12,12 +12,15 @@ var all_combatants: Array[Dictionary] = []
 var current_entity: Dictionary = {}
 var stance_switched_this_turn: bool = false
 var waiting_for_input: bool = false
+var _pending_skill = null # Skill awaiting target selection
+var _pending_action: String = "" # "attack" or "skill" awaiting target
 
 @onready var action_menu: Control = $UI/ActionMenu
 @onready var skill_menu: Control = $UI/SkillMenu
 @onready var stance_menu: Control = $UI/StanceMenu
 @onready var turn_queue_display: HBoxContainer = $UI/TurnQueue
-@onready var combat_log: Label = $UI/CombatLog
+@onready var combat_log: RichTextLabel = $UI/CombatLog
+@onready var target_menu: Control = $UI/TargetMenu
 @onready var party_display: VBoxContainer = $UI/PartyDisplay
 @onready var enemy_display: VBoxContainer = $UI/EnemyDisplay
 @onready var enemy_intent_label: Label = $UI/EnemyIntent
@@ -26,6 +29,7 @@ func _ready() -> void:
 	action_menu.visible = false
 	skill_menu.visible = false
 	stance_menu.visible = false
+	target_menu.visible = false
 	CombatManager.turn_started.connect(_on_turn_started)
 
 func start(party_data: Array[Dictionary], enemy_data: Array[Dictionary]) -> void:
@@ -39,6 +43,8 @@ func start(party_data: Array[Dictionary], enemy_data: Array[Dictionary]) -> void
 # --- Turn flow ---
 
 func _on_turn_started(entity: Dictionary) -> void:
+	# Clear defend flag at the START of this entity's turn (not end of previous)
+	entity.erase("defending")
 	current_entity = entity
 	stance_switched_this_turn = false
 	_update_displays()
@@ -65,7 +71,10 @@ func _enemy_turn(entity: Dictionary) -> void:
 		return
 	var target = alive[randi() % alive.size()]
 
-	var damage = maxi(1, entity.attack - target.get("defense", 0))
+	var target_defense: int = target.get("defense", 0)
+	if target.get("defending", false):
+		target_defense *= 2
+	var damage = maxi(1, entity.attack - target_defense)
 	target.hp -= damage
 	MomentumSystem.add_momentum(-5.0)
 	_log("%s hits %s for %d damage!" % [entity.name, target.name, damage])
@@ -92,7 +101,9 @@ func on_attack_pressed() -> void:
 	if not waiting_for_input:
 		return
 	action_menu.visible = false
-	_execute_attack(current_entity, _pick_enemy_target(), null)
+	_pending_action = "attack"
+	_pending_skill = null
+	_show_target_menu()
 
 func on_skill_pressed() -> void:
 	if not waiting_for_input:
@@ -126,7 +137,8 @@ func _show_skill_menu() -> void:
 	var skills: Array = current_entity.get("skills", [])
 	for skill in skills:
 		var btn = Button.new()
-		btn.text = skill.name
+		var sign_str = "+" if skill.momentum_change >= 0 else ""
+		btn.text = "%s (M: %s%d)" % [skill.name, sign_str, int(skill.momentum_change)]
 		btn.pressed.connect(_on_skill_selected.bind(skill))
 		skill_menu.get_node("List").add_child(btn)
 
@@ -140,7 +152,9 @@ func _show_skill_menu() -> void:
 
 func _on_skill_selected(skill: SkillData) -> void:
 	skill_menu.visible = false
-	_execute_attack(current_entity, _pick_enemy_target(), skill)
+	_pending_action = "skill"
+	_pending_skill = skill
+	_show_target_menu()
 
 # --- Stance sub-menu ---
 
@@ -215,17 +229,52 @@ func _execute_attack(attacker: Dictionary, target: Dictionary, skill) -> void:
 func _end_player_turn() -> void:
 	_telegraph_enemy_intent()
 	await get_tree().create_timer(0.3).timeout
-	# Clear defend flag
-	current_entity.erase("defending")
+	# Defend flag is now cleared in _on_turn_started so it persists through enemy turns
 	CombatManager.advance_turn()
 
-# --- Targeting ---
+# --- Target selection menu ---
+
+func _show_target_menu() -> void:
+	for child in target_menu.get_node("List").get_children():
+		child.queue_free()
+
+	var alive = enemies.filter(func(e): return e.hp > 0)
+	if alive.size() == 1:
+		# Only one target — skip the menu
+		_on_target_selected(alive[0])
+		return
+
+	for enemy in alive:
+		var btn = Button.new()
+		btn.text = "%s (HP: %d/%d)" % [enemy.name, maxi(0, enemy.hp), enemy.max_hp]
+		btn.pressed.connect(_on_target_selected.bind(enemy))
+		target_menu.get_node("List").add_child(btn)
+
+	var back = Button.new()
+	back.text = "Back"
+	back.pressed.connect(func():
+		target_menu.visible = false
+		action_menu.visible = true
+		_pending_action = ""
+		_pending_skill = null
+	)
+	target_menu.get_node("List").add_child(back)
+
+	target_menu.visible = true
+
+func _on_target_selected(target: Dictionary) -> void:
+	target_menu.visible = false
+	_execute_attack(current_entity, target, _pending_skill)
+	_pending_action = ""
+	_pending_skill = null
+
+# --- Targeting (fallback for enemy AI) ---
 
 func _pick_enemy_target() -> Dictionary:
 	var alive = enemies.filter(func(e): return e.hp > 0)
 	if alive.is_empty():
 		return {}
-	return alive[0] # Auto-target first alive enemy for MVP
+	return alive[0]
 
 # --- Enemy intent ---
 
@@ -293,12 +342,20 @@ func _update_turn_queue() -> void:
 		var idx = (CombatManager.active_entity_index + i) % CombatManager.turn_queue.size()
 		var entity = CombatManager.turn_queue[idx]
 		var lbl = Label.new()
-		lbl.text = entity.get("name", "?")
-		if entity.get("is_enemy", false):
-			lbl.modulate = Color(1.0, 0.4, 0.4)
+		if i == 0:
+			# Highlight current turn entity
+			lbl.text = "> " + entity.get("name", "?")
+			lbl.modulate = Color(1.0, 1.0, 0.3)
+		else:
+			lbl.text = entity.get("name", "?")
+			if entity.get("is_enemy", false):
+				lbl.modulate = Color(1.0, 0.4, 0.4)
 		turn_queue_display.add_child(lbl)
 
 func _log(msg: String) -> void:
 	print("[Combat] ", msg)
 	if combat_log:
-		combat_log.text = msg
+		combat_log.append_text(msg + "\n")
+		# Auto-scroll to bottom
+		await get_tree().process_frame
+		combat_log.scroll_to_line(combat_log.get_line_count())
