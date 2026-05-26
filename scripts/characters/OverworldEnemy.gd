@@ -7,6 +7,7 @@ signal player_contacted(enemy: CharacterBody2D)
 @export var speed: float = 40.0
 @export var enemy_name: String = "Slime"
 @export var enemy_level: int = 1
+@export var armor_type: String = "Agile"
 
 var _roam_direction: Vector2 = Vector2.ZERO
 var _roam_timer: float = 0.0
@@ -65,7 +66,7 @@ func get_enemy_data() -> Dictionary:
 		"speed": 5,
 		"hp": 20 + enemy_level * 5,
 		"attack": 3 + enemy_level * 2,
-		"armor_type": "Agile",
+		"armor_type": armor_type,
 	}
 
 
