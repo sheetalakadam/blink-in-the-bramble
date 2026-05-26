@@ -1,0 +1,43 @@
+{
+  "id": "camp_caelan_01",
+  "start_node": "opening",
+  "nodes": {
+    "opening": {
+      "lines": [
+        {
+          "speaker": "Zi",
+          "text": "You've been sitting here a while.",
+          "monologue": "He looks smaller when he's not pretending to be fine.",
+          "portrait": "neutral"
+        },
+        {
+          "speaker": "Caelan",
+          "text": "Just... trying to remember something. It was right there, and then it wasn't.",
+          "portrait": "troubled"
+        },
+        {
+          "speaker": "Zi",
+          "text": "You don't have to chase it. Sometimes things come back on their own.",
+          "monologue": "I don't know if that's true. But it's what I needed to hear once.",
+          "portrait": "gentle"
+        },
+        {
+          "speaker": "Caelan",
+          "text": "Yeah. Maybe.",
+          "portrait": "quiet"
+        }
+      ],
+      "next_node": "affinity_bump"
+    },
+    "affinity_bump": {
+      "lines": [
+        {
+          "speaker": "",
+          "text": "[Caelan seems a little more at ease.]",
+          "action": "add_affinity:Caelan:5"
+        }
+      ],
+      "next_node": null
+    }
+  }
+}

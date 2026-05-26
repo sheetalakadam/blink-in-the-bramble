@@ -1,0 +1,121 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/camps/CampController.gd" id="1_camp"]
+
+[node name="CampScene" type="Node2D"]
+script = ExtResource("1_camp")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.12, 0.09, 0.08, 1)
+
+[node name="Quarters" type="Area2D" parent="."]
+position = Vector2(100, 180)
+
+[node name="Visual" type="ColorRect" parent="Quarters"]
+offset_left = -40.0
+offset_top = -48.0
+offset_right = 40.0
+offset_bottom = 48.0
+color = Color(0.25, 0.18, 0.15, 1)
+
+[node name="Label" type="Label" parent="Quarters"]
+offset_left = -32.0
+offset_top = -56.0
+offset_right = 32.0
+offset_bottom = -40.0
+text = "Quarters"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quarters"]
+
+[node name="GlowIndicator" type="ColorRect" parent="Quarters"]
+visible = false
+offset_left = -44.0
+offset_top = -52.0
+offset_right = 44.0
+offset_bottom = 52.0
+color = Color(0.6, 0.5, 0.2, 0.3)
+
+[node name="Forge" type="Area2D" parent="."]
+position = Vector2(320, 180)
+
+[node name="Visual" type="ColorRect" parent="Forge"]
+offset_left = -40.0
+offset_top = -48.0
+offset_right = 40.0
+offset_bottom = 48.0
+color = Color(0.3, 0.15, 0.1, 1)
+
+[node name="Label" type="Label" parent="Forge"]
+offset_left = -32.0
+offset_top = -56.0
+offset_right = 32.0
+offset_bottom = -40.0
+text = "Forge"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Forge"]
+
+[node name="Sanctum" type="Area2D" parent="."]
+position = Vector2(540, 180)
+
+[node name="Visual" type="ColorRect" parent="Sanctum"]
+offset_left = -40.0
+offset_top = -48.0
+offset_right = 40.0
+offset_bottom = 48.0
+color = Color(0.15, 0.2, 0.25, 1)
+
+[node name="Label" type="Label" parent="Sanctum"]
+offset_left = -32.0
+offset_top = -56.0
+offset_right = 32.0
+offset_bottom = -40.0
+text = "Sanctum"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sanctum"]
+
+[node name="ForgePanel" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -40.0
+offset_right = 100.0
+offset_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="ForgePanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ForgePanel/VBox"]
+layout_mode = 2
+text = "Forge — Coming Soon"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="ForgePanel/VBox"]
+layout_mode = 2
+text = "Close"
+
+[node name="HealMessage" type="Label" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -40.0
+offset_right = 80.0
+text = "Party restored!"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Quarters" to="." method="_on_quarters_body_entered"]
+[connection signal="body_entered" from="Forge" to="." method="_on_forge_body_entered"]
+[connection signal="body_entered" from="Sanctum" to="." method="_on_sanctum_body_entered"]
+[connection signal="pressed" from="ForgePanel/VBox/CloseButton" to="." method="_on_forge_close_pressed"]
