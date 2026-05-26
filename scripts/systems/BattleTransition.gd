@@ -88,7 +88,8 @@ func _load_battle_scene() -> void:
 	MomentumSystem.reset()
 
 	# Start combat
-	combat_scene.start(party_data, [enemy_combat_data])
+	var enemy_list: Array[Dictionary] = [enemy_combat_data]
+	combat_scene.start(party_data, enemy_list)
 
 	# Fade in
 	var tween = create_tween()
