@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/ShrineUI.gd" id="1_script"]
+
+[node name="ShrineUI" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_script")
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -100.0
+offset_right = 140.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="GodName" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+horizontal_alignment = 1
+text = "God Name"
+
+[node name="BoonName" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+horizontal_alignment = 1
+text = "Boon Name"
+
+[node name="Description" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+autowrap_mode = 2
+text = "Boon description goes here."
+
+[node name="Cost" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+horizontal_alignment = 1
+text = "Cost: 10"
+
+[node name="Buttons" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Accept" type="Button" parent="Panel/VBox/Buttons"]
+layout_mode = 2
+text = "Accept"
+
+[node name="Decline" type="Button" parent="Panel/VBox/Buttons"]
+layout_mode = 2
+text = "Decline"

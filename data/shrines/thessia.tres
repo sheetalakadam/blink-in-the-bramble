@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ShrineData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/ShrineData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+god_name = "Thessia"
+boon_name = "Bonded Strike"
+boon_description = "Grants a powerful bond strike to the highest-affinity pair. The strength of a bond, made tangible."
+cost_type = "affinity"
+cost_amount = 20
+boon_effect = "bond_strike"

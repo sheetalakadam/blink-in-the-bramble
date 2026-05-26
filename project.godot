@@ -31,6 +31,7 @@ SaveManager="*res://scripts/systems/SaveManager.gd"
 GlobalFlags="*res://scripts/systems/GlobalFlags.gd"
 CombatVFXManager="*res://scripts/systems/CombatVFXManager.gd"
 BattleTransition="*res://scripts/systems/BattleTransition.gd"
+ShrineManager="*res://scripts/systems/ShrineManager.gd"
 
 [display]
 
