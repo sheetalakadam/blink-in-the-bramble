@@ -15,8 +15,20 @@ func _ready() -> void:
 		GlobalFlags.set_flag(\"opening_dialogue_done\", true)
 		if DialogueManager:
 			DialogueManager.start_dialogue(\"scene_01_the_fall\")
+			if DialogueManager.has_signal(\"dialogue_finished\"):
+				await DialogueManager.dialogue_finished
+			_on_opening_dialogue_complete()
 		else:
 			printerr(\"[NaevoriaRuins] DialogueManager not found!\")
+			_on_opening_dialogue_complete()
+
+func _on_opening_dialogue_complete() -> void:
+	if not GlobalFlags.get_flag(\"caelan_joined\"):
+		GlobalFlags.set_flag(\"caelan_joined\", true)
+		var caelan = load(\"res://data/characters/caelan.tres\") as CharacterData
+		if caelan:
+			PartyManager.add_to_party(caelan)
+			print(\"[NaevoriaRuins] Caelan has joined the party.\")
 
 func _connect_enemies() -> void:
 	for enemy in get_tree().get_nodes_in_group(\"overworld_enemies\"):

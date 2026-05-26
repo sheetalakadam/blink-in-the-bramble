@@ -8,7 +8,7 @@ const STANCE_ADVANTAGES: Dictionary = {
 	"Counter Step": "Agile",     # advantage vs Agile
 	"Iron Wall": "Heavy",        # advantage vs Heavy
 	# Caelan
-	"Threshold": "Corrupted",
+	"Threshold": "Magic",
 	"Gentle Current": "Spirit",
 	"Fractured Form": "",        # universal, high cost
 	# Suri

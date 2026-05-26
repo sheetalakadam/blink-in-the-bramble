@@ -6,7 +6,7 @@
 script = ExtResource("1_skill")
 name = "Divine Strike"
 description = "A strike imbued with fading celestial light."
-damage_multiplier = 1.3
+damage_multiplier = 1.2
 momentum_change = 8.0
 target_type = 0
 stamina_cost = 0
