@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ShrineData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/ShrineData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+god_name = "Varek"
+boon_name = "Relentless Surge"
+boon_description = "Surge duration doubled and damage taken during Surge reduced by 20%. Power demands a price."
+cost_type = "affinity"
+cost_amount = 15
+boon_effect = "surge_extend"

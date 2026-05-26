@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ShrineData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/ShrineData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+god_name = "Lyenne"
+boon_name = "Borrowed Moment"
+boon_description = "One free extra turn, usable any time during battle. Time bends, but never without consequence."
+cost_type = "memory"
+cost_amount = 1
+boon_effect = "extra_turn"
