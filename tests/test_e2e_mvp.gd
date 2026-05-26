@@ -19,6 +19,7 @@ func _ready() -> void:
 	_test_dialogue_opening_loads()
 	_test_enemy_data_format()
 	_test_momentum_resets_between_battles()
+	_test_transition_to_combat_contract()
 	_report()
 
 func _assert(condition: bool, name: String) -> void:
@@ -126,6 +127,7 @@ func _test_enemy_data_format() -> void:
 	_assert(data.has("hp"), "Enemy data has hp")
 	_assert(data.has("attack"), "Enemy data has attack")
 	_assert(data.has("speed"), "Enemy data has speed")
+	_assert(data.has("armor_type"), "Enemy data has armor_type")
 
 	enemy.queue_free()
 
@@ -136,6 +138,35 @@ func _test_momentum_resets_between_battles() -> void:
 	MomentumSystem.reset()
 	_assert(MomentumSystem.current_momentum == 0.0, "Momentum resets to 0")
 	_assert(MomentumSystem.current_state == MomentumSystem.MomentumState.BALANCED, "State resets to Balanced")
+
+# --- Test 7: BattleTransition data passes CombatController type checks ---
+func _test_transition_to_combat_contract() -> void:
+	var bt = get_node_or_null("/root/BattleTransition")
+	if bt == null:
+		_assert(false, "BattleTransition needed for contract test")
+		return
+
+	# Build party data the same way BattleTransition does
+	var party_data: Array[Dictionary] = bt._build_party_data()
+	_assert(party_data.size() > 0, "Party data built from resources")
+
+	# Build enemy data and wrap in typed array (the exact bug we hit)
+	bt._enemy_data = {"name": "Slime", "hp": 20, "attack": 5, "speed": 5, "armor_type": "Agile"}
+	var enemy_data = bt._build_enemy_combat_data()
+	var enemy_list: Array[Dictionary] = [enemy_data]
+	_assert(enemy_list.size() == 1, "Enemy list is typed Array[Dictionary]")
+
+	# Load CombatScene and call start() — this is the call that crashed
+	var scene = load("res://scenes/combat/CombatScene.tscn")
+	if scene == null:
+		_assert(false, "CombatScene loads for contract test")
+		return
+	var combat = scene.instantiate()
+	add_child(combat)
+	combat.start(party_data, enemy_list)
+	_assert(CombatManager.is_in_combat, "Combat started via real transition data")
+	CombatManager.end_combat()
+	combat.queue_free()
 
 # --- Helper: convert CharacterData resource to combat dict ---
 func _char_to_dict(char_data: CharacterData) -> Dictionary:
