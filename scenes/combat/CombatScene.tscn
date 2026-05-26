@@ -41,12 +41,14 @@ offset_right = 620.0
 offset_bottom = 50.0
 theme_override_colors/font_color = Color(1, 0.6, 0.2, 1)
 
-[node name="CombatLog" type="Label" parent="UI"]
+[node name="CombatLog" type="RichTextLabel" parent="UI"]
 offset_left = 50.0
-offset_top = 340.0
+offset_top = 300.0
 offset_right = 600.0
 offset_bottom = 358.0
-theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+bbcode_enabled = true
+scroll_following = true
+theme_override_colors/default_color = Color(0.7, 0.7, 0.7, 1)
 
 [node name="ActionMenu" type="PanelContainer" parent="UI"]
 visible = false
@@ -91,3 +93,12 @@ offset_right = 340.0
 offset_bottom = 280.0
 
 [node name="List" type="VBoxContainer" parent="UI/StanceMenu"]
+
+[node name="TargetMenu" type="PanelContainer" parent="UI"]
+visible = false
+offset_left = 190.0
+offset_top = 150.0
+offset_right = 360.0
+offset_bottom = 280.0
+
+[node name="List" type="VBoxContainer" parent="UI/TargetMenu"]
