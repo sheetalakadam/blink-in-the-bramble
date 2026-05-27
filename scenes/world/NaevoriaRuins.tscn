@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/characters/Player.tscn" id="1_player"]
 [ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="2_ui"]
 [ext_resource type="PackedScene" path="res://scenes/characters/OverworldEnemy.tscn" id="3_enemy"]
 [ext_resource type="PackedScene" path="res://scenes/world/ZoneTransition.tscn" id="4_zt"]
+[ext_resource type="PackedScene" path="res://scenes/characters/BossEnemy.tscn" id="5_boss"]
+[ext_resource type="Resource" path="res://data/bosses/corrupted_sentinel.tres" id="6_sentinel"]
 
 [sub_resource type="GDScript" id="GDScript_1"]
 script/source = "extends Node2D
@@ -103,6 +105,10 @@ enemy_level = 2
 position = Vector2(700, 500)
 enemy_name = "Green Slime"
 enemy_level = 1
+
+[node name="CorruptedSentinel" parent="Enemies" instance=ExtResource("5_boss")]
+position = Vector2(800, 700)
+boss_resource = ExtResource("6_sentinel")
 
 [node name="ZoneExitNorth" parent="." instance=ExtResource("4_zt")]
 position = Vector2(500, 5)

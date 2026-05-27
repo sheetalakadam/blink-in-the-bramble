@@ -21,6 +21,9 @@ var _auto_revive_available: bool = false
 var _extra_turn_available: bool = false
 var _bond_strike_available: bool = false
 
+# Boss encounter
+var _boss_controller: BossController = BossController.new()
+
 @onready var action_menu: Control = $UI/ActionMenu
 @onready var skill_menu: Control = $UI/SkillMenu
 @onready var stance_menu: Control = $UI/StanceMenu
@@ -87,7 +90,11 @@ func _player_turn(entity: Dictionary) -> void:
 	_show_action_menu(entity)
 
 func _enemy_turn(entity: Dictionary) -> void:
-	_log("%s attacks!" % entity.name)
+	var attack_label: String = entity.get("_current_attack_name", "attacks")
+	if entity.get("is_boss", false):
+		_log("%s uses %s!" % [entity.name, attack_label])
+	else:
+		_log("%s attacks!" % entity.name)
 	await get_tree().create_timer(0.5).timeout
 
 	# Pick random alive party member
@@ -320,6 +327,18 @@ func _execute_attack(attacker: Dictionary, target: Dictionary, skill) -> void:
 		msg += " (Stance advantage!)"
 	_log(msg)
 
+	# Boss phase transition check
+	if target.get("is_boss", false) and target.hp > 0:
+		if _boss_controller.check_phase_transition(target):
+			var phase_idx: int = target.get("_current_phase_index", 0)
+			var transition_msg = BossController.get_phase_transition_message(target, phase_idx)
+			_log(transition_msg)
+			# Optionally trigger dialogue on phase change
+			var boss_data = target.get("boss_data") as BossData
+			if boss_data and boss_data.dialogue_on_phase_change != "":
+				if DialogueManager:
+					DialogueManager.start_dialogue(boss_data.dialogue_on_phase_change)
+
 	CombatVFXManager.trigger_hit_stop(0.08)
 	_update_displays()
 
@@ -384,7 +403,10 @@ func _telegraph_enemy_intent() -> void:
 		enemy_intent_label.text = ""
 		return
 	var next = next_enemies[0]
-	enemy_intent_label.text = "%s: preparing Attack" % next.name
+	if next.get("is_boss", false):
+		enemy_intent_label.text = _boss_controller.get_boss_telegraph(next)
+	else:
+		enemy_intent_label.text = "%s: preparing Attack" % next.name
 
 # --- Win/loss ---
 
@@ -394,6 +416,12 @@ func _check_end_conditions() -> bool:
 
 	if alive_enemies.is_empty():
 		_log("Victory!")
+		# Grant milestone for any defeated bosses
+		for enemy in enemies:
+			if enemy.get("is_boss", false):
+				var boss_data = enemy.get("boss_data") as BossData
+				if boss_data:
+					_boss_controller.on_boss_defeated(boss_data)
 		combat_won.emit()
 		return true
 	if alive_party.is_empty():
