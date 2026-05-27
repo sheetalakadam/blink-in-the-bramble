@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BossData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/combat/BossData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+boss_name = "Corrupted Sentinel"
+total_hp = 80
+speed = 7
+dialogue_on_phase_change = ""
+milestone_id = "corrupted_sentinel_defeated"
+phases = [
+	{"armor_type": "Heavy", "hp_threshold": 1.0, "attack": 10, "defense": 8, "attack_name": "Shield Bash"},
+	{"armor_type": "Agile", "hp_threshold": 0.5, "attack": 14, "defense": 4, "attack_name": "Frenzy Slash"}
+]
