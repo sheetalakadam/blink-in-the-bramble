@@ -92,6 +92,12 @@ func _load_battle_scene() -> void:
 	var enemy_list: Array[Dictionary] = [enemy_combat_data]
 	combat_scene.start(party_data, enemy_list)
 
+	# Apply god boon if active
+	if ShrineManager.has_boon():
+		var effect = ShrineManager.get_boon_effect()
+		combat_scene.apply_boon(effect)
+		ShrineManager.consume_boon()
+
 	# Fade in
 	var tween = create_tween()
 	tween.tween_property(_overlay, "color:a", 0.0, FADE_DURATION)

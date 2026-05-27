@@ -1,0 +1,44 @@
+{
+	"id": "scene_02_first_steps",
+	"start_node": "exploring",
+	"nodes": {
+		"exploring": {
+			"lines": [
+				{"speaker": "Zi", "text": "Stay close. These ruins shift when you're not looking.", "monologue": "Two days since I found him. He still flinches at loud sounds."},
+				{"speaker": "Caelan", "text": "The walls here... they feel thin. Like something is pressing through from the other side.", "lens": "His hand hovers near the stone but doesn't touch it. Instinct, not thought."}
+			],
+			"next_node": "caelan_notices"
+		},
+		"caelan_notices": {
+			"lines": [
+				{"speaker": "Caelan", "text": "There. That archway. The light bends wrong around it."},
+				{"speaker": "Zi", "text": "I don't see anything different.", "monologue": "But I believe him. He sees edges I can't."},
+				{"speaker": "Caelan", "text": "It's not visual. It's more like... the space there is tired. Worn thin from too much passing through."}
+			],
+			"next_node": "reflection"
+		},
+		"reflection": {
+			"lines": [
+				{"speaker": "Zi", "text": "You talk about space like it has feelings.", "lens": "File that. His perception works differently than mine — not worse, just sideways."},
+				{"speaker": "Caelan", "text": "Maybe it does. I wouldn't know. I barely know what I have feelings about."}
+			],
+			"next_node": "moving_on"
+		},
+		"moving_on": {
+			"lines": [
+				{"speaker": "Zi", "text": "Then we figure that out too. One thing at a time.", "monologue": "He's not fragile. He's just... unfinished. Like a sentence someone stopped writing."},
+				{"speaker": "Caelan", "text": "One thing at a time. I can do that."}
+			],
+			"next_node": "combat_intro"
+		},
+		"combat_intro": {
+			"lines": [
+				{"speaker": "Zi", "text": "Movement ahead. Something low to the ground.", "lens": "Three contact points visible. Slime variant. Non-aggressive unless cornered, but we're in its corridor."},
+				{"speaker": "Zi", "text": "Stay behind me until you remember how to fight. Or if you remember."},
+				{"speaker": "Caelan", "text": "What if I remember something worse than fighting?"},
+				{"speaker": "Zi", "text": "Then we deal with that too.", "monologue": "Not a lie. Not entirely the truth either."}
+			],
+			"next_node": ""
+		}
+	}
+}

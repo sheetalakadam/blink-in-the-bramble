@@ -24,6 +24,9 @@ GEMINI.md
 .DS_Store
 Thumbs.db
 
+# Godot UID cache files
+*.uid
+
 # Editor files
 *.swp
 *.swo

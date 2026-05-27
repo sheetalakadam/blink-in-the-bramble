@@ -1,0 +1,38 @@
+{
+	"id": "scene_04_ereivyn_threshold",
+	"start_node": "enter_forest",
+	"nodes": {
+		"enter_forest": {
+			"lines": [
+				{"speaker": "Zi", "text": "Ereivyn border. The trees get dense fast from here.", "lens": "Canopy closes within thirty meters. Visibility drops. Good for ambush, bad for retreat."},
+				{"speaker": "Caelan", "text": "Wait. Something is—", "monologue": "He stopped walking. His hands are shaking but not from fear."}
+			],
+			"next_node": "caelan_feels"
+		},
+		"caelan_feels": {
+			"lines": [
+				{"speaker": "Caelan", "text": "The forest is... pulling. Like it knows me. Or something in me knows it."},
+				{"speaker": "Zi", "text": "Pulling how?"},
+				{"speaker": "Caelan", "text": "Like a door I used to use. The threshold is here. I can feel where it thins."}
+			],
+			"next_node": "memory_flash"
+		},
+		"memory_flash": {
+			"lines": [
+				{"speaker": "Caelan", "text": "I see— hands. Not mine. Placing something into the roots. Something that glowed.", "monologue": "His eyes unfocused. Whatever he's seeing, it's not here."},
+				{"speaker": "Caelan", "text": "It's gone. The image just... folded back."},
+				{"speaker": "Zi", "text": "Are you alright?"}
+			],
+			"next_node": "aftermath"
+		},
+		"aftermath": {
+			"lines": [
+				{"speaker": "Caelan", "text": "I think so. It wasn't painful. Just... incomplete. Like reading a word you've forgotten the meaning of."},
+				{"speaker": "Zi", "text": "We'll find the rest of it.", "monologue": "Concern, yes. But also curiosity. His magic responds to places. That's not nothing. That's a map."},
+				{"speaker": "Caelan", "text": "You sound certain."},
+				{"speaker": "Zi", "text": "Professional habit."}
+			],
+			"next_node": ""
+		}
+	}
+}
