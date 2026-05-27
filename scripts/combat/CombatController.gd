@@ -45,8 +45,15 @@ func start(party_data: Array[Dictionary], enemy_data: Array[Dictionary]) -> void
 	party = party_data
 	enemies = enemy_data
 	all_combatants = party + enemies
+	ComboSystem.reset()
 	_update_displays()
 	_log("Battle begins!")
+
+	# Apply passive combo bonuses at battle start
+	var passive_bonus := ComboSystem.get_passive_bonus(party, enemies)
+	if passive_bonus > 0.0:
+		_log("[Combo] Caelan and Lex — Spirit Hunters! +%d%% damage to spirits" % int(passive_bonus * 100))
+
 	CombatManager.start_combat(all_combatants)
 
 
@@ -86,6 +93,14 @@ func _on_turn_started(entity: Dictionary) -> void:
 
 func _player_turn(entity: Dictionary) -> void:
 	_log("%s's turn" % entity.name)
+
+	# Check for available combo
+	var next_idx = (CombatManager.active_entity_index + 1) % CombatManager.turn_queue.size()
+	var next_entity = CombatManager.turn_queue[next_idx] if CombatManager.turn_queue.size() > 1 else {}
+	var combo = ComboSystem.check_combo(entity, "", next_entity, all_combatants)
+	if combo.active:
+		_log(combo.message)
+
 	waiting_for_input = true
 	_show_action_menu(entity)
 
@@ -310,11 +325,28 @@ func _execute_attack(attacker: Dictionary, target: Dictionary, skill) -> void:
 	if target.get("defending", false):
 		defense *= 2
 
-	var raw_damage = base_atk * skill_mult * stance_mult * momentum_mult
+	# Combo bonus
+	var combo_mult: float = 1.0
+	var next_idx = (CombatManager.active_entity_index + 1) % CombatManager.turn_queue.size()
+	var next_entity = CombatManager.turn_queue[next_idx] if CombatManager.turn_queue.size() > 1 else {}
+	var combo = ComboSystem.check_combo(attacker, skill_name, next_entity, all_combatants)
+	if combo.active:
+		combo_mult += combo.bonus
+		_log(combo.message)
+
+	# Passive combo bonus (Caelan+Lex vs spirits)
+	var passive_bonus := ComboSystem.get_passive_bonus(party, enemies)
+	if passive_bonus > 0.0 and target.get("type", "") == "Spirit":
+		combo_mult += passive_bonus
+
+	var raw_damage = base_atk * skill_mult * stance_mult * momentum_mult * combo_mult
 	var final_damage = maxi(1, int(raw_damage) - defense)
 
 	target.hp -= final_damage
 	MomentumSystem.add_momentum(momentum_change)
+
+	# Record action for combo tracking
+	ComboSystem.record_action(attacker.get("name", ""), skill_name)
 
 	# Auto-revive check (Morrael boon)
 	if target.hp <= 0 and not target.get("is_enemy", false) and _auto_revive_available:
@@ -469,13 +501,19 @@ func _update_turn_queue() -> void:
 	for i in mini(5, CombatManager.turn_queue.size()):
 		var idx = (CombatManager.active_entity_index + i) % CombatManager.turn_queue.size()
 		var entity = CombatManager.turn_queue[idx]
+		var next_idx = (idx + 1) % CombatManager.turn_queue.size()
+		var next_entity_name: String = CombatManager.turn_queue[next_idx].get("name", "") if CombatManager.turn_queue.size() > 1 else ""
+		var entity_name: String = entity.get("name", "?")
+		var combo_indicator: String = ""
+		if ComboSystem.has_combo_available(entity_name, next_entity_name):
+			combo_indicator = " [!]"
 		var lbl = Label.new()
 		if i == 0:
 			# Highlight current turn entity
-			lbl.text = "> " + entity.get("name", "?")
+			lbl.text = "> " + entity_name + combo_indicator
 			lbl.modulate = Color(1.0, 1.0, 0.3)
 		else:
-			lbl.text = entity.get("name", "?")
+			lbl.text = entity_name + combo_indicator
 			if entity.get("is_enemy", false):
 				lbl.modulate = Color(1.0, 0.4, 0.4)
 		turn_queue_display.add_child(lbl)
