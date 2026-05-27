@@ -79,14 +79,26 @@ func enter_quarters() -> void:
 # Forge
 # ---------------------------------------------------------------------------
 
-## Returns the current Forge status. For MVP, always "coming_soon".
+## Returns the current Forge status.
 func get_forge_status() -> String:
-	return "coming_soon"
+	return "available"
 
 
 ## Called when the player enters the Forge zone.
+## Lists equipped items for the current party (MVP: display only, no swap UI).
 func enter_forge() -> void:
 	forge_opened.emit()
+	_display_party_equipment()
+
+
+## Prints equipped items for each party member (MVP placeholder display).
+func _display_party_equipment() -> void:
+	for member in PartyManager.get_active_party():
+		if member.equipment.is_empty():
+			print("[Forge] %s: no equipment" % member.name)
+		else:
+			for item in member.equipment:
+				print("[Forge] %s: %s (%s)" % [member.name, item.name, item.slot])
 
 
 # ---------------------------------------------------------------------------

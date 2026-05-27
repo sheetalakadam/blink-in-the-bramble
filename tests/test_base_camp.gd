@@ -180,11 +180,11 @@ func _test_camp_dialogue_file_loads() -> void:
 	_assert(has_monologue, "Dialogue has at least one monologue")
 
 
-## --- Test 7: Forge shows placeholder ---
+## --- Test 7: Forge shows available ---
 func _test_forge_placeholder() -> void:
 	var controller = _make_camp_controller()
 	var result = controller.get_forge_status()
-	_assert(result == "coming_soon", "Forge: returns coming_soon status")
+	_assert(result == "available", "Forge: returns available status")
 	controller.queue_free()
 
 
@@ -247,8 +247,8 @@ func _test_integration_camp_visit() -> void:
 	controller.mark_quarters_conversation_seen()
 	_assert(not controller.is_quarters_conversation_available(), "Integration: quarters conversation no longer available")
 
-	# Forge is placeholder
-	_assert(controller.get_forge_status() == "coming_soon", "Integration: forge is coming soon")
+	# Forge is available
+	_assert(controller.get_forge_status() == "available", "Integration: forge is available")
 
 	controller.queue_free()
 	AffinityManager.reset()

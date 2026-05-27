@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EquipmentData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/EquipmentData.gd" id="1_equip"]
+
+[resource]
+script = ExtResource("1_equip")
+name = "Ereivyn Charm"
+description = "A small charm carved from bramblewood. It hums faintly when the forest is near."
+slot = "accessory"
+stance_bonus = "Forest Floor"
+stance_bonus_amount = 0.15
+stat_bonus = {"defense": 1}
+unlocked_skill_path = ""
