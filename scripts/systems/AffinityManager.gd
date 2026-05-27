@@ -11,6 +11,7 @@ const THRESHOLD_CLOSE: int = 50
 const THRESHOLD_BONDED: int = 75
 
 var _affinity: Dictionary = {
+	"Zi": 0,
 	"Caelan": 0,
 	"Suri": 0,
 	"Rynn": 0,
@@ -62,6 +63,7 @@ func set_all_affinity(data: Dictionary) -> void:
 
 func reset() -> void:
 	_affinity = {
+		"Zi": 0,
 		"Caelan": 0,
 		"Suri": 0,
 		"Rynn": 0,
