@@ -79,6 +79,19 @@ func _on_turn_started(entity: Dictionary) -> void:
 	_update_displays()
 	_update_turn_queue()
 
+	# Process status effects at turn start
+	var effect_msgs = StatusEffectSystem.process_turn_start(entity)
+	for msg in effect_msgs:
+		_log(msg)
+	_update_displays()
+
+	# If rooted, skip this entity's turn
+	if StatusEffectSystem.has_effect(entity, "rooted"):
+		StatusEffectSystem.process_turn_end(entity)
+		await get_tree().create_timer(0.5).timeout
+		CombatManager.advance_turn()
+		return
+
 	if entity.get("is_enemy", false):
 		_enemy_turn(entity)
 	else:
@@ -123,6 +136,8 @@ func _enemy_turn(entity: Dictionary) -> void:
 
 	if _check_end_conditions():
 		return
+
+	StatusEffectSystem.process_turn_end(entity)
 
 	# Telegraph next attack
 	_telegraph_enemy_intent()
@@ -310,7 +325,12 @@ func _execute_attack(attacker: Dictionary, target: Dictionary, skill) -> void:
 	if target.get("defending", false):
 		defense *= 2
 
-	var raw_damage = base_atk * skill_mult * stance_mult * momentum_mult
+	# Check if target is marked — apply bonus before damage calc
+	var marked_bonus: float = StatusEffectSystem.consume_marked(target)
+	if marked_bonus > 0.0:
+		_log("%s is marked! +%d%% damage!" % [target.name, int(marked_bonus * 100)])
+
+	var raw_damage = base_atk * skill_mult * stance_mult * momentum_mult * (1.0 + marked_bonus)
 	var final_damage = maxi(1, int(raw_damage) - defense)
 
 	target.hp -= final_damage
@@ -326,6 +346,13 @@ func _execute_attack(attacker: Dictionary, target: Dictionary, skill) -> void:
 	if stance_mult > 1.0:
 		msg += " (Stance advantage!)"
 	_log(msg)
+
+	# Apply status effect from skill if applicable
+	if skill != null and skill.status_effect != "" and skill.status_effect != "defending":
+		if randf() < skill.effect_chance:
+			var duration := _get_default_duration(skill.status_effect)
+			StatusEffectSystem.apply_effect(target, skill.status_effect, duration, base_atk)
+			_log("%s is now affected by %s!" % [target.name, skill.status_effect])
 
 	# Boss phase transition check
 	if target.get("is_boss", false) and target.hp > 0:
@@ -343,7 +370,23 @@ func _execute_attack(attacker: Dictionary, target: Dictionary, skill) -> void:
 	_update_displays()
 
 	if not _check_end_conditions():
+		StatusEffectSystem.process_turn_end(current_entity)
 		_end_player_turn()
+
+
+## Returns the default duration for a status effect type.
+func _get_default_duration(effect_type: String) -> int:
+	match effect_type:
+		"poison":
+			return 3
+		"rooted":
+			return 2
+		"marked":
+			return 2
+		"analyzed":
+			return 0 # permanent
+		_:
+			return 2
 
 func _end_player_turn() -> void:
 	_telegraph_enemy_intent()
@@ -422,10 +465,12 @@ func _check_end_conditions() -> bool:
 				var boss_data = enemy.get("boss_data") as BossData
 				if boss_data:
 					_boss_controller.on_boss_defeated(boss_data)
+		StatusEffectSystem.reset()
 		combat_won.emit()
 		return true
 	if alive_party.is_empty():
 		_log("Defeat...")
+		StatusEffectSystem.reset()
 		combat_lost.emit()
 		return true
 	return false
@@ -438,11 +483,13 @@ func _update_displays() -> void:
 		child.queue_free()
 	for member in party:
 		var lbl = Label.new()
-		lbl.text = "%s  HP: %d/%d  [%s]" % [
+		var effects_str = StatusEffectSystem.get_effect_display(member)
+		lbl.text = "%s  HP: %d/%d  [%s]%s" % [
 			member.name,
 			maxi(0, member.hp),
 			member.max_hp,
-			member.get("active_stance", "—")
+			member.get("active_stance", "—"),
+			effects_str,
 		]
 		if member.hp <= 0:
 			lbl.modulate = Color(0.5, 0.5, 0.5)
@@ -453,11 +500,13 @@ func _update_displays() -> void:
 		child.queue_free()
 	for enemy in enemies:
 		var lbl = Label.new()
-		lbl.text = "%s  HP: %d/%d  [%s]" % [
+		var effects_str = StatusEffectSystem.get_effect_display(enemy)
+		lbl.text = "%s  HP: %d/%d  [%s]%s" % [
 			enemy.name,
 			maxi(0, enemy.hp),
 			enemy.max_hp,
-			enemy.get("armor_type", "?")
+			enemy.get("armor_type", "?"),
+			effects_str,
 		]
 		if enemy.hp <= 0:
 			lbl.modulate = Color(0.5, 0.5, 0.5)
