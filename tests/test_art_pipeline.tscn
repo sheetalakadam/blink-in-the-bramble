@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://tests/test_art_pipeline.gd" id="1_test_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="2_dialogue_box"]
+
+[node name="TestArtPipeline" type="Node"]
+script = ExtResource("1_test_script")
+
+[node name="DialogueBox" parent="." instance=ExtResource("2_dialogue_box")]

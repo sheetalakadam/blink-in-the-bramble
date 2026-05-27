@@ -4,6 +4,7 @@ const TYPEWRITER_SPEED := 0.03  # seconds per character
 
 @onready var spoken_text: RichTextLabel = $MainBox/SpokenText
 @onready var speaker_label: Label = $MainBox/SpeakerLabel
+@onready var portrait_rect: TextureRect = $MainBox/PortraitRect
 @onready var inner_monologue: RichTextLabel = $InnerMonologue
 @onready var lens_label: Label = $LensLabel
 
@@ -18,6 +19,7 @@ func _ready() -> void:
 	inner_monologue.modulate.a = 0.0
 	inner_monologue.visible = false
 	lens_label.visible = false
+	portrait_rect.visible = false
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	DialogueManager.line_presented.connect(_on_line_presented)
@@ -35,6 +37,19 @@ func _on_line_presented(line_data: Dictionary) -> void:
 
 	# Speaker name
 	speaker_label.text = line_data.get("speaker", "???")
+
+	# Portrait display
+	var portrait_state: String = line_data.get("portrait_state", "")
+	if portrait_state != "":
+		var speaker: String = line_data.get("speaker", "").to_lower().replace(" ", "_")
+		var portrait_tex := SpriteLoader.get_portrait(speaker, portrait_state)
+		if portrait_tex:
+			portrait_rect.texture = portrait_tex
+			portrait_rect.visible = true
+		else:
+			portrait_rect.visible = false
+	else:
+		portrait_rect.visible = false
 
 	# Spoken text with typewriter effect
 	spoken_text.text = line_data.get("text", "")
