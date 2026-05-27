@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EquipmentData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/EquipmentData.gd" id="1_equip"]
+
+[resource]
+script = ExtResource("1_equip")
+name = "Threshold Focus"
+description = "A crystalline lens that sharpens the boundary between here and elsewhere."
+slot = "accessory"
+stance_bonus = "Threshold"
+stance_bonus_amount = 0.1
+stat_bonus = {}
+unlocked_skill_path = "res://data/skills/caelan_remnant_light.tres"

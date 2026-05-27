@@ -15,6 +15,9 @@ class_name CharacterData
 @export var stances: Array[String] = []
 @export var skills: Array[SkillData] = []
 
+@export_group("Equipment")
+@export var equipment: Array[EquipmentData] = []
+
 @export_group("Progression")
 @export var level: int = 1
 @export var experience: int = 0

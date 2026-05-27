@@ -288,6 +288,16 @@ func _execute_attack(attacker: Dictionary, target: Dictionary, skill) -> void:
 		attacker.get("active_stance", ""),
 		target.get("armor_type", "")
 	)
+
+	# Equipment stance bonus
+	var equip_list = attacker.get("equipment", [])
+	if equip_list is Array and not equip_list.is_empty():
+		var typed_equip: Array[EquipmentData] = []
+		for e in equip_list:
+			if e is EquipmentData:
+				typed_equip.append(e)
+		stance_mult += EquipmentManager.get_stance_bonus(typed_equip, attacker.get("active_stance", ""))
+
 	var momentum_mult = MomentumSystem.get_damage_multiplier()
 	var defense: int = target.get("defense", 0)
 	if target.get("defending", false):
