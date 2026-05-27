@@ -15,6 +15,12 @@ var waiting_for_input: bool = false
 var _pending_skill = null # Skill awaiting target selection
 var _pending_action: String = "" # "attack" or "skill" awaiting target
 
+# Boon state
+var _active_boon_effect: String = ""
+var _auto_revive_available: bool = false
+var _extra_turn_available: bool = false
+var _bond_strike_available: bool = false
+
 @onready var action_menu: Control = $UI/ActionMenu
 @onready var skill_menu: Control = $UI/SkillMenu
 @onready var stance_menu: Control = $UI/StanceMenu
@@ -39,6 +45,26 @@ func start(party_data: Array[Dictionary], enemy_data: Array[Dictionary]) -> void
 	_update_displays()
 	_log("Battle begins!")
 	CombatManager.start_combat(all_combatants)
+
+
+func apply_boon(effect: String) -> void:
+	_active_boon_effect = effect
+	match effect:
+		"reveal_armor":
+			for enemy in enemies:
+				_log("[Auryn's Sight] %s armor: %s" % [enemy.name, enemy.get("armor_type", "Unknown")])
+		"auto_revive":
+			_auto_revive_available = true
+			_log("[Morrael's Grace] One party member will be revived if fallen.")
+		"surge_extend":
+			MomentumSystem.set_surge_protection(true)
+			_log("[Varek's Fire] Surge damage taken reduced by 20%%.")
+		"extra_turn":
+			_extra_turn_available = true
+			_log("[Lyenne's Gift] One extra turn available.")
+		"bond_strike":
+			_bond_strike_available = true
+			_log("[Thessia's Bond] Bond Strike available this battle.")
 
 # --- Turn flow ---
 
@@ -79,6 +105,12 @@ func _enemy_turn(entity: Dictionary) -> void:
 	MomentumSystem.add_momentum(-5.0)
 	_log("%s hits %s for %d damage!" % [entity.name, target.name, damage])
 
+	# Auto-revive check (Morrael boon)
+	if target.hp <= 0 and _auto_revive_available:
+		target.hp = maxi(1, int(target.max_hp * 0.3))
+		_auto_revive_available = false
+		_log("[Morrael's Grace] %s is revived!" % target.name)
+
 	CombatVFXManager.trigger_screen_shake(3.0, 0.15)
 	_update_displays()
 
@@ -96,6 +128,27 @@ func _show_action_menu(entity: Dictionary) -> void:
 	action_menu.visible = true
 	skill_menu.visible = false
 	stance_menu.visible = false
+
+	# Add boon buttons dynamically
+	var boon_container = action_menu.get_node_or_null("BoonButtons")
+	if boon_container == null:
+		boon_container = VBoxContainer.new()
+		boon_container.name = "BoonButtons"
+		action_menu.get_node("VBoxContainer").add_child(boon_container)
+	for child in boon_container.get_children():
+		child.queue_free()
+
+	if _extra_turn_available:
+		var btn = Button.new()
+		btn.text = "Time (Lyenne)"
+		btn.pressed.connect(_on_extra_turn_pressed)
+		boon_container.add_child(btn)
+
+	if _bond_strike_available:
+		var btn = Button.new()
+		btn.text = "Bond Strike (Thessia)"
+		btn.pressed.connect(_on_bond_strike_pressed)
+		boon_container.add_child(btn)
 
 func on_attack_pressed() -> void:
 	if not waiting_for_input:
@@ -185,6 +238,37 @@ func _on_stance_selected(stance_name: String) -> void:
 	# Return to action menu — stance switch is free
 	action_menu.visible = true
 
+# --- Boon actions ---
+
+func _on_extra_turn_pressed() -> void:
+	if not waiting_for_input or not _extra_turn_available:
+		return
+	_extra_turn_available = false
+	_log("[Lyenne's Gift] %s gains an extra turn!" % current_entity.name)
+	# Don't end the turn — just hide the menu and show it again
+	action_menu.visible = false
+	_show_action_menu(current_entity)
+
+func _on_bond_strike_pressed() -> void:
+	if not waiting_for_input or not _bond_strike_available:
+		return
+	_bond_strike_available = false
+	action_menu.visible = false
+	var target = _pick_enemy_target()
+	if target.is_empty():
+		return
+	waiting_for_input = false
+	var partner = AffinityManager.get_highest_affinity_pair()
+	var base_atk: int = current_entity.get("attack", 10)
+	var raw_damage = base_atk * 1.5
+	var defense: int = target.get("defense", 0)
+	var final_damage = maxi(1, int(raw_damage) - defense)
+	target.hp -= final_damage
+	_log("[Thessia's Bond] %s and %s strike together for %d damage!" % [current_entity.name, partner, final_damage])
+	_update_displays()
+	if not _check_end_conditions():
+		_end_player_turn()
+
 # --- Damage resolution ---
 
 func _execute_attack(attacker: Dictionary, target: Dictionary, skill) -> void:
@@ -214,6 +298,12 @@ func _execute_attack(attacker: Dictionary, target: Dictionary, skill) -> void:
 
 	target.hp -= final_damage
 	MomentumSystem.add_momentum(momentum_change)
+
+	# Auto-revive check (Morrael boon)
+	if target.hp <= 0 and not target.get("is_enemy", false) and _auto_revive_available:
+		target.hp = maxi(1, int(target.max_hp * 0.3))
+		_auto_revive_available = false
+		_log("[Morrael's Grace] %s is revived!" % target.name)
 
 	var msg = "%s uses %s on %s for %d damage!" % [attacker.name, skill_name, target.name, final_damage]
 	if stance_mult > 1.0:

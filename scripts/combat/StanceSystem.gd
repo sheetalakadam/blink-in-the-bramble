@@ -15,6 +15,14 @@ const STANCE_ADVANTAGES: Dictionary = {
 	"Market Way": "Agile",
 	"Harbor Guard": "Heavy",
 	"Open Hand": "",             # support stance
+	# Rynn
+	"Forest Floor": "Heavy",
+	"Trader's Eye": "Magic",
+	"Prepared Ground": "Agile",
+	# Lex
+	"Field Study": "Spirit",
+	"Anatomical": "Heavy",
+	"Pattern Read": "Agile",
 }
 
 const ADVANTAGE_MULT: float = 1.3

@@ -1,0 +1,40 @@
+{
+	"id": "camp_caelan_02",
+	"start_node": "evening",
+	"nodes": {
+		"evening": {
+			"lines": [
+				{"speaker": "Caelan", "text": "Zi. Can I ask you something?"},
+				{"speaker": "Zi", "text": "You just did.", "monologue": "Deflect first, listen second. Old habit."},
+				{"speaker": "Caelan", "text": "Why do you help me? You don't know who I am. I don't know who I am."}
+			],
+			"next_node": "zi_deflects"
+		},
+		"zi_deflects": {
+			"lines": [
+				{"speaker": "Zi", "text": "Found you bleeding in a ruin. Seemed rude to leave you there."},
+				{"speaker": "Caelan", "text": "That's not an answer. That's a reason for the first day. We're past the first day."},
+				{"speaker": "Zi", "text": "...", "monologue": "He noticed. Of course he noticed. He reads thresholds — the spaces between what people say and what they mean."}
+			],
+			"next_node": "honest_moment"
+		},
+		"honest_moment": {
+			"lines": [
+				{"speaker": "Zi", "text": "Because you don't ask me to be more than I am. Most people want a soldier or a story. You just want someone who stays."},
+				{"speaker": "Caelan", "text": "Is that rare?"},
+				{"speaker": "Zi", "text": "For me? Yes.", "monologue": "Too honest. Pull back."},
+				{"speaker": "Zi", "text": "Besides, you're useful. You see things I can't."}
+			],
+			"next_node": "caelan_sees"
+		},
+		"caelan_sees": {
+			"lines": [
+				{"speaker": "Caelan", "text": "You do that. Say something real, then cover it with something practical."},
+				{"speaker": "Zi", "text": "And you notice everything except when to stop noticing.", "monologue": "He's more perceptive than I gave him credit for. That's either a gift or a problem."},
+				{"speaker": "Caelan", "text": "Fair. I'll stop noticing for tonight."},
+				{"speaker": "Zi", "text": "Appreciated."}
+			],
+			"next_node": ""
+		}
+	}
+}

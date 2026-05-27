@@ -12,6 +12,7 @@ var current_momentum: float = 0.0:
 		_check_state_transition()
 
 var current_state: MomentumState = MomentumState.BALANCED
+var _surge_protection: bool = false
 
 func _check_state_transition() -> void:
 	var next_state = current_state
@@ -37,6 +38,18 @@ func get_damage_multiplier() -> float:
 		MomentumState.SURGE: return 1.4
 		_: return 1.0
 
+func set_surge_protection(active: bool) -> void:
+	_surge_protection = active
+
+func get_damage_taken_multiplier() -> float:
+	if current_state == MomentumState.SURGE and _surge_protection:
+		return 1.1  # 30% extra reduced by 20% = 10% extra
+	match current_state:
+		MomentumState.SURGE: return 1.3
+		MomentumState.GROUNDED: return 1.0
+		_: return 1.0
+
 func reset() -> void:
 	current_momentum = 0.0
 	current_state = MomentumState.BALANCED
+	_surge_protection = false

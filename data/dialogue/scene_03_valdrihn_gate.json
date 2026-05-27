@@ -1,0 +1,55 @@
+{
+	"id": "scene_03_valdrihn_gate",
+	"start_node": "approach",
+	"nodes": {
+		"approach": {
+			"lines": [
+				{"speaker": "Zi", "text": "Valdrihn checkpoint ahead.", "monologue": "I know this post. Third rotation, southeast wall. They changed the guard pattern since I left.", "lens": "Two sentries. Standard formation. The one on the left keeps shifting weight — new boots or new posting."},
+				{"speaker": "Caelan", "text": "You know this place."},
+				{"speaker": "Zi", "text": "I used to."}
+			],
+			"next_node": "guard_stops"
+		},
+		"guard_stops": {
+			"lines": [
+				{"speaker": "Guard", "text": "Hold. State your business at the outpost."},
+				{"speaker": "Zi", "text": "...", "monologue": "Direct or careful. The guard's posture says routine, not hostile. But Caelan has no papers.", "lens": "Right hand resting, not gripping. Conversational stance. She's bored, not threatened."}
+			],
+			"next_node": "choice"
+		},
+		"choice": {
+			"lines": [
+				{"speaker": "Zi", "text": "..."}
+			],
+			"choices": [
+				{"text": "We're travelers passing through.", "next_node": "direct"},
+				{"text": "Looking for work. Heard the outpost needs hands.", "next_node": "cautious"}
+			]
+		},
+		"direct": {
+			"lines": [
+				{"speaker": "Zi", "text": "Travelers. Heading north from the ruins."},
+				{"speaker": "Guard", "text": "The ruins? Not many come from that direction willingly."},
+				{"speaker": "Zi", "text": "We weren't there willingly.", "monologue": "Half-true. Good enough."},
+				{"speaker": "Guard", "text": "Fair enough. Keep to the main road and don't touch the armory. Commander's orders."}
+			],
+			"next_node": "enter"
+		},
+		"cautious": {
+			"lines": [
+				{"speaker": "Zi", "text": "Heard you need hands at the outpost. We're able."},
+				{"speaker": "Guard", "text": "Always need hands. Talk to the quartermaster inside, but don't expect much. Pay's thin and the food's worse."},
+				{"speaker": "Caelan", "text": "We're used to worse.", "monologue": "He said that without thinking. Something in him remembers being hungry."}
+			],
+			"next_node": "enter"
+		},
+		"enter": {
+			"lines": [
+				{"speaker": "Zi", "text": "Understood.", "monologue": "In and through. Don't stop, don't reminisce. This isn't home anymore."},
+				{"speaker": "Caelan", "text": "She didn't recognize you."},
+				{"speaker": "Zi", "text": "Good."}
+			],
+			"next_node": ""
+		}
+	}
+}

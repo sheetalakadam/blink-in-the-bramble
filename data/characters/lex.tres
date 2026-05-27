@@ -8,8 +8,8 @@
 script = ExtResource("1_char")
 name = "Lex"
 bio = "A Velundran anthropologist who came to the surface to study living cultures. Carries the fragments of time Lyenne keeps losing."
-max_hp = 90
-attack = 9
+max_hp = 85
+attack = 11
 defense = 11
 speed = 10
 stances = ["Field Study", "Anatomical", "Pattern Read"]
