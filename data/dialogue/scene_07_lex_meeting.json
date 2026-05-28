@@ -1,0 +1,50 @@
+{
+	"id": "scene_07_lex_meeting",
+	"start_node": "ruins_study",
+	"nodes": {
+		"ruins_study": {
+			"lines": [
+				{"speaker": "Zi", "text": "Someone's been here recently. These markings are fresh.", "lens": "Chalk on stone. Precise lines. Not graffiti — notation. Someone is studying this place."},
+				{"speaker": "Lex", "text": "Please don't step on the grid. It took four hours."}
+			],
+			"next_node": "introduction"
+		},
+		"introduction": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Sitting cross-legged by the wall. Notebooks everywhere. He hasn't looked up yet."},
+				{"speaker": "Lex", "text": "The floor pattern here matches three different historical periods layered on top of each other. It's quite unusual. Also I haven't eaten since yesterday, if that's relevant to whatever's about to happen."},
+				{"speaker": "Rynn", "text": "It is. Here.", "monologue": "She's already pulling dried fruit from her pack. She does this. Feeds people without being asked. Probably doesn't think of it as kindness."},
+				{"speaker": "Lex", "text": "Thank you. I'm Lex. Velundrath Cultural Preservation Society, though the society part is somewhat aspirational at this point."}
+			],
+			"next_node": "expertise"
+		},
+		"expertise": {
+			"lines": [
+				{"speaker": "Zi", "text": "You study ruins?"},
+				{"speaker": "Lex", "text": "I study the people who built them. The ruins are just the part that didn't leave.", "monologue": "He speaks about dead civilizations the way some people talk about friends they've lost touch with. Not sad. Just... aware of the distance."},
+				{"speaker": "Caelan", "text": "Can you read these markings?"},
+				{"speaker": "Lex", "text": "Some of them. This section is a record of seasonal observations. That section is a prayer cycle. And that part I genuinely can't figure out — which is why I've been sitting here for four hours without eating."}
+			],
+			"next_node": "caelan_connection"
+		},
+		"caelan_connection": {
+			"lines": [
+				{"speaker": "Caelan", "text": "The part you can't read. It's not a language. It's a threshold marker. Something was sealed here.", "monologue": "He said it without thinking. Like remembering how to breathe."},
+				{"speaker": "Lex", "text": "How do you know that?"},
+				{"speaker": "Caelan", "text": "I don't know how I know it."},
+				{"speaker": "Lex", "text": "That's... actually more interesting than if you did know.", "monologue": "He's looking at Caelan the way he looked at the ruins. Not studying. Recognizing something worth understanding."}
+			],
+			"next_node": "joins"
+		},
+		"joins": {
+			"lines": [
+				{"speaker": "Lex", "text": "I've been working alone for seven months. It's not sustainable and my notes are getting circular. If you're traveling and encountering old places, I'd like to come along."},
+				{"speaker": "Zi", "text": "We attract trouble."},
+				{"speaker": "Lex", "text": "I know. I found your campfire ash from two nights ago. You also attract attention from the kind of places I want to study. It's a reasonable exchange.", "monologue": "He's already packing his notebooks. Organized. Methodical. He decided three sentences ago and spent the rest of the time being polite about it."},
+				{"speaker": "Zi", "text": "Welcome aboard, then."},
+				{"speaker": "Lex", "text": "Thank you. Please don't step on the grid on your way out."}
+			],
+			"next_node": ""
+		}
+	}
+}
