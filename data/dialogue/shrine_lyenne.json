@@ -1,0 +1,49 @@
+{
+	"id": "shrine_lyenne",
+	"start_node": "approach",
+	"nodes": {
+		"approach": {
+			"lines": [
+				{"speaker": "Narrator", "text": "Stillness. Not silence — stillness. The air doesn't move. Dust hangs motionless. A single drop of water clings to a stone lip and doesn't fall."},
+				{"speaker": "Lex", "text": "...", "monologue": "He stops breathing. Not out of fear. Out of recognition. This is what he does — he sits with old things and tries to keep them from disappearing. This place understands that."},
+				{"speaker": "Zi", "text": "...", "lens": "No air current. Particles suspended. The water droplet has been there long enough to leave a mineral stain, but it hasn't fallen. Time is moving differently here. Or it isn't moving at all."},
+				{"speaker": "Lex", "text": "Lyenne. Time and patience. The god of the long view."}
+			],
+			"next_node": "presence"
+		},
+		"presence": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The shrine is a flat stone, worn smooth by centuries or by intention — it's impossible to tell. On its surface, faint lines trace patterns that could be writing or could be the natural record of age itself. The difference may not matter here."},
+				{"speaker": "Lex", "text": "This is what preservation feels like. Not holding on. Just... not rushing.", "monologue": "He sits down next to the stone without deciding to. His body recognized what this was before his mind did. A place where things are allowed to take as long as they take."},
+				{"speaker": "Caelan", "text": "It feels like standing at the edge of something.", "monologue": "Not a cliff. A pause. The longest pause he's ever felt. Like the moment before a held breath releases, stretched out until it becomes a place."},
+				{"speaker": "Narrator", "text": "The stillness holds. It doesn't press or pull. It simply offers the rarest thing: enough time."}
+			],
+			"next_node": "choice"
+		},
+		"choice": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The shrine waits.", "choices": [
+					{"text": "Make an offering", "next": "offering"},
+					{"text": "Leave quietly", "next": "departure"}
+				]}
+			],
+			"next_node": "departure"
+		},
+		"offering": {
+			"lines": [
+				{"speaker": "Narrator", "text": "Something is placed on the smooth stone. Nothing happens. And then, slowly, something does: the faint lines on the surface shift, and for a moment the stone shows what it looked like a hundred years ago, and a hundred years before that, and before that — layers of time, visible all at once, like rings in a cut tree. Then it settles back to now."},
+				{"speaker": "Lex", "text": "...", "monologue": "He's crying. Quietly. Not from sadness. From the relief of seeing that the things he spends his life trying to save were never really gone. They're just further back."},
+				{"speaker": "Narrator", "text": "The water droplet falls. Time resumes its ordinary pace, carrying them forward the way it always has — gently, without asking permission."}
+			],
+			"next_node": ""
+		},
+		"departure": {
+			"lines": [
+				{"speaker": "Narrator", "text": "They leave the stillness. It doesn't end — they simply step out of it, back into the current of ordinary time."},
+				{"speaker": "Lex", "text": "I'd like to come back here.", "monologue": "He knows he probably won't. But the wanting matters. Lyenne would understand that. Wanting is just patience that hasn't found its way yet."},
+				{"speaker": "Narrator", "text": "Behind them, the water droplet still hasn't fallen. It will wait."}
+			],
+			"next_node": ""
+		}
+	}
+}

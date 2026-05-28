@@ -1,0 +1,49 @@
+{
+	"id": "shrine_auryn",
+	"start_node": "approach",
+	"nodes": {
+		"approach": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The air changes. Cold, sudden, precise — like stepping into the space between two thoughts."},
+				{"speaker": "Zi", "text": "...", "monologue": "Crystal formations along the walls. Not natural. Too regular. Too clean.", "lens": "The crystals are refracting light that isn't there. Each facet shows something different — a corridor, a skyline, a page of text. All of them real. None of them here."},
+				{"speaker": "Zi", "text": "Don't touch the walls."},
+				{"speaker": "Caelan", "text": "It's a shrine. Auryn's, I think.", "monologue": "He doesn't know how he knows. The name arrived the way threshold markers do — already understood."}
+			],
+			"next_node": "presence"
+		},
+		"presence": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The shrine doesn't speak. It shows. A crystal near Zi's hand clears, and for a moment she sees through it: the ruins from above, mapped in perfect detail. Every corridor. Every collapsed passage. Every threat she hasn't found yet."},
+				{"speaker": "Zi", "text": "...", "monologue": "I can see all of it. Every angle I've been calculating, laid out at once. This is what it would be like to see everything. It's beautiful. It's unbearable."},
+				{"speaker": "Lex", "text": "The god of sight. Not just eyes — perception. Understanding. The kind that doesn't look away.", "monologue": "He's writing in his notebook. His hand is shaking slightly. Not fear. Recognition."},
+				{"speaker": "Narrator", "text": "The crystals dim. The shrine waits, patient as a clear sky."}
+			],
+			"next_node": "choice"
+		},
+		"choice": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The shrine waits.", "choices": [
+					{"text": "Make an offering", "next": "offering"},
+					{"text": "Leave quietly", "next": "departure"}
+				]}
+			],
+			"next_node": "departure"
+		},
+		"offering": {
+			"lines": [
+				{"speaker": "Narrator", "text": "Something is placed at the shrine's base. In return, a single crystal clears — and stays clear. A map fragment. A path not yet walked. Knowledge given for knowledge offered."},
+				{"speaker": "Zi", "text": "...", "monologue": "I memorized it. Every line. I don't know what it leads to yet. But I will."},
+				{"speaker": "Narrator", "text": "The cold recedes. The shrine dims. Whatever was here has turned its attention elsewhere — vast, indifferent, already looking at something a thousand miles away."}
+			],
+			"next_node": ""
+		},
+		"departure": {
+			"lines": [
+				{"speaker": "Narrator", "text": "No one moves for a long moment. Then the cold recedes on its own, like a tide going out."},
+				{"speaker": "Zi", "text": "Let's go.", "monologue": "The crystals are just stone now. But I can still feel it — that clarity. Like an afterimage."},
+				{"speaker": "Narrator", "text": "The shrine dims behind them. It will wait here for the next person who comes looking, or the next hundred years. It makes no difference."}
+			],
+			"next_node": ""
+		}
+	}
+}
