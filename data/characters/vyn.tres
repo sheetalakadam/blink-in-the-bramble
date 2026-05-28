@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/CharacterData.gd" id="1_char"]
+
+[resource]
+script = ExtResource("1_char")
+name = "Vyn"
+bio = "A wolf companion. Loyal, fierce, and guided by instinct. Partially autonomous in combat — acts on his own, but always protects the pack."
+max_hp = 80
+attack = 10
+defense = 7
+speed = 14
+stances = []
+skills = []
+level = 1
+experience = 0
+affinity = 0
