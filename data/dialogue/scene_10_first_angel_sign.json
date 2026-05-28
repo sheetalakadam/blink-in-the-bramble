@@ -1,0 +1,52 @@
+{
+	"id": "scene_10_first_angel_sign",
+	"start_node": "approach",
+	"nodes": {
+		"approach": {
+			"lines": [
+				{"speaker": "Rynn", "text": "Hold.", "monologue": "She stopped without explaining. Her hand went up. Not a military signal — just instinct. Something in the way the path felt underfoot."},
+				{"speaker": "Zi", "text": "What is it?", "lens": "Open terrain. Low scrub. No cover worth mentioning. The light is wrong. Shadows pointing two different directions from the same tree."},
+				{"speaker": "Rynn", "text": "Listen."}
+			],
+			"next_node": "the_wrongness"
+		},
+		"the_wrongness": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "She listened. Wind through grass. Normal. A bird calling from the ridge. Normal. Then the call again, from the same bird, half a second after it should have arrived. Like the sound took a detour.", "lens": "The shadow displacement is consistent across the clearing. Not cloud movement — geometric. Something is bending the light along a curve I can map but can't explain."},
+				{"speaker": "Suri", "text": "The grass.", "monologue": "She pointed at the clearing ahead. Every blade was leaning east. Not wind — wind shifts. This was static. Permanent. As if east had become heavier than west."},
+				{"speaker": "Rynn", "text": "I've seen wind damage that looks like this. After storms. But this isn't damage. The plants are healthy."},
+				{"speaker": "Lex", "text": "...", "monologue": "He crouched. Touched the soil. Rubbed it between his fingers. Stood up slowly."}
+			],
+			"next_node": "lex_recognizes"
+		},
+		"lex_recognizes": {
+			"lines": [
+				{"speaker": "Lex", "text": "There are accounts from the Velundrath eastern surveys. Third era. The surveyors documented places where measurements stopped being consistent. Distances between two points would change depending on which direction you walked them."},
+				{"speaker": "Zi", "text": "Change how much?"},
+				{"speaker": "Lex", "text": "Enough that they stopped sending surveyors. The reports describe light arriving at angles that don't match the sun's position. Sound reaching observers out of sequence.", "monologue": "He was being careful. Not frightened — precise. Choosing words the way he chooses which inscription to copy first when a wall is crumbling."},
+				{"speaker": "Rynn", "text": "What did the surveys conclude?"},
+				{"speaker": "Lex", "text": "They didn't. The surveyors marked the areas as 'geometrically unsound' and recommended avoidance. No explanation given. No explanation attempted."}
+			],
+			"next_node": "caelan_reacts"
+		},
+		"caelan_reacts": {
+			"lines": [
+				{"speaker": "Caelan", "text": "...", "monologue": "The headache came back. Not sharp — deep. Like pressure behind his eyes from something too large to see. His hands were warm. Not fever-warm. Warm like standing near a fire that isn't there."},
+				{"speaker": "Zi", "text": "Caelan.", "lens": "His pupils are dilated unevenly. Left larger than right. His breathing changed four seconds ago — slower, deeper, like his body is adjusting to something mine can't feel."},
+				{"speaker": "Caelan", "text": "I'm fine. It's just a headache."},
+				{"speaker": "Zi", "text": "You're lying. But we'll come back to that."}
+			],
+			"next_node": "mapping_it"
+		},
+		"mapping_it": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "lens": "The distortion has a boundary. Starts at the treeline north. Curves east following the ridge. Twelve meters wide at the narrowest. If I needed to move through this space under fire, I'd lose a full second on every correction. That's the kind of margin that kills people."},
+				{"speaker": "Suri", "text": "We should go around it.", "monologue": "Not fear. Calculation. The cost of investigating versus the cost of not knowing. She was weighing both and neither number was comfortable."},
+				{"speaker": "Rynn", "text": "Agreed. Whatever is doing this, it's stable. Not spreading. We mark it and move."},
+				{"speaker": "Lex", "text": "I'd like to come back with instruments. If the accounts are accurate, these sites don't appear randomly. They follow a pattern.", "monologue": "He was already writing in his notebook. Not conclusions — coordinates. Questions. The discipline of someone who knows that understanding comes later, if it comes at all."},
+				{"speaker": "Zi", "text": "We go around. Lex marks the position. Nobody walks through the center.", "monologue": "She didn't say what she was thinking. That the distortion felt like a fingerprint. Something had pressed against the world here, and the world hadn't sprung back."}
+			],
+			"next_node": ""
+		}
+	}
+}
