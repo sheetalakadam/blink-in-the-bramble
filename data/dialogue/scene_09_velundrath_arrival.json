@@ -1,0 +1,39 @@
+{
+	"id": "scene_09_velundrath_arrival",
+	"start_node": "approach",
+	"nodes": {
+		"approach": {
+			"lines": [
+				{"speaker": "Lex", "text": "There. On the cliff face. You can see the tidal calculations carved into the retaining wall.", "monologue": "His pace changed. Not faster, exactly. More certain. The way someone walks toward a place they've been dreaming about returning to."},
+				{"speaker": "Zi", "text": "Carved deep.", "lens": "Cut into stone that's been weathered by salt spray for centuries and still legible. Whoever made these expected them to outlast the people reading them."}
+			],
+			"next_node": "architecture"
+		},
+		"architecture": {
+			"lines": [
+				{"speaker": "Lex", "text": "The archive towers are built to follow the tide cycles. High windows face east for morning light during research hours. Lower chambers flood intentionally during spring tides — it's how they tested waterproofing for their manuscripts."},
+				{"speaker": "Rynn", "text": "The breakwater channels the current toward the fishing coves. Deliberate. Whoever designed this understood how to make the ocean work for them instead of against them.", "monologue": "She traced the water line with her eyes. Reading the coast the way Lex reads inscriptions. Different language, same attention."},
+				{"speaker": "Lex", "text": "The Velundrath Compact. They believed knowledge and survival were the same discipline."}
+			],
+			"next_node": "caelan_feels"
+		},
+		"caelan_feels": {
+			"lines": [
+				{"speaker": "Caelan", "text": "Something's here.", "monologue": "Not danger. Depth. Like standing at the edge of a well and feeling the air rise from below. The whole settlement sits on something older than its foundations. He couldn't name it. He didn't need to."},
+				{"speaker": "Lex", "text": "You're feeling the resonance layer. The original settlement was built on a threshold site. Most of the records about it were lost, but the architecture preserves the alignments."},
+				{"speaker": "Caelan", "text": "It's not hostile. Just... attentive."},
+				{"speaker": "Lex", "text": "That's consistent with the accounts I've read. The thresholds here were described as 'listening places.' Observation without intention.", "monologue": "He said it gently. Not correcting. Confirming. The difference between a teacher and a colleague."}
+			],
+			"next_node": "settling_in"
+		},
+		"settling_in": {
+			"lines": [
+				{"speaker": "Rynn", "text": "Tides shift in four hours. If we need supplies from the lower market, we should go now before the causeways flood."},
+				{"speaker": "Suri", "text": "The trade post near the second tower. I know someone who sources through here. If they're still operating, we can resupply without overpaying."},
+				{"speaker": "Lex", "text": "I'd like to visit the archive reading room. Just briefly.", "monologue": "He said 'briefly' the way people do when they already know it won't be brief. But nobody called him on it. Some kinds of homecoming deserve their own pace."},
+				{"speaker": "Zi", "text": "We'll regroup at the harbor wall before the tide turns.", "monologue": "Lex was already walking toward the towers. Not rushing. Just pulled, the way water follows a slope. This place fits him the way a well-worn coat fits. Quietly. Without announcement."}
+			],
+			"next_node": ""
+		}
+	}
+}

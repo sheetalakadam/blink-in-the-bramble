@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3]
+
+[resource]
+metadata/enemy_name = "Solenné Scout"
+metadata/enemy_level = 4
+metadata/speed = 8
+metadata/hp = 30
+metadata/attack = 11
+metadata/armor_type = "Agile"
+metadata/description = "Fast and agile scouts that patrol the trade routes in pairs. They swarm targets with quick, coordinated strikes."

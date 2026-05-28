@@ -1,0 +1,39 @@
+{
+	"id": "scene_08_solenne_arrival",
+	"start_node": "first_sight",
+	"nodes": {
+		"first_sight": {
+			"lines": [
+				{"speaker": "Zi", "text": "Busy.", "lens": "Foot traffic in three directions. Market stalls packed tight along the harbor wall. Two guard posts, both unmanned. The whole city runs on momentum instead of order."},
+				{"speaker": "Suri", "text": "Not busy. Efficient. There's a difference."}
+			],
+			"next_node": "suri_reads"
+		},
+		"suri_reads": {
+			"lines": [
+				{"speaker": "Suri", "text": "The dye merchant on the left is selling Ereivyn indigo at twice the inland price. Fair, given transport costs. The one beside her is undercutting by a third, which means she's moving stolen stock or she has a river route nobody else found yet.", "monologue": "She said it the way someone else might comment on the weather. Not showing off. Just seeing what's there."},
+				{"speaker": "Rynn", "text": "You've been here before."},
+				{"speaker": "Suri", "text": "Twice. Once with my family's caravan, once alone. The harbor master remembers faces. We should check in before someone reports us as unlicensed traders."}
+			],
+			"next_node": "infrastructure"
+		},
+		"infrastructure": {
+			"lines": [
+				{"speaker": "Zi", "text": "The watchtowers.", "lens": "Three along the harbor. Old military construction — arrow slits, reinforced foundations. But the upper floors have been converted. Pulley systems. Cargo winches. The city grew into its fortifications like a vine into a wall."},
+				{"speaker": "Lex", "text": "Pre-collapse garrison architecture. Valdrihn-era, probably. The stone joints are consistent with their engineering manuals."},
+				{"speaker": "Zi", "text": "They turned gun emplacements into loading docks.", "monologue": "There's something honest about that. A place that decided commerce mattered more than defense. Or a place that couldn't afford both and chose the one that fed people."}
+			],
+			"next_node": "supply_lines"
+		},
+		"supply_lines": {
+			"lines": [
+				{"speaker": "Rynn", "text": "Three days of fresh water storage, based on the cistern sizes. Fish market means local boats, not just trade vessels. If the shipping lanes closed tomorrow, they'd survive. Not comfortably, but they'd survive.", "monologue": "She catalogs it without urgency. The same way she checks a campsite for drainage and wind direction. Survival isn't anxiety for her. It's grammar."},
+				{"speaker": "Caelan", "text": "The air feels different here. Lighter.", "monologue": "Salt and smoke and something underneath. Not a threshold, exactly. More like an echo of many people passing through. The stone remembers crowds."},
+				{"speaker": "Suri", "text": "Stay close through the main market. Pickpockets work in pairs here and they're very good at it."},
+				{"speaker": "Zi", "text": "Speaking from experience?"},
+				{"speaker": "Suri", "text": "I was twelve. I gave it back.", "monologue": "She didn't look embarrassed. Just precise. The kind of honesty that comes from having already forgiven yourself for who you used to be."}
+			],
+			"next_node": ""
+		}
+	}
+}
