@@ -7,10 +7,12 @@ signal level_up(new_level: int)
 signal party_changed
 
 const MAX_PARTY_SIZE: int = 4  # Vyn + 3 companions
+const VYN_PATH: String = "res://data/characters/vyn.tres"
 
 var party_level: int = 1
 var _active_party: Array[CharacterData] = []
 var _granted_milestones: Array[String] = []
+var all_recruited: Array[String] = []  # resource paths of all recruited characters
 
 
 func get_active_party() -> Array[CharacterData]:
@@ -67,7 +69,33 @@ func get_granted_milestones() -> Array[String]:
 	return _granted_milestones
 
 
+func recruit_character(path: String) -> void:
+	if path in all_recruited:
+		print("[PartyManager] Already recruited: %s" % path)
+		return
+	all_recruited.append(path)
+	print("[PartyManager] Recruited character: %s" % path)
+
+
+func is_recruited(path: String) -> bool:
+	return path in all_recruited
+
+
+func get_recruited_count() -> int:
+	return all_recruited.size()
+
+
+func get_recruitable_paths() -> Array[String]:
+	## Returns all recruited paths excluding Vyn (for party selection).
+	var result: Array[String] = []
+	for path in all_recruited:
+		if path != VYN_PATH:
+			result.append(path)
+	return result
+
+
 func reset() -> void:
 	party_level = 1
 	_active_party.clear()
 	_granted_milestones.clear()
+	all_recruited.clear()
