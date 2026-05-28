@@ -16,13 +16,19 @@ var _is_transitioning: bool = false
 
 const FADE_DURATION: float = 0.5
 const COMBAT_SCENE_PATH: String = "res://scenes/combat/CombatScene.tscn"
+const PARTY_SELECT_SCENE: String = "res://scenes/ui/PartySelectUI.tscn"
+const VYN_PATH: String = "res://data/characters/vyn.tres"
+const MAX_PARTY_SIZE: int = 4  # Vyn + 3 companions
 
-# Party character resource paths for MVP
+# Party character resource paths for MVP (fallback when no recruitment data)
 const PARTY_RESOURCES: Array[String] = [
 	"res://data/characters/zi.tres",
 	"res://data/characters/caelan.tres",
 	"res://data/characters/vyn.tres",
 ]
+
+var _party_select_ui: Node = null
+var _selected_party_paths: Array[String] = []
 
 
 func _ready() -> void:
@@ -63,7 +69,48 @@ func start_transition(enemy_node: CharacterBody2D) -> void:
 func _fade_to_black() -> void:
 	var tween = create_tween()
 	tween.tween_property(_overlay, "color:a", 1.0, FADE_DURATION)
-	tween.tween_callback(_load_battle_scene)
+	tween.tween_callback(_check_party_selection)
+
+
+func _check_party_selection() -> void:
+	var recruitable = PartyManager.get_recruitable_paths()
+	if recruitable.size() > MAX_PARTY_SIZE - 1:
+		# More than 3 recruitables available — show selection UI
+		_show_party_select(recruitable)
+	else:
+		# Use default/recruited party directly
+		_selected_party_paths.clear()
+		_load_battle_scene()
+
+
+func _show_party_select(recruitable: Array[String]) -> void:
+	_party_select_ui = load(PARTY_SELECT_SCENE).instantiate()
+	get_tree().root.add_child(_party_select_ui)
+	_party_select_ui.party_selected.connect(_on_party_selected)
+	_party_select_ui.cancelled.connect(_on_party_cancelled)
+	# Fade in so player can see the UI
+	_overlay.color.a = 0.0
+	_party_select_ui.show_selection(recruitable)
+
+
+func _on_party_selected(selected: Array[String]) -> void:
+	_selected_party_paths = selected.duplicate()
+	_cleanup_party_select()
+	# Re-fade and load battle
+	_overlay.color.a = 1.0
+	_load_battle_scene()
+
+
+func _on_party_cancelled() -> void:
+	_cleanup_party_select()
+	_overlay.color.a = 0.0
+	_is_transitioning = false
+
+
+func _cleanup_party_select() -> void:
+	if _party_select_ui:
+		_party_select_ui.queue_free()
+		_party_select_ui = null
 
 
 func _load_battle_scene() -> void:
@@ -109,7 +156,24 @@ func _load_battle_scene() -> void:
 
 func _build_party_data() -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
-	for path in PARTY_RESOURCES:
+	var paths_to_load: Array[String] = []
+
+	if _selected_party_paths.size() > 0:
+		# Party selection was used — load selected + Vyn
+		paths_to_load.append(VYN_PATH)
+		for p in _selected_party_paths:
+			paths_to_load.append(p)
+	elif PartyManager.get_recruited_count() > 0:
+		# Use recruited characters (up to 3 + Vyn)
+		paths_to_load.append(VYN_PATH)
+		var recruitable = PartyManager.get_recruitable_paths()
+		for i in range(mini(recruitable.size(), MAX_PARTY_SIZE - 1)):
+			paths_to_load.append(recruitable[i])
+	else:
+		# Fallback to MVP defaults
+		paths_to_load = Array(PARTY_RESOURCES, TYPE_STRING, &"", null)
+
+	for path in paths_to_load:
 		var char_data = load(path) as CharacterData
 		if char_data:
 			result.append(_char_to_dict(char_data))
