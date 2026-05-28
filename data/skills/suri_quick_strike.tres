@@ -6,8 +6,8 @@
 script = ExtResource("1_skill")
 name = "Quick Strike"
 description = "A swift, reliable attack from the market docks."
-damage_multiplier = 0.9
-momentum_change = 4.0
+damage_multiplier = 0.8
+momentum_change = 3.0
 target_type = 0
 stamina_cost = 0
 status_effect = ""

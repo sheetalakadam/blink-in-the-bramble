@@ -5,10 +5,10 @@
 [resource]
 script = ExtResource("1_skill")
 name = "Remnant Light"
-description = "A burst of light that disorients the enemy."
-damage_multiplier = 0.8
-momentum_change = -5.0
-target_type = 0
+description = "A fading warmth that mends the party and burns what has been corrupted."
+damage_multiplier = 0.5
+momentum_change = -10.0
+target_type = 3
 stamina_cost = 0
 status_effect = "disoriented"
 effect_chance = 0.5

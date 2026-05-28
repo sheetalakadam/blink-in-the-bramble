@@ -4,11 +4,11 @@
 
 [resource]
 script = ExtResource("1_skill")
-name = "Snare"
-description = "Direct damage that roots the enemy in place."
-damage_multiplier = 0.6
-momentum_change = 2.0
+name = "Studied Strike"
+description = "Exploits catalogued weaknesses for a precisely calibrated blow."
+damage_multiplier = 1.0
+momentum_change = 5.0
 target_type = 0
 stamina_cost = 0
-status_effect = "rooted"
-effect_chance = 0.8
+status_effect = "exploited"
+effect_chance = 1.0
