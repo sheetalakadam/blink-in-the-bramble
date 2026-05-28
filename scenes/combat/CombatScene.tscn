@@ -71,10 +71,23 @@ text = "Stance"
 [node name="DefendBtn" type="Button" parent="UI/ActionMenu/List"]
 text = "Defend"
 
+[node name="ItemBtn" type="Button" parent="UI/ActionMenu/List"]
+text = "Item"
+
 [connection signal="pressed" from="UI/ActionMenu/List/AttackBtn" to="." method="on_attack_pressed"]
 [connection signal="pressed" from="UI/ActionMenu/List/SkillBtn" to="." method="on_skill_pressed"]
 [connection signal="pressed" from="UI/ActionMenu/List/StanceBtn" to="." method="on_stance_pressed"]
 [connection signal="pressed" from="UI/ActionMenu/List/DefendBtn" to="." method="on_defend_pressed"]
+[connection signal="pressed" from="UI/ActionMenu/List/ItemBtn" to="." method="on_item_pressed"]
+
+[node name="ItemMenu" type="PanelContainer" parent="UI"]
+visible = false
+offset_left = 190.0
+offset_top = 150.0
+offset_right = 340.0
+offset_bottom = 280.0
+
+[node name="List" type="VBoxContainer" parent="UI/ItemMenu"]
 
 [node name="SkillMenu" type="PanelContainer" parent="UI"]
 visible = false
