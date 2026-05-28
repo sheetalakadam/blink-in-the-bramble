@@ -1,0 +1,88 @@
+{
+	"id": "scene_14_angel_encounter",
+	"start_node": "the_field",
+	"nodes": {
+		"the_field": {
+			"lines": [
+				{"speaker": "Rynn", "text": "...", "monologue": "She saw the flowers first. A meadow of white clover stretching down the hillside. Every bloom facing north. Not most of them. Every single one. As if north had called and they had all answered at the same moment."},
+				{"speaker": "Zi", "text": "...", "lens": "The flowers are uniform in orientation to within a degree. No wind pattern does this. No growth pattern does this. The alignment is precise enough to navigate by. Whatever caused this is either intelligent or so powerful that its side effects mimic intelligence."},
+				{"speaker": "Suri", "text": "...", "monologue": "She stopped at the edge of the meadow. Didn't step in. The cost of entering something she couldn't price. She'd never encountered a situation where the math simply didn't exist."}
+			],
+			"next_node": "the_animals"
+		},
+		"the_animals": {
+			"lines": [
+				{"speaker": "Rynn", "text": "The deer.", "monologue": "Three of them, at the far edge of the meadow. Standing. Not grazing. Not looking at anything. Just standing, the way furniture stands. Present without participation."},
+				{"speaker": "Lex", "text": "They're not afraid of us.", "monologue": "They weren't afraid of anything. That was the wrong word. They had moved past fear into something else. Stillness as a state of being, not a reaction."},
+				{"speaker": "Zi", "text": "...", "lens": "Heart rate elevated. The tactical part of my mind is screaming that frozen prey means a predator nearby. But there's no predator. There's nothing nearby. That's worse. A predator I can plan for. Nothing is harder to fight."},
+				{"speaker": "Rynn", "text": "Birds too. In the trees. Not singing. Not moving. I count eleven.", "monologue": "She said it like a supply manifest. Keeping count because counting was something she could still do."}
+			],
+			"next_node": "the_sound"
+		},
+		"the_sound": {
+			"lines": [
+				{"speaker": "Caelan", "text": "Listen.", "monologue": "He heard it before the others. Or he felt it. The distinction had stopped mattering. A sound below hearing. A rhythm that wasn't sound but occupied the same space. Like the pulse of something that breathed on a scale measured in kilometers."},
+				{"speaker": "Zi", "text": "...", "monologue": "Then she heard it too. Not with her ears — with her chest. A vibration that bypassed the usual channels and arrived directly in the cavity behind her ribs. Slow. Patient. The respiration of something that had never needed to hurry."},
+				{"speaker": "Lex", "text": "...", "monologue": "He put his hand on the ground. The vibration was there. In the soil. In the stone beneath the soil. In everything. Not coming from a direction — coming from a depth. As if the world itself was breathing for something else."},
+				{"speaker": "Suri", "text": "We should leave.", "monologue": "Her voice was steady. Her hands were not. She couldn't calculate the cost of staying because she couldn't identify the currency. Everything she knew about risk assumed a world with stable rules. These rules were not stable."},
+				{"speaker": "Rynn", "text": "...", "monologue": "She nodded. But she didn't move. None of them did. Not because they couldn't. Because they understood, in the part of themselves that predated language, that they were in the presence of something and leaving required the same permission as staying."}
+			],
+			"next_node": "caelan_steps_forward"
+		},
+		"caelan_steps_forward": {
+			"lines": [
+				{"speaker": "Caelan", "text": "...", "monologue": "He stepped into the meadow. His feet didn't crush the clover. The flowers leaned toward him as he passed, then returned to north. As if he was a brief interruption in a conversation they were having with something else."},
+				{"speaker": "Zi", "text": "Caelan.", "lens": "He's walking into a field of unknown effect with no cover, no exit strategy, and no indication of what's generating the phenomenon. Everything I know says stop him. Everything I feel says he belongs here more than I do.", "monologue": "She was afraid. She logged it like a variable. Fear: present. Intensity: significant. Source: not the meadow. The meadow was indifferent. She was afraid of the indifference."},
+				{"speaker": "Caelan", "text": "It's here. Not here in the meadow. Here in the world. All the time. We just can't usually feel it.", "monologue": "He wasn't afraid. He knew he should be. Everyone else was. But the presence — the breathing, the weight, the vast unconcerned existence of whatever this was — felt like coming home to a house he'd never lived in."},
+				{"speaker": "Caelan", "text": "It doesn't know we're here. It doesn't know anything is here. We're too small for it to notice. Like bacteria on skin."}
+			],
+			"next_node": "processing"
+		},
+		"processing": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "lens": "Reframe. If the entity is unaware of us, it's not a threat in the conventional sense. The danger isn't attack — it's proximity. We're standing in the weather pattern of something that generates reality distortion as a byproduct of existing. The flowers, the animals, the sound — those are symptoms. Side effects. Not communication.", "monologue": "She breathed. Filed the fear under data. That was all she could do with it. Turn it into something with edges. Something she could hold."},
+				{"speaker": "Lex", "text": "This is what the surveyors found. This is why they stopped writing.", "monologue": "Not because they were killed. Not because they were silenced. Because there was nothing to write. No framework. No vocabulary. No precedent. They set down their pens because the language hadn't been invented yet."},
+				{"speaker": "Rynn", "text": "Can we go now?", "monologue": "Quiet. Not demanding. A request from someone who has assessed the situation and concluded that the only correct logistical decision is to be somewhere else."},
+				{"speaker": "Suri", "text": "...", "monologue": "She was counting her own breaths. A technique from childhood, when the caravan crossed territories and her mother taught her to stay calm by staying present. Breath as currency. Attention as economy. She spent both carefully."}
+			],
+			"choices": [
+				{
+					"label": "We go. Now.",
+					"next_node": "departure_immediate",
+					"affinity_change": {}
+				},
+				{
+					"label": "Give Caelan one more minute.",
+					"next_node": "departure_delayed",
+					"affinity_change": {}
+				}
+			],
+			"next_node": "departure_immediate"
+		},
+		"departure_immediate": {
+			"lines": [
+				{"speaker": "Zi", "text": "We go. Now.", "monologue": "She said it to Caelan specifically. Not a command. An anchor. Something to pull him back from the edge of whatever he was standing in."},
+				{"speaker": "Caelan", "text": "...", "monologue": "He turned. Walked back through the clover. The flowers bent toward him and then away. The deer didn't watch him leave. The breathing continued. The world was still breathing for something they would never see."},
+				{"speaker": "Zi", "text": "...", "monologue": "Nobody spoke for a long time after. There was nothing to argue about. They had all witnessed the same thing. None of them had words for it yet. That would come later, or it wouldn't."}
+			],
+			"next_node": "aftermath"
+		},
+		"departure_delayed": {
+			"lines": [
+				{"speaker": "Zi", "text": "One minute. Then we go.", "monologue": "She watched him stand in the field with his palms open. The way he'd sat at the edge of camp. Waiting. Listening. Except now she understood what he was listening to. She wished she didn't."},
+				{"speaker": "Caelan", "text": "...", "monologue": "Sixty seconds. He let it wash through him. Not memory — recognition. The vast thing breathed and he breathed with it. Not in rhythm. In acknowledgment. Two things existing in the same space without either one needing the other to change."},
+				{"speaker": "Caelan", "text": "Okay. I'm ready.", "monologue": "He wasn't. But he turned around anyway. Some thresholds you step back from not because you're finished, but because the people behind you need you to come back."}
+			],
+			"next_node": "aftermath"
+		},
+		"aftermath": {
+			"lines": [
+				{"speaker": "Lex", "text": "...", "monologue": "He wrote one word in his notebook as they walked. Sethirael. Then closed it."},
+				{"speaker": "Rynn", "text": "...", "monologue": "She checked the supply packs. Counted water skins. Verified rations. The rituals of preparation. The only prayer she knew."},
+				{"speaker": "Suri", "text": "...", "monologue": "She looked back once. The meadow was still there. The flowers still faced north. The deer still stood. The world was still wrong. She turned forward and began calculating the cost of what came next."},
+				{"speaker": "Zi", "text": "...", "lens": "Threat assessment: inconclusive. Entity nature: unknown. Entity intent: none detected. Party status: intact. Caelan status: stable. My status: afraid. Operational impact of fear: manageable. Next action: keep moving. Keep them alive. Figure the rest out later.", "monologue": "She walked point. The way she always did. Between whatever was coming and the people behind her. The only position that made sense. Even when what was coming was too large to stand between."}
+			],
+			"next_node": ""
+		}
+	}
+}

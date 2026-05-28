@@ -1,0 +1,77 @@
+{
+	"id": "scene_11_caelan_memory_fragment",
+	"start_node": "night_camp",
+	"nodes": {
+		"night_camp": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Second watch. Fire's down to coals. Rynn and Suri asleep. Lex still writing by candlelight in his tent, the scratch of his pen just barely audible.", "lens": "Perimeter clear. Wind from the west, steady. Caelan is sitting at the edge of camp again. Not sleeping. Hands open on his knees. Palms up, like he's waiting to catch something."},
+				{"speaker": "Zi", "text": "You should sleep."},
+				{"speaker": "Caelan", "text": "I was somewhere.", "monologue": "Not dreaming. Not remembering. Something in between. A place his body knew but his mind couldn't hold."}
+			],
+			"next_node": "the_sensation"
+		},
+		"the_sensation": {
+			"lines": [
+				{"speaker": "Caelan", "text": "I was standing in a doorway. Not a door — a place where one kind of space ended and another began. I could feel both sides at once."},
+				{"speaker": "Zi", "text": "Both sides of what?"},
+				{"speaker": "Caelan", "text": "I don't know. One side was... here. Ground. Air. Weight. The other side was larger. Not bigger — larger. The way an ocean is larger than a lake. Same substance. Different scale.", "monologue": "He was choosing words like someone reaching into dark water. Feeling for the shape of something he can't see."},
+				{"speaker": "Zi", "text": "What was on the larger side?"}
+			],
+			"next_node": "the_presence"
+		},
+		"the_presence": {
+			"lines": [
+				{"speaker": "Caelan", "text": "Something. Not a person. Not an animal. Something that existed the way weather exists. Without intention. Without edges. It was just... there. The way a mountain is there.", "monologue": "His voice was steady. That was the strange part. He wasn't afraid of the memory. He was afraid of how familiar it felt."},
+				{"speaker": "Caelan", "text": "It wasn't looking at me. I don't think it could look at anything specific. But I was in its space. Like standing in someone's breath without them knowing you're there."},
+				{"speaker": "Zi", "text": "...", "monologue": "I don't understand what he's describing. I know what mountains are. I know what breath is. But this — I don't have a framework for something that's vast without being hostile. My training says large things that aren't afraid of you are the most dangerous things."}
+			],
+			"next_node": "zi_stays"
+		},
+		"zi_stays": {
+			"lines": [
+				{"speaker": "Caelan", "text": "You think I'm losing my mind."},
+				{"speaker": "Zi", "text": "No.", "monologue": "I think your mind is finding things mine can't reach. That's different. And worse, in some ways, because I can't help with it."},
+				{"speaker": "Caelan", "text": "You don't have to understand it."},
+				{"speaker": "Zi", "text": "I know.", "monologue": "I sat down. Not close enough to touch. Close enough that he'd know the space next to him wasn't empty."}
+			],
+			"choices": [
+				{
+					"label": "Tell me when it happens again.",
+					"next_node": "response_practical",
+					"affinity_change": {}
+				},
+				{
+					"label": "Stay quiet. Just be here.",
+					"next_node": "response_quiet",
+					"affinity_change": {}
+				}
+			],
+			"next_node": "response_practical"
+		},
+		"response_practical": {
+			"lines": [
+				{"speaker": "Zi", "text": "Tell me when it happens again. Not because I can fix it. Because you shouldn't carry it alone.", "monologue": "I said it like an order. Easier that way. For both of us."},
+				{"speaker": "Caelan", "text": "Okay.", "monologue": "He said it like a promise. Small. Careful. The kind you make when you're not sure you deserve to be believed."}
+			],
+			"next_node": "lex_overhears"
+		},
+		"response_quiet": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "I didn't say anything. I watched the coals. He watched the dark. Somewhere between the two of us, the silence became a kind of structure. A room with no walls that held something anyway."},
+				{"speaker": "Caelan", "text": "...", "monologue": "She stayed. That was enough. More than enough. He couldn't remember if anyone had ever just stayed before without wanting something from him."}
+			],
+			"next_node": "lex_overhears"
+		},
+		"lex_overhears": {
+			"lines": [
+				{"speaker": "Lex", "text": "Caelan.", "monologue": "He was standing at the edge of his tent. How long had he been listening? His notebook was open but he wasn't writing. Just holding it like a shield he'd forgotten to raise."},
+				{"speaker": "Lex", "text": "The threshold you described. Standing between two kinds of space. The sealed places in the ruins — the inscriptions I can't read — they describe exactly that. A boundary where the rules of one space bleed into another."},
+				{"speaker": "Caelan", "text": "You've seen it written down?"},
+				{"speaker": "Lex", "text": "Written down, carved, painted. Every culture that built near these sites left the same account. A place where the world thins. And something on the other side that is too large to notice you.", "monologue": "He sat down across the dead fire. Not intrusive. Deliberate. A scholar who has just realized his subject of study is sitting across from him, breathing."},
+				{"speaker": "Lex", "text": "The accounts always stop at the same point. They describe the threshold. They describe the presence. And then they stop. As if the next part couldn't be written. Or shouldn't be."},
+				{"speaker": "Caelan", "text": "...", "monologue": "He looked at his hands. They were warm again. The fire was dead but his palms glowed with something that wasn't heat. He closed his fingers. Nobody mentioned it."}
+			],
+			"next_node": ""
+		}
+	}
+}

@@ -1,0 +1,49 @@
+{
+	"id": "scene_12_solenne_crisis",
+	"start_node": "market_return",
+	"nodes": {
+		"market_return": {
+			"lines": [
+				{"speaker": "Suri", "text": "Something's wrong.", "monologue": "She said it before they reached the market gate. The sound was off — not the noise of trade, but the noise of its absence. Too few voices. Too many closed shutters."},
+				{"speaker": "Zi", "text": "...", "lens": "Half the stalls are shuttered. The ones still open are understocked. The dye merchant from before is gone entirely. Guard posts that were empty last time are manned now. Two at each entrance. They're not checking for weapons — they're counting heads."},
+				{"speaker": "Rynn", "text": "The fishing boats are in. All of them. It's midday.", "monologue": "She counted the moorings. Every slip occupied. Nobody was out on the water. In a port town, that means either a storm nobody else can see or something worse."}
+			],
+			"next_node": "suri_reads_market"
+		},
+		"suri_reads_market": {
+			"lines": [
+				{"speaker": "Suri", "text": "The grain exchange shut down. Three days ago, from the look of it. When the grain exchange closes, everything downstream collapses. Bakeries. Feed suppliers. Livestock pricing. It's not one failure — it's a cascade.", "monologue": "She was reading the empty stalls the way Lex reads inscriptions. Each absence was a word in a sentence she didn't want to finish."},
+				{"speaker": "Zi", "text": "Why would the grain exchange close?"},
+				{"speaker": "Suri", "text": "It wouldn't. Not for weather. Not for politics. Not for anything I know about. The exchange is the spine of Solenne's economy. Shutting it down is like stopping your own heart to fix a headache."},
+				{"speaker": "Rynn", "text": "Unless the supply lines feeding it already stopped.", "monologue": "She said it flatly. Not speculation — trajectory. Following the logistics backward to the only conclusion that fit."}
+			],
+			"next_node": "supply_collapse"
+		},
+		"supply_collapse": {
+			"lines": [
+				{"speaker": "Rynn", "text": "The eastern road brings grain from the Valdrihn lowlands. The river route brings it from the Ereivyn border farms. If both stopped at the same time, that's not banditry. Bandits hit one route. Two simultaneous failures means the source dried up.", "monologue": "She pulled a map from her pack. Unfolded it on a barrel top. Traced the routes with her finger. The lines converged through a valley they'd passed three weeks ago. The one where the grass leaned east."},
+				{"speaker": "Suri", "text": "The merchant I know — Dalla. She runs the secondary textile exchange. If anyone has the full picture, she will.", "monologue": "She was already moving. Not panicked. Purposeful. The way she moves when the numbers matter and the margin for error is shrinking."}
+			],
+			"next_node": "dalla_report"
+		},
+		"dalla_report": {
+			"lines": [
+				{"speaker": "Suri", "text": "...", "monologue": "Dalla looked older. Not from time — from worry. The kind that sits in the shoulders and doesn't leave."},
+				{"speaker": "Suri", "text": "Dalla says the caravans aren't being attacked. They're turning back. The drivers say the roads feel wrong. Animals refuse to go forward. The mules stop and won't be led.", "monologue": "She relayed it carefully. Not embellishing. Not softening. Dalla's words, not hers."},
+				{"speaker": "Lex", "text": "The same phenomenon. The surveyor reports described animals avoiding the affected areas. Horses especially.", "monologue": "He was connecting it. Not guessing — placing the pieces next to each other and watching the shape they made."},
+				{"speaker": "Rynn", "text": "So the distortion zones are spreading. And they're cutting across trade infrastructure.", "monologue": "She looked at the map again. Drew her finger along the blocked routes. Then along the distortion site they'd marked two days ago. The geometry was obvious. The affected area was growing."}
+			],
+			"next_node": "realization"
+		},
+		"realization": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "lens": "If I map the blocked routes against the distortion we found, the dead zone extends roughly forty kilometers along the eastern valley. That's not a ruin being strange. That's a region being rewritten."},
+				{"speaker": "Caelan", "text": "It's not just the land.", "monologue": "He felt it. Not through his headache — through his feet. The ground in Solenne felt thinner than it had last time. Not unstable. Just... less certain. As if the world here had started doubting its own foundations."},
+				{"speaker": "Suri", "text": "If the eastern routes stay closed for another week, Solenne loses the ability to feed itself through winter. That's not a market adjustment. That's a famine.", "monologue": "She said 'famine' the way she says everything important. Quietly. Without drama. The weight of the word doing its own work."},
+				{"speaker": "Lex", "text": "This isn't ruins being corrupted. This is the corruption using the ruins as a starting point and growing outward. The infrastructure — roads, trade, agriculture — it's all downstream of the same cause."},
+				{"speaker": "Rynn", "text": "Then we need to understand the cause. Because the effect is going to reach everywhere eventually.", "monologue": "She folded the map. Not carefully — urgently. The first time any of them had seen her handle her supplies with anything other than precision."}
+			],
+			"next_node": ""
+		}
+	}
+}

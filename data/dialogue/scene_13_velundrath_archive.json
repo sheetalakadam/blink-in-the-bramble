@@ -1,0 +1,67 @@
+{
+	"id": "scene_13_velundrath_archive",
+	"start_node": "entering_archive",
+	"nodes": {
+		"entering_archive": {
+			"lines": [
+				{"speaker": "Lex", "text": "The deep collection is through here. Third sub-level. The archivists call it the well.", "monologue": "He led them down stone steps that narrowed with each turn. The air changed. Cooler. Older. The kind of air that has been sitting in the same room for longer than anyone alive has been breathing."},
+				{"speaker": "Zi", "text": "...", "lens": "Single entry point. No secondary exits visible. Stone walls, three feet thick minimum. If someone sealed the door behind us, we'd need to dig out through limestone. Not ideal."},
+				{"speaker": "Rynn", "text": "How far down does this go?"},
+				{"speaker": "Lex", "text": "Five levels. The oldest materials are at the bottom. The archivists who organized this collection placed items by age. The deeper you go, the further back you reach.", "monologue": "He touched the wall as he walked. Not for balance. Familiarity. The way someone touches a banister in the house they grew up in."}
+			],
+			"next_node": "the_search"
+		},
+		"the_search": {
+			"lines": [
+				{"speaker": "Lex", "text": "I need the Vaylen folios. Eastern survey records. Third era, late period.", "monologue": "He moved through the shelves without hesitation. Pulling volumes by location, not label. He knew where they lived the way you know where your hands are in the dark."},
+				{"speaker": "Suri", "text": "How many times have you been down here?"},
+				{"speaker": "Lex", "text": "I did my apprenticeship in this room. Two years. The chief archivist let me sleep on the reading table when I couldn't afford lodging.", "monologue": "He said it without self-pity. A fact. A debt he carried gratefully, like a book he'd borrowed and kept meaning to return."},
+				{"speaker": "Lex", "text": "Here.", "monologue": "He set three volumes on the reading table. Opened the first. Turned pages with practiced care — not slow, not fast. The speed of someone who respects paper the way Rynn respects rope."}
+			],
+			"next_node": "the_records"
+		},
+		"the_records": {
+			"lines": [
+				{"speaker": "Lex", "text": "The Vaylen survey documented a period of expansion. The distortion zones — they called them 'hollow geometries' — began appearing along the eastern ridge. Slowly at first. Then faster.", "monologue": "He was reading aloud but translating simultaneously. The text was in old Velundrath script. Dense. Formal. He made it sound like plain speech."},
+				{"speaker": "Lex", "text": "They tracked the expansion over thirty years. The zones followed fault lines in the bedrock initially, then began appearing in open terrain. Trade slowed. Agriculture failed in the affected areas. The pattern matches what we've seen in Solenne exactly."},
+				{"speaker": "Rynn", "text": "What did they do about it?"},
+				{"speaker": "Lex", "text": "That's the part I need to find. The records should continue into the response period. The Vaylen surveyors were methodical. They wouldn't have stopped documenting.", "monologue": "He turned the page. Then stopped."}
+			],
+			"next_node": "the_ending"
+		},
+		"the_ending": {
+			"lines": [
+				{"speaker": "Lex", "text": "...", "monologue": "The page was half-filled. The handwriting was steady until mid-sentence. Then it stopped. Not trailed off — stopped. Clean. As if the writer set down the pen, stood up, and walked away from the most important record of their career."},
+				{"speaker": "Lex", "text": "It ends here. Mid-sentence. 'The surveyors at the eastern station reported a presence that could not be—'"},
+				{"speaker": "Zi", "text": "Could not be what?"},
+				{"speaker": "Lex", "text": "That's it. The next page is blank. And the next. And the next thirty after that.", "monologue": "He was turning pages carefully. Each one empty. Not torn out — left blank. Bound and preserved with the same care as the filled pages. As if the absence itself was the record."},
+				{"speaker": "Suri", "text": "They stopped writing.", "monologue": "She said it the way you say something you understand but wish you didn't. The cost of continuing was higher than the cost of silence. She recognized that calculus."},
+				{"speaker": "Lex", "text": "Not just this archivist. I've checked three other collections from the same period. They all end within the same year. Different hands. Different locations. Same silence."}
+			],
+			"next_node": "caelan_reads"
+		},
+		"caelan_reads": {
+			"lines": [
+				{"speaker": "Caelan", "text": "Let me see it.", "monologue": "He didn't know why he said it. His hands were warm again. The pressure behind his eyes wasn't painful this time — it was clarifying. Like adjusting a lens."},
+				{"speaker": "Lex", "text": "The text is in old Velundrath. It takes years to—"},
+				{"speaker": "Caelan", "text": "...", "monologue": "He looked at the page. Not at the words — through them. The ink was ink. But underneath, in the grain of the paper, in the spaces between letters, there was something else. A shape that wasn't written but was present. The way a current is present in still water."},
+				{"speaker": "Caelan", "text": "Sethirael.", "monologue": "He said the word without deciding to. It rose from somewhere below memory. Below language. A word his mouth knew that his mind had never learned."},
+				{"speaker": "Lex", "text": "...", "monologue": "He went very still. Not afraid. Arrested. The way a scholar freezes when they realize they're holding something they've spent their whole life looking for."},
+				{"speaker": "Lex", "text": "That word doesn't exist in any text I've ever read. In any language I know. Where did you learn it?"},
+				{"speaker": "Caelan", "text": "I didn't learn it. It was already there."}
+			],
+			"next_node": "the_meaning"
+		},
+		"the_meaning": {
+			"lines": [
+				{"speaker": "Lex", "text": "What does it mean?"},
+				{"speaker": "Caelan", "text": "Threshold. But not a door. The place where one thing becomes another thing. Where the boundary is the thing itself.", "monologue": "He was translating something that had no source language. Pulling meaning out of a word that predated meaning."},
+				{"speaker": "Lex", "text": "...", "monologue": "He wrote the word in his notebook. Then sat looking at it for a long time. The pen didn't move. The candle burned down a quarter inch. Nobody spoke."},
+				{"speaker": "Zi", "text": "...", "lens": "Caelan's temperature is elevated. Pupils dilated again, same asymmetry as the distortion site. But his hands are steady. Whatever is happening to him, it's not hurting him. It's connecting him to something the rest of us can't reach.", "monologue": "I don't like things I can't reach. But I trust him. That's going to have to be enough."},
+				{"speaker": "Lex", "text": "The archivists stopped writing because they encountered something they had no framework for. Caelan just read what they couldn't finish.", "monologue": "He closed the folio. Gently. The way you close a door on a room you know you'll need to return to."},
+				{"speaker": "Lex", "text": "We need to go to the eastern station. Where the surveyors were. Whatever they found — whatever stopped them — Caelan might be able to see it."}
+			],
+			"next_node": ""
+		}
+	}
+}
