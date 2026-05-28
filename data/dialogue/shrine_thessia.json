@@ -1,0 +1,50 @@
+{
+	"id": "shrine_thessia",
+	"start_node": "approach",
+	"nodes": {
+		"approach": {
+			"lines": [
+				{"speaker": "Narrator", "text": "Warmth. Not heat — warmth. The difference between a fire and a hand on your shoulder."},
+				{"speaker": "Suri", "text": "Oh.", "monologue": "She stops mid-step. Not startled. Recognized. Like hearing a song you forgot you knew."},
+				{"speaker": "Zi", "text": "...", "lens": "Gold light with no source. Ambient temperature up four degrees. No threat indicators, which is somehow more unsettling than if there were."},
+				{"speaker": "Lex", "text": "Thessia. The god of bonds. Connection between people. The old shrines were always placed on roads — at crossings, where paths meet."}
+			],
+			"next_node": "presence"
+		},
+		"presence": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The shrine is simple: a low stone table, golden light pooling on its surface like honey. And as the party draws close, each of them feels it — a quiet awareness of the others. Not thoughts. Distances. The space between them, measured and held."},
+				{"speaker": "Suri", "text": "It's reading us.", "monologue": "She understands this immediately. She's spent her whole life reading the distances between people — who trusts whom, who's carrying something they haven't said. This god does the same thing. It just does it without trying."},
+				{"speaker": "Suri", "text": "Not our minds. Our connections. How close we are to each other. How far."},
+				{"speaker": "Zi", "text": "...", "monologue": "I don't like being known. But this isn't surveillance. It's more like being seen by someone who already decided not to judge."},
+				{"speaker": "Narrator", "text": "The golden light steadies. The shrine holds the shape of what's between them — all the distances, all the closeness — and makes no comment. It simply sees."}
+			],
+			"next_node": "choice"
+		},
+		"choice": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The shrine waits.", "choices": [
+					{"text": "Make an offering", "next": "offering"},
+					{"text": "Leave quietly", "next": "departure"}
+				]}
+			],
+			"next_node": "departure"
+		},
+		"offering": {
+			"lines": [
+				{"speaker": "Narrator", "text": "Something is placed on the stone table. The golden light flares once, warm, and then settles into each of them — a brief, clear awareness of something they already knew but hadn't said. No revelation. Just a small knot of distance, loosened."},
+				{"speaker": "Suri", "text": "...", "monologue": "She looks at Zi. Zi looks away. But differently than usual. Less sharp. The light didn't change anything. It just made the existing thing easier to hold."},
+				{"speaker": "Narrator", "text": "The gold fades to ordinary afternoon light. The warmth stays a little longer, like a conversation that ended well."}
+			],
+			"next_node": ""
+		},
+		"departure": {
+			"lines": [
+				{"speaker": "Narrator", "text": "They step back from the table. The golden light dims without protest."},
+				{"speaker": "Suri", "text": "That wasn't nothing.", "monologue": "She says it to no one in particular. Or to everyone."},
+				{"speaker": "Narrator", "text": "The shrine remains at the crossing. It will read the next travelers who pass, and the next, and find something worth seeing in each of them. It always does."}
+			],
+			"next_node": ""
+		}
+	}
+}

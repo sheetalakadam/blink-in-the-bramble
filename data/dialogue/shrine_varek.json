@@ -1,0 +1,49 @@
+{
+	"id": "shrine_varek",
+	"start_node": "approach",
+	"nodes": {
+		"approach": {
+			"lines": [
+				{"speaker": "Narrator", "text": "Heat. Real heat, pressing against exposed skin. The air tastes like metal and effort."},
+				{"speaker": "Zi", "text": "...", "lens": "Temperature spike. Localized — centered on a stone column ahead. No fire visible. The heat is coming from inside the stone itself. Structural integrity holding. Barely."},
+				{"speaker": "Rynn", "text": "Something ahead. The air's wrong.", "monologue": "Her hand moves to her pack strap. Not her weapon. Her pack. She's calculating whether to fight or run. She always decides that first."},
+				{"speaker": "Lex", "text": "Varek. Power and intensity. The texts called it the honest god — it doesn't hide what it is. Or what it wants from you."}
+			],
+			"next_node": "presence"
+		},
+		"presence": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The shrine is a cracked stone column, dark red light bleeding from the fractures. It radiates the way a furnace does — not inviting, but not deceptive. This is what I am. Come closer or don't."},
+				{"speaker": "Zi", "text": "...", "monologue": "I respect this. No games. No mystery. Just force, clearly stated. There's something clean about that. Dangerous, but clean."},
+				{"speaker": "Caelan", "text": "It's not hostile. It's just... intense.", "monologue": "Like standing next to someone who's always running at full capacity. Exhausting to be near. Impossible to ignore."},
+				{"speaker": "Narrator", "text": "The heat holds steady. The shrine doesn't test or tempt. It simply is what it is, and it waits to see if you are what you are."}
+			],
+			"next_node": "choice"
+		},
+		"choice": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The shrine waits.", "choices": [
+					{"text": "Make an offering", "next": "offering"},
+					{"text": "Leave quietly", "next": "departure"}
+				]}
+			],
+			"next_node": "departure"
+		},
+		"offering": {
+			"lines": [
+				{"speaker": "Narrator", "text": "Something is placed at the column's base. The cracks flare — bright, brief, honest — and something is given back: not power, but clarity. A moment of knowing exactly what you're capable of. No more, no less. The truth of your own limits, offered without cruelty."},
+				{"speaker": "Zi", "text": "...", "monologue": "I know what I can do. I always have. But knowing it and having it confirmed by something that doesn't care about you are two different things. The second one is harder to argue with."},
+				{"speaker": "Narrator", "text": "The heat recedes. The red light dims to a faint glow. Varek has no use for lingering."}
+			],
+			"next_node": ""
+		},
+		"departure": {
+			"lines": [
+				{"speaker": "Narrator", "text": "They step back. The heat doesn't follow. Varek doesn't chase."},
+				{"speaker": "Zi", "text": "Let's move.", "monologue": "I don't look back. Not because I'm afraid. Because the shrine already showed me everything it was going to show me, and staring at it won't add anything."},
+				{"speaker": "Narrator", "text": "The column continues to bleed light into the dark. It will burn until the stone gives out, and then it will stop. No ceremony. No fading. Just done."}
+			],
+			"next_node": ""
+		}
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"id": "boss_01_corrupted_sentinel_post",
+	"start_node": "aftermath",
+	"nodes": {
+		"aftermath": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "It didn't collapse. It knelt. Like it was putting something down carefully.", "lens": "Structural failure complete. The corruption is dissipating — black veins fading to grey, then nothing. Underneath: clean stone. It was always clean stone."},
+				{"speaker": "Caelan", "text": "It's gone.", "monologue": "The tightness in his chest releasing. Like a held breath, but not his."},
+				{"speaker": "Caelan", "text": "The corruption. It just... let go. Like it was tired of holding on."}
+			],
+			"next_node": "mourning"
+		},
+		"mourning": {
+			"lines": [
+				{"speaker": "Lex", "text": "...", "monologue": "He's kneeling by the sentinel's hand. Running his fingers along the carvings on its palm. Catalogue marks. It was indexing what it guarded."},
+				{"speaker": "Lex", "text": "These marks. It was keeping a record of everything behind that archway. In its hands. It was still trying to do its job."},
+				{"speaker": "Rynn", "text": "Area's clear. There's a storeroom through the arch — mostly collapsed, but some containers are intact.", "monologue": "She's already been through the archway and back. She does this. Secures the space before anyone asks."},
+				{"speaker": "Rynn", "text": "Lex. Whatever's in there, it's not going anywhere. Take a minute."}
+			],
+			"next_node": "revelation"
+		},
+		"revelation": {
+			"lines": [
+				{"speaker": "Zi", "text": "The corruption wasn't random.", "lens": "Pattern analysis: the dark veins didn't spread from outside. They originated from below — from the foundations. Something under the ruins is generating this."},
+				{"speaker": "Zi", "text": "It came from below. From the foundations. Something underneath these ruins is producing the corruption. The sentinel was just the first thing it reached."},
+				{"speaker": "Lex", "text": "Then everything down here is at risk. Every archive, every record. Everything they left behind.", "monologue": "He said it quietly. Not dramatic. Just the weight of a fact settling into place."},
+				{"speaker": "Caelan", "text": "We should keep moving.", "monologue": "He doesn't say: before it reaches something else that can't fight back. He doesn't have to."}
+			],
+			"next_node": ""
+		}
+	}
+}

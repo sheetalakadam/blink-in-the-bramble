@@ -1,0 +1,30 @@
+{
+	"id": "boss_01_corrupted_sentinel_pre",
+	"start_node": "approach",
+	"nodes": {
+		"approach": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Movement. Center of the hall. Something large.", "lens": "Stone construct. Three meters tall. Defensive posture — it's guarding the archway behind it. Corruption visible: dark veins through the stonework, pulsing at irregular intervals."},
+				{"speaker": "Lex", "text": "Wait. Don't.", "monologue": "He put his hand on Zi's arm without thinking. He never touches anyone without thinking."},
+				{"speaker": "Lex", "text": "That's a sentinel. A real one. These were built to protect libraries, archives — places where knowledge was stored. They weren't weapons. They were caretakers."}
+			],
+			"next_node": "recognition"
+		},
+		"recognition": {
+			"lines": [
+				{"speaker": "Caelan", "text": "Something's wrong with it.", "monologue": "He can feel it. The same way he felt the threshold markers — something in his chest tightening, like standing too close to a wound."},
+				{"speaker": "Caelan", "text": "The corruption. It's deep. Whatever this was, it's been in pain for a long time."},
+				{"speaker": "Zi", "text": "Can we go around it?", "lens": "No. The archway is the only passage forward. The sentinel's patrol radius covers the full width. And it's already seen us."},
+				{"speaker": "Zi", "text": "No. It knows we're here."}
+			],
+			"next_node": "resolve"
+		},
+		"resolve": {
+			"lines": [
+				{"speaker": "Lex", "text": "Whatever it was guarding is probably still behind it. Or was.", "monologue": "His voice is steady but his hands aren't. He's thinking about what's being lost, not what's about to happen."},
+				{"speaker": "Zi", "text": "We don't have a choice. Stay tight. Watch for the arm — it's favoring the left side.", "lens": "Left shoulder joint compromised by corruption. It'll swing wide. That's the opening."}
+			],
+			"next_node": ""
+		}
+	}
+}

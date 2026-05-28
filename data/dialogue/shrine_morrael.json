@@ -1,0 +1,50 @@
+{
+	"id": "shrine_morrael",
+	"start_node": "approach",
+	"nodes": {
+		"approach": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The passage opens into a low chamber. Warm. The air smells like turned earth and something older — not decay, but the quiet that comes after."},
+				{"speaker": "Caelan", "text": "...", "monologue": "He stops walking. Not because he's afraid. Because something in here already knows him. It knew him before he came in."},
+				{"speaker": "Zi", "text": "...", "lens": "No light source visible. The warmth is coming from the walls themselves. Temperature rising — not dangerous. Comfortable. Like a room where someone's been sitting for a very long time."},
+				{"speaker": "Lex", "text": "Morrael. Death and renewal. The old texts always described the shrines as underground. Close to roots."}
+			],
+			"next_node": "presence"
+		},
+		"presence": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The shrine is a shallow basin carved into the floor, filled with dark water that doesn't reflect anything. Around it, small white flowers grow from cracks in the stone — alive, here in the dark, with no reason to be."},
+				{"speaker": "Caelan", "text": "It feels like...", "monologue": "Like the space between. The threshold. The place where things stop being one thing and start being another. He lives in that space. He has since the fall."},
+				{"speaker": "Caelan", "text": "It feels familiar."},
+				{"speaker": "Zi", "text": "...", "monologue": "He's not afraid. He should be afraid. This place is about endings and he's standing in it like he's come home."},
+				{"speaker": "Narrator", "text": "The dark water shifts. Not a ripple — more like a breath. Something vast and patient turning its attention here for a moment, the way a grandmother looks up from her work when someone enters the room."}
+			],
+			"next_node": "choice"
+		},
+		"choice": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The shrine waits.", "choices": [
+					{"text": "Make an offering", "next": "offering"},
+					{"text": "Leave quietly", "next": "departure"}
+				]}
+			],
+			"next_node": "departure"
+		},
+		"offering": {
+			"lines": [
+				{"speaker": "Narrator", "text": "Something is placed at the water's edge. The dark surface accepts it without a sound. In return, one of the white flowers detaches from the stone and drifts to the basin's edge — still alive, roots and all. A small thing given back. Renewal for what was released."},
+				{"speaker": "Caelan", "text": "...", "monologue": "He picks up the flower. It's warm. It doesn't belong anywhere, and neither does he, and somehow that's the kindest thing he's felt in a long time."},
+				{"speaker": "Narrator", "text": "The warmth fades to something ordinary. Whatever looked up has returned to its work."}
+			],
+			"next_node": ""
+		},
+		"departure": {
+			"lines": [
+				{"speaker": "Narrator", "text": "They leave the chamber. The warmth follows them for a few steps, then lets go — gently, the way sleep releases you in the morning."},
+				{"speaker": "Caelan", "text": "...", "monologue": "He looks back once. The flowers are still growing in the dark. They don't need him to stay."},
+				{"speaker": "Narrator", "text": "The shrine settles. It has been here longer than the ruins above it. It will be here after."}
+			],
+			"next_node": ""
+		}
+	}
+}
