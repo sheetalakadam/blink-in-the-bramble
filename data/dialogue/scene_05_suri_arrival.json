@@ -1,0 +1,42 @@
+{
+	"id": "scene_05_suri_arrival",
+	"start_node": "market_noise",
+	"nodes": {
+		"market_noise": {
+			"lines": [
+				{"speaker": "Zi", "text": "Someone's set up trade this close to the ruins. Brave or stupid.", "lens": "Temporary stall. Load-bearing knots are Solenné standard. Not a local."},
+				{"speaker": "Suri", "text": "Brave, mostly. Stupid pays less."}
+			],
+			"next_node": "first_look"
+		},
+		"first_look": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "I know that voice. Suri. Of course she'd find the one place nobody else would set up shop."},
+				{"speaker": "Suri", "text": "Zi. You look exactly the same amount of tired.", "monologue": "She smiles like she's calculating the emotional cost of this reunion and deciding to pay it anyway."},
+				{"speaker": "Zi", "text": "You look like you're selling stolen goods in a ruin."},
+				{"speaker": "Suri", "text": "Borrowed. From people who weren't using them. There's a difference — I checked."}
+			],
+			"next_node": "notices_caelan"
+		},
+		"notices_caelan": {
+			"lines": [
+				{"speaker": "Suri", "text": "And who's this?", "monologue": "Her eyes move from his face to his posture to his hands. She's reading him the way she reads a customer — fast, specific, not unkind."},
+				{"speaker": "Caelan", "text": "Caelan. I think."},
+				{"speaker": "Suri", "text": "You think?"},
+				{"speaker": "Zi", "text": "Long story. He doesn't remember much."},
+				{"speaker": "Suri", "text": "Ah. One of those.", "monologue": "She said it without pity. Like she's met people who carry gaps before. Maybe she has."}
+			],
+			"next_node": "offer"
+		},
+		"offer": {
+			"lines": [
+				{"speaker": "Suri", "text": "I'm heading north anyway. Market dried up here. Too many things with teeth and not enough with coin."},
+				{"speaker": "Zi", "text": "That's not an offer to come with us."},
+				{"speaker": "Suri", "text": "No, it's me telling you my schedule so you can make the offer. You were always bad at asking for things, Zi."},
+				{"speaker": "Zi", "text": "Fine. Come with us.", "monologue": "She hasn't changed. She makes you ask for what she was already going to give you."},
+				{"speaker": "Suri", "text": "See? That wasn't hard."}
+			],
+			"next_node": ""
+		}
+	}
+}

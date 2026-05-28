@@ -1,0 +1,41 @@
+{
+	"id": "scene_06_rynn_encounter",
+	"start_node": "trapped",
+	"nodes": {
+		"trapped": {
+			"lines": [
+				{"speaker": "Zi", "text": "There's a snare line here. Recent.", "lens": "Braided cord, Ereivyn weave. Tension set for something larger than us. This was laid with purpose."},
+				{"speaker": "Rynn", "text": "Don't touch the third stake. It's load-bearing."}
+			],
+			"next_node": "reveals"
+		},
+		"reveals": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Voice from above. She's in the canopy. Smart. You set traps where you can watch them."},
+				{"speaker": "Rynn", "text": "You military? You walk like military. Valdrihn, probably. The posture gives it away."},
+				{"speaker": "Zi", "text": "Former."},
+				{"speaker": "Rynn", "text": "Former military is still military. Just with more opinions.", "monologue": "She drops from the branches. Shorter than expected. Practical clothes, heavy pack. Every pocket has something in it."}
+			],
+			"next_node": "exchange"
+		},
+		"exchange": {
+			"lines": [
+				{"speaker": "Rynn", "text": "Rynn. Trader. These are my traps and you're in my corridor, so I'd appreciate not scattering my morning's work."},
+				{"speaker": "Zi", "text": "Zi. This is Caelan and Suri. We're passing through."},
+				{"speaker": "Rynn", "text": "Nobody passes through Ereivyn. You're either going somewhere specific or you're lost. Which is it?"},
+				{"speaker": "Zi", "text": "Somewhere specific. We're not sure where yet.", "monologue": "Honest answer. She'll respect it or she won't."},
+				{"speaker": "Rynn", "text": "That's the most honest stupid thing anyone's said to me this season. I like it."}
+			],
+			"next_node": "joins"
+		},
+		"joins": {
+			"lines": [
+				{"speaker": "Rynn", "text": "I need to get stock to the Velundrath coast. Route's been bad — things in the deep forest got restless. You look like you can handle restless things."},
+				{"speaker": "Suri", "text": "She's proposing a trade. Protection for knowledge of the route."},
+				{"speaker": "Rynn", "text": "Quick. I like her too.", "monologue": "She's already repacking her traps. Decision made before she finished the sentence. Logistics mind — she planned this conversation three moves ago."},
+				{"speaker": "Zi", "text": "Deal."}
+			],
+			"next_node": ""
+		}
+	}
+}
