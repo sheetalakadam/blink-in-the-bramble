@@ -1,0 +1,34 @@
+{
+	"id": "camp_02_caelan_lex_ruins",
+	"start_node": "threshold_markings",
+	"nodes": {
+		"threshold_markings": {
+			"lines": [
+				{"speaker": "Lex", "text": "These marks on the lintel. Vethrani, I think. Late period. They used to carve warnings at boundary points — not to keep people out, but to mark where one kind of space ended and another began."},
+				{"speaker": "Caelan", "text": "The ones on the left are older."},
+				{"speaker": "Lex", "text": "...Yes. How did you know that?"},
+				{"speaker": "Caelan", "text": "I don't know. They feel older. The ones on the right feel like someone copying something they'd seen."}
+			],
+			"next_node": "studied_vs_felt"
+		},
+		"studied_vs_felt": {
+			"lines": [
+				{"speaker": "Lex", "text": "That's — actually consistent with the scholarship. The later Vethrani were reconstructing practices they'd lost the context for. But I spent two years learning to recognize that difference. You just looked at them.", "monologue": "He's not jealous. He's fascinated the way he's fascinated by a potsherd that doesn't match its stratum. Something that disrupts the expected pattern."},
+				{"speaker": "Caelan", "text": "Sorry."},
+				{"speaker": "Lex", "text": "Don't apologize. Just tell me what else you see."},
+				{"speaker": "Caelan", "text": "The threshold isn't a warning. It's a greeting. Like — 'you're crossing over now, and that's all right.'"}
+			],
+			"next_node": "the_gap"
+		},
+		"the_gap": {
+			"lines": [
+				{"speaker": "Lex", "text": "The Vethrani believed doorways were alive. That passing through one changed you, even if only a little. Every door you walked through made you slightly different from the person who approached it."},
+				{"speaker": "Caelan", "text": "That sounds right.", "monologue": "He says it too quietly, like someone agreeing with their own diagnosis."},
+				{"speaker": "Lex", "text": "Caelan. The things you know — do they frighten you?"},
+				{"speaker": "Caelan", "text": "Not the knowing. The not knowing how I know."},
+				{"speaker": "Lex", "text": "Well. That's what scholarship is for. We'll find the how. Even if it takes a while.", "monologue": "He says it the way he talks about dead civilizations — with patience, and a kind of tenderness for things that can't explain themselves."}
+			],
+			"next_node": ""
+		}
+	}
+}

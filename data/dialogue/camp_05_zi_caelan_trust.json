@@ -1,0 +1,36 @@
+{
+	"id": "camp_05_zi_caelan_trust",
+	"start_node": "checking_in",
+	"nodes": {
+		"checking_in": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "He's sitting by the dead fire again. Knees up. Not sleeping. Not doing anything. Just existing in the dark like it's the only place that fits.", "lens": "Shoulders drawn in. No food near him. The ration I left on his pack this morning is untouched. He forgot, or he didn't think it was for him."},
+				{"speaker": "Zi", "text": "You didn't eat today."},
+				{"speaker": "Caelan", "text": "I did. This morning. I think."},
+				{"speaker": "Zi", "text": "The dried fruit on your pack. That was twelve hours ago."}
+			],
+			"next_node": "not_a_request"
+		},
+		"not_a_request": {
+			"lines": [
+				{"speaker": "Zi", "text": "Here.", "monologue": "I hand him the bread. I don't sit down. Sitting down makes it a conversation. Standing makes it a logistics check. He'll accept logistics."},
+				{"speaker": "Caelan", "text": "You don't have to—"},
+				{"speaker": "Zi", "text": "It's not a favor. You're slower when you're hungry. That's a problem for all of us."},
+				{"speaker": "Caelan", "text": "...", "monologue": "He takes the bread. He knows what she's doing. Framing care as tactics so neither of them has to look at it directly."}
+			],
+			"next_node": "quiet_moment"
+		},
+		"quiet_moment": {
+			"lines": [
+				{"speaker": "Caelan", "text": "Zi."},
+				{"speaker": "Zi", "text": "What."},
+				{"speaker": "Caelan", "text": "Thank you. Not for the bread.", "monologue": "For noticing. For counting hours since I last ate. For knowing I won't accept kindness but I'll accept efficiency."},
+				{"speaker": "Zi", "text": "...", "monologue": "I don't answer. I check the perimeter instead. That's my answer.", "lens": "Camp secure. No movement in the tree line. Caelan's hands have stopped shaking. Bread is half gone. Good enough."},
+				{"speaker": "Zi", "text": "Get some sleep. We move at dawn."},
+				{"speaker": "Caelan", "text": "Okay."},
+				{"speaker": "Zi", "text": "...", "monologue": "He says 'okay' like it's a new word. Like someone just taught him he's allowed to be told what to do by someone who isn't going to hurt him. I hate that. I walk the perimeter again."}
+			],
+			"next_node": ""
+		}
+	}
+}
