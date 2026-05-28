@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3]
+
+[resource]
+metadata/enemy_name = "Velundrath Guardian"
+metadata/enemy_level = 5
+metadata/speed = 5
+metadata/hp = 40
+metadata/attack = 13
+metadata/armor_type = "Heavy"
+metadata/description = "Pressure-based defenders that synchronize their attacks with the tidal rhythms of the coast. Slow but relentless."
