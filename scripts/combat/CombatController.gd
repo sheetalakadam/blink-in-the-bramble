@@ -2,6 +2,7 @@ extends Node2D
 
 signal combat_won
 signal combat_lost
+signal rewards_acknowledged
 
 # Combat participants
 var party: Array[Dictionary] = []
@@ -24,6 +25,9 @@ var _bond_strike_available: bool = false
 
 # Boss encounter
 var _boss_controller: BossController = BossController.new()
+
+# Reward UI
+var _reward_ui: Node = null
 
 @onready var action_menu: Control = $UI/ActionMenu
 @onready var skill_menu: Control = $UI/SkillMenu
@@ -572,6 +576,7 @@ func _check_end_conditions() -> bool:
 				var boss_data = enemy.get("boss_data") as BossData
 				if boss_data:
 					_boss_controller.on_boss_defeated(boss_data)
+		_process_rewards()
 		combat_won.emit()
 		return true
 	if alive_party.is_empty():
@@ -637,6 +642,62 @@ func _update_turn_queue() -> void:
 			if entity.get("is_enemy", false):
 				lbl.modulate = Color(1.0, 0.4, 0.4)
 		turn_queue_display.add_child(lbl)
+
+func _process_rewards() -> void:
+	var rewards := BattleRewards.calculate_rewards(party, enemies)
+
+	# Apply affinity gains to AffinityManager
+	var affinity_gains: Dictionary = rewards.get("affinity_gains", {})
+	for character in affinity_gains:
+		var gain: int = affinity_gains[character]
+		if gain > 0:
+			AffinityManager.add_affinity(character, gain)
+
+	# Apply milestone XP to party members and check for level ups
+	var leveled_up: bool = false
+	var xp_gained: int = rewards.get("milestone_xp", 0)
+	for member in party:
+		if member.get("is_enemy", false):
+			continue
+		var old_xp: int = member.get("xp", 0)
+		var new_xp: int = old_xp + xp_gained
+		member["xp"] = new_xp
+		if BattleRewards.check_level_up(old_xp, new_xp):
+			leveled_up = true
+
+	# Add loot to InventoryManager if it exists
+	var loot: Array = rewards.get("loot", [])
+	if not loot.is_empty():
+		var inventory = Engine.get_singleton("InventoryManager") if Engine.has_singleton("InventoryManager") else null
+		if inventory == null:
+			# Try autoload path
+			inventory = get_node_or_null("/root/InventoryManager")
+		if inventory and inventory.has_method("add_item"):
+			for item_path in loot:
+				inventory.add_item(item_path)
+
+	# Show reward UI
+	_show_reward_ui(rewards, leveled_up)
+
+
+func _show_reward_ui(rewards: Dictionary, leveled_up: bool) -> void:
+	var reward_scene = load("res://scenes/ui/BattleRewardUI.tscn")
+	if reward_scene:
+		_reward_ui = reward_scene.instantiate()
+		add_child(_reward_ui)
+		_reward_ui.rewards_acknowledged.connect(_on_rewards_acknowledged)
+		_reward_ui.show_rewards(rewards, leveled_up)
+	else:
+		# If scene can't load, just emit immediately
+		rewards_acknowledged.emit()
+
+
+func _on_rewards_acknowledged() -> void:
+	if _reward_ui:
+		_reward_ui.queue_free()
+		_reward_ui = null
+	rewards_acknowledged.emit()
+
 
 func _log(msg: String) -> void:
 	print("[Combat] ", msg)
