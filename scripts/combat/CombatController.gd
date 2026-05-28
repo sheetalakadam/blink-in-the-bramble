@@ -14,6 +14,7 @@ var stance_switched_this_turn: bool = false
 var waiting_for_input: bool = false
 var _pending_skill = null # Skill awaiting target selection
 var _pending_action: String = "" # "attack" or "skill" awaiting target
+var _last_ally_target: Dictionary = {} # Tracks last target a party member attacked (for Vyn's Pack Instinct)
 
 # Boon state
 var _active_boon_effect: String = ""
@@ -46,6 +47,7 @@ func start(party_data: Array[Dictionary], enemy_data: Array[Dictionary]) -> void
 	enemies = enemy_data
 	all_combatants = party + enemies
 	ComboSystem.reset()
+	StatusEffectSystem.reset()
 	_update_displays()
 	_log("Battle begins!")
 
@@ -86,8 +88,24 @@ func _on_turn_started(entity: Dictionary) -> void:
 	_update_displays()
 	_update_turn_queue()
 
+	# Process status effects at turn start
+	var effect_msgs := StatusEffectSystem.process_turn_start(entity)
+	for msg in effect_msgs:
+		_log(msg)
+
+	# Skip turn if rooted
+	if StatusEffectSystem.has_effect(entity, "rooted"):
+		StatusEffectSystem.process_turn_end(entity)
+		_update_displays()
+		if not _check_end_conditions():
+			await get_tree().create_timer(0.3).timeout
+			CombatManager.advance_turn()
+		return
+
 	if entity.get("is_enemy", false):
 		_enemy_turn(entity)
+	elif entity.get("name", "") == "Vyn":
+		_vyn_turn(entity)
 	else:
 		_player_turn(entity)
 
@@ -127,11 +145,17 @@ func _enemy_turn(entity: Dictionary) -> void:
 	MomentumSystem.add_momentum(-5.0)
 	_log("%s hits %s for %d damage!" % [entity.name, target.name, damage])
 
+	# Mark this enemy as having attacked last turn (for Vyn's Root AI)
+	entity["attacked_last_turn"] = true
+
 	# Auto-revive check (Morrael boon)
 	if target.hp <= 0 and _auto_revive_available:
 		target.hp = maxi(1, int(target.max_hp * 0.3))
 		_auto_revive_available = false
 		_log("[Morrael's Grace] %s is revived!" % target.name)
+
+	# Vyn passive intercept: if any party member dropped below 25% HP
+	_vyn_passive_intercept(entity, target, damage)
 
 	CombatVFXManager.trigger_screen_shake(3.0, 0.15)
 	_update_displays()
@@ -139,10 +163,95 @@ func _enemy_turn(entity: Dictionary) -> void:
 	if _check_end_conditions():
 		return
 
-	# Telegraph next attack
+	StatusEffectSystem.process_turn_end(entity)
 	_telegraph_enemy_intent()
 	await get_tree().create_timer(0.3).timeout
 	CombatManager.advance_turn()
+
+# --- Vyn semi-autonomous turn ---
+
+func _vyn_turn(entity: Dictionary) -> void:
+	_log("Vyn acts on instinct...")
+	await get_tree().create_timer(0.3).timeout
+
+	var alive_enemies = enemies.filter(func(e): return e.get("hp", 0) > 0)
+	if alive_enemies.is_empty():
+		_check_end_conditions()
+		return
+
+	var decision = VynCombatAI.choose_action(entity, party, enemies, _last_ally_target)
+	var target = decision.target
+	var action = decision.action
+	var damage_mult = VynCombatAI.get_damage_multiplier(entity, party)
+
+	var base_atk: int = entity.get("attack", 10)
+	var defense: int = target.get("defense", 0)
+	if target.get("defending", false):
+		defense *= 2
+
+	match action:
+		"wild_strike":
+			var variance = VynCombatAI.calculate_wild_strike_variance()
+			var raw_damage = base_atk * variance * damage_mult
+			var final_damage = maxi(1, int(raw_damage) - defense)
+			target.hp -= final_damage
+			MomentumSystem.add_momentum(5.0)
+			_log("[Vyn] Wild Strike! %d damage to %s!" % [final_damage, target.name])
+
+		"root":
+			var raw_damage = base_atk * 0.5 * damage_mult
+			var final_damage = maxi(1, int(raw_damage) - defense)
+			target.hp -= final_damage
+			StatusEffectSystem.apply_effect(target, "rooted", 2, 0)
+			MomentumSystem.add_momentum(3.0)
+			_log("[Vyn] Root! %s is rooted for 2 turns! %d damage." % [target.name, final_damage])
+
+		"pack_instinct":
+			var raw_damage = base_atk * 0.7 * damage_mult  # Each hit of double-hit
+			var hit1 = maxi(1, int(raw_damage) - defense)
+			var hit2 = maxi(1, int(raw_damage) - defense)
+			target.hp -= (hit1 + hit2)
+			MomentumSystem.add_momentum(8.0)
+			_log("[Vyn] Pack Instinct! Double hit on %s for %d + %d damage!" % [target.name, hit1, hit2])
+
+	# Clear attacked_last_turn flags after Vyn acts
+	for enemy in enemies:
+		enemy.erase("attacked_last_turn")
+
+	_update_displays()
+	if not _check_end_conditions():
+		_telegraph_enemy_intent()
+		await get_tree().create_timer(0.3).timeout
+		CombatManager.advance_turn()
+
+
+func _vyn_passive_intercept(attacker: Dictionary, target: Dictionary, damage_dealt: int) -> void:
+	# Check if any party member dropped below 25% HP
+	if target.hp > 0 and float(target.hp) / float(target.max_hp) >= 0.25:
+		return
+
+	# Find Vyn in party
+	var vyn: Dictionary = {}
+	for member in party:
+		if member.get("name", "") == "Vyn" and member.get("hp", 0) > 0:
+			vyn = member
+			break
+
+	if vyn.is_empty():
+		return
+
+	# Vyn intercepts: takes 30% of damage dealt
+	var intercept_damage = int(damage_dealt * 0.3)
+	vyn.hp -= intercept_damage
+	_log("[Vyn] intercepts! Takes %d damage protecting %s!" % [intercept_damage, target.name])
+
+	# Vyn retaliates for 50% of his attack
+	var retaliation = int(vyn.get("attack", 10) * 0.5)
+	var attacker_defense = attacker.get("defense", 0)
+	var retaliation_damage = maxi(1, retaliation - attacker_defense)
+	attacker.hp -= retaliation_damage
+	_log("[Vyn] retaliates for %d damage!" % retaliation_damage)
+
 
 # --- Action menu ---
 
@@ -295,6 +404,9 @@ func _on_bond_strike_pressed() -> void:
 
 func _execute_attack(attacker: Dictionary, target: Dictionary, skill) -> void:
 	waiting_for_input = false
+	# Track last ally target for Vyn's Pack Instinct
+	if not attacker.get("is_enemy", false):
+		_last_ally_target = target
 
 	var base_atk: int = attacker.get("attack", 10)
 	var skill_mult: float = 1.0
@@ -339,6 +451,12 @@ func _execute_attack(attacker: Dictionary, target: Dictionary, skill) -> void:
 	if passive_bonus > 0.0 and target.get("type", "") == "Spirit":
 		combo_mult += passive_bonus
 
+	# Marked bonus (from Suri's Setup Strike)
+	var marked_bonus := StatusEffectSystem.consume_marked(target)
+	if marked_bonus > 0.0:
+		combo_mult += marked_bonus
+		_log("[Marked] +%d%% bonus damage!" % int(marked_bonus * 100))
+
 	var raw_damage = base_atk * skill_mult * stance_mult * momentum_mult * combo_mult
 	var final_damage = maxi(1, int(raw_damage) - defense)
 
@@ -378,9 +496,9 @@ func _execute_attack(attacker: Dictionary, target: Dictionary, skill) -> void:
 		_end_player_turn()
 
 func _end_player_turn() -> void:
+	StatusEffectSystem.process_turn_end(current_entity)
 	_telegraph_enemy_intent()
 	await get_tree().create_timer(0.3).timeout
-	# Defend flag is now cleared in _on_turn_started so it persists through enemy turns
 	CombatManager.advance_turn()
 
 # --- Target selection menu ---
@@ -485,11 +603,13 @@ func _update_displays() -> void:
 		child.queue_free()
 	for enemy in enemies:
 		var lbl = Label.new()
-		lbl.text = "%s  HP: %d/%d  [%s]" % [
+		var effect_str := StatusEffectSystem.get_effect_display(enemy)
+		lbl.text = "%s  HP: %d/%d  [%s]%s" % [
 			enemy.name,
 			maxi(0, enemy.hp),
 			enemy.max_hp,
-			enemy.get("armor_type", "?")
+			enemy.get("armor_type", "?"),
+			effect_str
 		]
 		if enemy.hp <= 0:
 			lbl.modulate = Color(0.5, 0.5, 0.5)

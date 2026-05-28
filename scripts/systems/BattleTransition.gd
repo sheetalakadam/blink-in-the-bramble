@@ -21,6 +21,7 @@ const COMBAT_SCENE_PATH: String = "res://scenes/combat/CombatScene.tscn"
 const PARTY_RESOURCES: Array[String] = [
 	"res://data/characters/zi.tres",
 	"res://data/characters/caelan.tres",
+	"res://data/characters/vyn.tres",
 ]
 
 
