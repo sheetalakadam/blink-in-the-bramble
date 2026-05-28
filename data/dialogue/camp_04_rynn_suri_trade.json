@@ -1,0 +1,42 @@
+{
+	"id": "camp_04_rynn_suri_trade",
+	"start_node": "comparing_notes",
+	"nodes": {
+		"comparing_notes": {
+			"lines": [
+				{"speaker": "Rynn", "text": "The northern pass is closed through winter. Mudslides. You'd have to go around through Kethvin."},
+				{"speaker": "Suri", "text": "Kethvin's a three-day detour."},
+				{"speaker": "Rynn", "text": "Two if you know the logging roads. I can draw you the route."},
+				{"speaker": "Suri", "text": "What's the tariff situation?"},
+				{"speaker": "Rynn", "text": "No tariffs. No customs either. No one official lives out there anymore."},
+				{"speaker": "Suri", "text": "That's either very good for business or very bad for staying alive."}
+			],
+			"next_node": "different_expertise"
+		},
+		"different_expertise": {
+			"lines": [
+				{"speaker": "Rynn", "text": "You know the prices in Verath still?"},
+				{"speaker": "Suri", "text": "I know the prices everywhere. Verath's paying double for tanned hide right now. Something about a uniform contract with the garrison."},
+				{"speaker": "Rynn", "text": "I can tan hide.", "monologue": "She says it like she's placing a card on the table. No bluffing. Just stating inventory."},
+				{"speaker": "Suri", "text": "I can sell hide.", "monologue": "And there it is. The conversation two practical people have instead of saying 'we should work together.'"},
+				{"speaker": "Rynn", "text": "Your markup?"},
+				{"speaker": "Suri", "text": "Fifteen percent."},
+				{"speaker": "Rynn", "text": "Ten."},
+				{"speaker": "Suri", "text": "Twelve, and I handle all the talking."},
+				{"speaker": "Rynn", "text": "Deal."}
+			],
+			"next_node": "mutual_respect"
+		},
+		"mutual_respect": {
+			"lines": [
+				{"speaker": "Suri", "text": "Where'd you learn to forage like that? The stuff you pulled today — half of it I wouldn't have recognized as edible."},
+				{"speaker": "Rynn", "text": "My mother. And hunger. Hunger's a good teacher if it doesn't kill you first."},
+				{"speaker": "Suri", "text": "...", "monologue": "I don't push. You don't push someone who mentions hunger like it's a person they used to know."},
+				{"speaker": "Rynn", "text": "Where'd you learn to read people like that?"},
+				{"speaker": "Suri", "text": "My mother. And debt. Same principle, I suppose."},
+				{"speaker": "Rynn", "text": "...", "monologue": "She nods once. That's enough. We understand each other."}
+			],
+			"next_node": ""
+		}
+	}
+}

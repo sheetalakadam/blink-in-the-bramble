@@ -1,0 +1,35 @@
+{
+	"id": "camp_01_zi_rynn_watch",
+	"start_node": "night_watch",
+	"nodes": {
+		"night_watch": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "She's been awake for twenty minutes. Hasn't moved. Hasn't checked her gear. She already checked it before she lay down.", "lens": "Rynn's bedroll positioned two meters from the tree line. Knife within arm's reach, pack straps loosened for quick shouldering. She planned her exit before she ever closed her eyes."},
+				{"speaker": "Rynn", "text": "You always sit facing southeast on watch."},
+				{"speaker": "Zi", "text": "Best sightline."},
+				{"speaker": "Rynn", "text": "It is. I just didn't think anyone else would know that without a compass."}
+			],
+			"next_node": "quiet_competence"
+		},
+		"quiet_competence": {
+			"lines": [
+				{"speaker": "Zi", "text": "You re-tied the lean-to knots before sundown."},
+				{"speaker": "Rynn", "text": "Wind was shifting. Would've held, but I don't like 'would've.'"},
+				{"speaker": "Zi", "text": "...", "monologue": "That's the thing about Rynn. She doesn't wait for problems to announce themselves. She reads the air the way I read a room."},
+				{"speaker": "Rynn", "text": "You want tea? I set water near the coals before I turned in. Should be warm by now."}
+			],
+			"next_node": "escape_route"
+		},
+		"escape_route": {
+			"lines": [
+				{"speaker": "Zi", "text": "The path you cleared this afternoon. Southeast through the ferns.", "lens": "Not a foraging trail. She cut it wide enough for all five of us moving fast. Loose branches removed so no one trips in the dark."},
+				{"speaker": "Rynn", "text": "Habit."},
+				{"speaker": "Zi", "text": "Good habit."},
+				{"speaker": "Rynn", "text": "...", "monologue": "She doesn't say thank you. Neither do I. We don't need to."},
+				{"speaker": "Zi", "text": "Go back to sleep. I've got this."},
+				{"speaker": "Rynn", "text": "I know you do."}
+			],
+			"next_node": ""
+		}
+	}
+}

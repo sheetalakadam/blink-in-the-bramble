@@ -1,0 +1,32 @@
+{
+	"id": "camp_03_suri_vyn",
+	"start_node": "approach",
+	"nodes": {
+		"approach": {
+			"lines": [
+				{"speaker": "Suri", "text": "...", "monologue": "He's sitting at the edge of the firelight again. Not outside the circle — just at the rim of it. Like he hasn't decided if warmth is something he's allowed."},
+				{"speaker": "Suri", "text": "You eat yet?"},
+				{"speaker": "Suri", "text": "...", "monologue": "Nothing. Not even an ear flick. But his weight shifted toward me. That's a yes-I-hear-you and a not-yet all in one movement."},
+				{"speaker": "Suri", "text": "I've got dried venison. Rynn's work — she cures it with juniper. Too salty for me, but you look like a salt person."}
+			],
+			"next_node": "offering"
+		},
+		"offering": {
+			"lines": [
+				{"speaker": "Suri", "text": "...", "monologue": "I set the strip on the rock between us. Not too close. Close enough that reaching for it won't feel like accepting charity."},
+				{"speaker": "Suri", "text": "I'm not going to watch you eat it. I'm going to look at the fire and talk about my day. You do whatever you want."},
+				{"speaker": "Suri", "text": "I traded a bone comb for a flint kit today. Terrible deal for me. The comb was worth triple. But the woman selling the flint kit had a kid with no shoes, so.", "monologue": "I hear him chewing. Quiet about it. Polite, even. Good."}
+			],
+			"next_node": "reading_him"
+		},
+		"reading_him": {
+			"lines": [
+				{"speaker": "Suri", "text": "You know what I've figured out about you? You understand everything we say. You just don't think any of it requires a response.", "monologue": "His ear turns toward me. Full rotation. That's the closest thing to laughter I've gotten out of him."},
+				{"speaker": "Suri", "text": "That's fine. Half my best customers never said a word. They'd just point and pay. Honest transaction. No small talk.", "monologue": "He's looking at me now. Directly. Most people find that unsettling — those eyes are too steady, too old for his face. But I've stared down customs officers in Verath. I can handle one quiet wolf-boy."},
+				{"speaker": "Suri", "text": "Same time tomorrow?"},
+				{"speaker": "Suri", "text": "...", "monologue": "He blinks. Once. Slow. In Suri's professional opinion, that's a deal."}
+			],
+			"next_node": ""
+		}
+	}
+}
