@@ -35,6 +35,14 @@ func _ready() -> void:
 	_test_integration_milestone_updates_stats()
 	_test_integration_affinity_signal()
 
+	# ProgressionSystem skill unlock tests
+	_test_progression_system_level_1()
+	_test_progression_system_level_6()
+	_test_progression_system_level_11()
+	_test_progression_system_level_16_affinity()
+	_test_progression_system_all_characters()
+	_test_progression_system_unknown_character()
+
 	_report()
 
 
@@ -344,6 +352,58 @@ func _test_integration_affinity_signal() -> void:
 
 	am.affinity_changed.disconnect(callback)
 	am.reset()
+
+
+# --- ProgressionSystem skill unlock tests ---
+
+func _test_progression_system_level_1() -> void:
+	var skills = ProgressionSystem.get_available_skills("Zi", 1)
+	_assert(skills.size() == 2, "Level 1 Zi has 2 skills (got %d)" % skills.size())
+	if skills.size() >= 2:
+		_assert(skills[0] == "res://data/skills/zi_strike.tres", "Level 1 Zi first skill is Strike")
+		_assert(skills[1] == "res://data/skills/zi_read.tres", "Level 1 Zi second skill is Read")
+
+
+func _test_progression_system_level_6() -> void:
+	var skills = ProgressionSystem.get_available_skills("Zi", 6)
+	_assert(skills.size() == 3, "Level 6 Zi has 3 skills (got %d)" % skills.size())
+	if skills.size() >= 3:
+		_assert(skills[2] == "res://data/skills/zi_cleave.tres", "Level 6 Zi third skill is Cleave")
+
+	# Level 5 should still be 2
+	var skills_5 = ProgressionSystem.get_available_skills("Zi", 5)
+	_assert(skills_5.size() == 2, "Level 5 Zi still has 2 skills (got %d)" % skills_5.size())
+
+
+func _test_progression_system_level_11() -> void:
+	var skills = ProgressionSystem.get_available_skills("Zi", 11)
+	_assert(skills.size() == 4, "Level 11 Zi has 4 skills (got %d)" % skills.size())
+	if skills.size() >= 4:
+		_assert(skills[3] == "res://data/skills/zi_pressure_point.tres", "Level 11 Zi fourth skill is Pressure Point")
+
+	# Level 10 should still be 3
+	var skills_10 = ProgressionSystem.get_available_skills("Zi", 10)
+	_assert(skills_10.size() == 3, "Level 10 Zi still has 3 skills (got %d)" % skills_10.size())
+
+
+func _test_progression_system_level_16_affinity() -> void:
+	_assert(ProgressionSystem.has_affinity_combos(16), "Level 16 has affinity combos")
+	_assert(not ProgressionSystem.has_affinity_combos(15), "Level 15 does not have affinity combos")
+
+
+func _test_progression_system_all_characters() -> void:
+	var characters = ["Zi", "Caelan", "Suri", "Rynn", "Lex"]
+	for char_name in characters:
+		var skills_1 = ProgressionSystem.get_available_skills(char_name, 1)
+		_assert(skills_1.size() == 2, "%s level 1 has 2 skills (got %d)" % [char_name, skills_1.size()])
+
+		var skills_11 = ProgressionSystem.get_available_skills(char_name, 11)
+		_assert(skills_11.size() >= 3, "%s level 11 has >= 3 skills (got %d)" % [char_name, skills_11.size()])
+
+
+func _test_progression_system_unknown_character() -> void:
+	var skills = ProgressionSystem.get_available_skills("Nobody", 10)
+	_assert(skills.size() == 0, "Unknown character returns empty skill list")
 
 
 func _report() -> void:

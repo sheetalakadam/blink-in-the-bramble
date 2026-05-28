@@ -4,11 +4,11 @@
 
 [resource]
 script = ExtResource("1_skill")
-name = "Snare"
-description = "Direct damage that roots the enemy in place."
-damage_multiplier = 0.6
-momentum_change = 2.0
+name = "Pattern Break"
+description = "Disrupts the enemy's rhythm, interrupting their next action."
+damage_multiplier = 0.7
+momentum_change = 5.0
 target_type = 0
 stamina_cost = 0
-status_effect = "rooted"
-effect_chance = 0.8
+status_effect = "interrupted"
+effect_chance = 1.0

@@ -4,11 +4,11 @@
 
 [resource]
 script = ExtResource("1_skill")
-name = "Snare"
-description = "Direct damage that roots the enemy in place."
-damage_multiplier = 0.6
-momentum_change = 2.0
+name = "Valdrihn Flash Charge"
+description = "A volatile flash compound that jolts armored targets into stillness."
+damage_multiplier = 1.0
+momentum_change = 5.0
 target_type = 0
 stamina_cost = 0
-status_effect = "rooted"
+status_effect = "stunned"
 effect_chance = 0.8

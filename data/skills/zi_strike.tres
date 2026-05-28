@@ -6,7 +6,7 @@
 script = ExtResource("1_skill")
 name = "Strike"
 description = "A precise, heavy blow with the blade."
-damage_multiplier = 1.2
+damage_multiplier = 1.0
 momentum_change = 5.0
 target_type = 0
 stamina_cost = 0
