@@ -32,6 +32,7 @@ GlobalFlags="*res://scripts/systems/GlobalFlags.gd"
 CombatVFXManager="*res://scripts/systems/CombatVFXManager.gd"
 BattleTransition="*res://scripts/systems/BattleTransition.gd"
 ShrineManager="*res://scripts/systems/ShrineManager.gd"
+InventoryManager="*res://scripts/systems/InventoryManager.gd"
 
 [display]
 

@@ -14,7 +14,8 @@ var current_entity: Dictionary = {}
 var stance_switched_this_turn: bool = false
 var waiting_for_input: bool = false
 var _pending_skill = null # Skill awaiting target selection
-var _pending_action: String = "" # "attack" or "skill" awaiting target
+var _pending_action: String = "" # "attack", "skill", or "item" awaiting target
+var _pending_item_path: String = "" # Item path awaiting ally target selection
 var _last_ally_target: Dictionary = {} # Tracks last target a party member attacked (for Vyn's Pack Instinct)
 
 # Boon state
@@ -38,12 +39,14 @@ var _reward_ui: Node = null
 @onready var party_display: VBoxContainer = $UI/PartyDisplay
 @onready var enemy_display: VBoxContainer = $UI/EnemyDisplay
 @onready var enemy_intent_label: Label = $UI/EnemyIntent
+@onready var item_menu: Control = $UI/ItemMenu
 
 func _ready() -> void:
 	action_menu.visible = false
 	skill_menu.visible = false
 	stance_menu.visible = false
 	target_menu.visible = false
+	item_menu.visible = false
 	CombatManager.turn_started.connect(_on_turn_started)
 
 func start(party_data: Array[Dictionary], enemy_data: Array[Dictionary]) -> void:
@@ -313,6 +316,82 @@ func on_defend_pressed() -> void:
 	MomentumSystem.add_momentum(-10.0)
 	current_entity["defending"] = true
 	_log("%s defends." % current_entity.name)
+	_end_player_turn()
+
+func on_item_pressed() -> void:
+	if not waiting_for_input:
+		return
+	action_menu.visible = false
+	_show_item_menu()
+
+# --- Item sub-menu ---
+
+func _show_item_menu() -> void:
+	for child in item_menu.get_node("List").get_children():
+		child.queue_free()
+
+	var consumables = InventoryManager.get_consumables()
+	if consumables.is_empty():
+		var lbl = Label.new()
+		lbl.text = "No items"
+		item_menu.get_node("List").add_child(lbl)
+	else:
+		for entry in consumables:
+			var item: ItemData = entry["item"]
+			var btn = Button.new()
+			btn.text = "%s x%d" % [item.name, entry["count"]]
+			btn.pressed.connect(_on_item_selected.bind(entry["path"]))
+			item_menu.get_node("List").add_child(btn)
+
+	var back = Button.new()
+	back.text = "Back"
+	back.pressed.connect(func(): item_menu.visible = false; action_menu.visible = true)
+	item_menu.get_node("List").add_child(back)
+
+	item_menu.visible = true
+
+func _on_item_selected(item_path: String) -> void:
+	item_menu.visible = false
+	_pending_item_path = item_path
+	_pending_action = "item"
+	_show_ally_target_menu()
+
+func _show_ally_target_menu() -> void:
+	for child in target_menu.get_node("List").get_children():
+		child.queue_free()
+
+	var alive = party.filter(func(p): return p.hp > 0)
+	for member in alive:
+		var btn = Button.new()
+		btn.text = "%s (HP: %d/%d)" % [member.name, maxi(0, member.hp), member.max_hp]
+		btn.pressed.connect(_on_ally_target_selected.bind(member))
+		target_menu.get_node("List").add_child(btn)
+
+	var back = Button.new()
+	back.text = "Back"
+	back.pressed.connect(func():
+		target_menu.visible = false
+		_pending_action = ""
+		_pending_item_path = ""
+		action_menu.visible = true
+	)
+	target_menu.get_node("List").add_child(back)
+
+	target_menu.visible = true
+
+func _on_ally_target_selected(target: Dictionary) -> void:
+	target_menu.visible = false
+	waiting_for_input = false
+	var success = InventoryManager.use_item(_pending_item_path, target)
+	if success:
+		var item_res = load(_pending_item_path) as ItemData
+		var item_name = item_res.name if item_res else _pending_item_path
+		_log("%s uses %s on %s!" % [current_entity.name, item_name, target.name])
+	else:
+		_log("Could not use item.")
+	_pending_item_path = ""
+	_pending_action = ""
+	_update_displays()
 	_end_player_turn()
 
 # --- Skill sub-menu ---

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/ItemData.gd" id="1_item"]
+
+[resource]
+script = ExtResource("1_item")
+name = "Threshold Shard"
+description = "A fragment of something older than the bramble. It pulses with Caelan's forgotten memories."
+item_type = 1
+effect_type = ""
+effect_value = 0
+max_stack = 1
