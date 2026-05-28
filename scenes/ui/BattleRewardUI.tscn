@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/BattleRewardUI.gd" id="1_script"]
+
+[node name="BattleRewardUI" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_script")
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "Victory!"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+
+[node name="XPLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "XP Gained: 0"
+
+[node name="LootLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "Items: None"
+
+[node name="AffinityLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "Bonds: No changes"
+
+[node name="LevelUpLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+visible = false
+text = "Level Up!"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.3, 1, 0.5, 1)
+
+[node name="ContinueButton" type="Button" parent="Panel/VBox"]
+layout_mode = 2
+text = "Continue"

@@ -129,8 +129,9 @@ func _load_battle_scene() -> void:
 	tree.root.add_child(combat_scene)
 	tree.current_scene = combat_scene
 
-	# Connect victory/defeat signals
-	combat_scene.combat_won.connect(_on_victory)
+	# Connect victory/defeat signals — wait for rewards before returning
+	combat_scene.rewards_acknowledged.connect(_on_victory)
+	combat_scene.combat_won.connect(func(): print("[BattleTransition] Combat won — waiting for rewards..."))
 	combat_scene.combat_lost.connect(_on_defeat)
 
 	# Reset momentum for fresh battle
