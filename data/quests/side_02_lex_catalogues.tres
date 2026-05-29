@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestData" format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/QuestData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+quest_id = "side_02"
+title = "Lost Records"
+description = "Lex believes missing archive entries hold the key to understanding what happened centuries ago."
+quest_type = 1
+objectives = [{"id": "find_entry_1", "text": "Find the first missing catalogue entry", "flag": "lex_entry_1_found"}, {"id": "find_entry_2", "text": "Find the second missing entry", "flag": "lex_entry_2_found"}, {"id": "translate", "text": "Help Lex translate the entries", "flag": "lex_entries_translated"}]
+reward_text = "The records confirm what Caelan already knew."

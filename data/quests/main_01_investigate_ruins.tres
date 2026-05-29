@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestData" format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/QuestData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+quest_id = "main_01"
+title = "Investigate the Ruins"
+description = "Something is wrong at Naevoria. The markings are fresh and the air feels heavy."
+quest_type = 0
+objectives = [{"id": "reach_naevoria", "text": "Reach the Naevoria ruins", "flag": "reached_naevoria"}, {"id": "find_markings", "text": "Examine the threshold markings", "flag": "examined_markings"}, {"id": "meet_lex", "text": "Find the scholar studying the ruins", "flag": "met_lex"}]
+reward_text = "The ruins hold more questions than answers."

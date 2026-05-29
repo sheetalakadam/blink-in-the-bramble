@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestData" format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/QuestData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+quest_id = "main_03"
+title = "Strange Disturbances"
+description = "Light bends wrong. Sounds arrive late. Something vast is nearby."
+quest_type = 0
+objectives = [{"id": "distortion", "text": "Investigate the distortion zone", "flag": "investigated_distortion"}, {"id": "archive", "text": "Search the Velundrath archive", "flag": "searched_archive"}, {"id": "witness", "text": "Witness the field", "flag": "witnessed_angel_field"}]
+reward_text = "Now you know what you are walking toward."
