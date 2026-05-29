@@ -1,0 +1,31 @@
+{
+	"id": "scene_18_angel_direct",
+	"start_node": "perception",
+	"nodes": {
+		"perception": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "lens": "Light that is also darkness. I can see it and not see it at the same time. My tactical training is screaming at me to assess the threat but there is nothing to assess. It is not a thing. It is a condition. Like weather. Like gravity.", "monologue": "She is afraid. She processes fear as information. Distance: unmeasurable. Size: the question doesn't apply. Threat level: the concept is too small."},
+				{"speaker": "Lex", "text": "I can smell every season at once. Spring and autumn and something that isn't a season at all.", "monologue": "He's writing in his notebook. His hand is shaking but he's writing. The scholar in him refuses to stop documenting, even now. Especially now."},
+				{"speaker": "Rynn", "text": "The sound. Can you hear it? Like breathing. But from something that doesn't have lungs.", "monologue": "She's pressing her hand against the ground. The vibration is in the stone. In the air. In the space between atoms."}
+			],
+			"next_node": "caelan_approaches"
+		},
+		"caelan_approaches": {
+			"lines": [
+				{"speaker": "Suri", "text": "Caelan, don't—", "monologue": "But she stopped herself. Because he wasn't walking toward danger. He was walking toward something he recognized."},
+				{"speaker": "Caelan", "text": "It doesn't know we're here. We're too small. Like — imagine standing in a field and being aware of every individual blade of grass. You can't. You just see green.", "monologue": "He's standing in the presence of something that warps reality by existing, and he is calm. Not brave. Calm. The way water is calm."},
+				{"speaker": "Caelan", "text": "The corruption isn't intentional. It's just what happens when something this vast is nearby. Like heavy things bend light. It bends everything."}
+			],
+			"next_node": "witnessing"
+		},
+		"witnessing": {
+			"lines": [
+				{"speaker": "Zi", "text": "Caelan. Can it hear you?", "lens": "He's speaking toward something I can't fully perceive. The air around him is doing something my eyes refuse to process. I am a person who navigates by sight and I am blind here."},
+				{"speaker": "Caelan", "text": "Not hear. But...", "monologue": "He reached out. Not with his hand. With whatever part of him was still threshold. Still between."},
+				{"speaker": "Narrator", "text": "Something shifted. Not visibly. Not audibly. But every person in the chamber felt it — like a mountain becoming aware of a bird on its shoulder."},
+				{"speaker": "Lex", "text": "...", "monologue": "He wrote one word in his notebook: 'sethirael.' Then he closed it. Some things are too large for notes."}
+			],
+			"next_node": ""
+		}
+	}
+}

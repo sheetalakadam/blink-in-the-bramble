@@ -1,0 +1,49 @@
+{
+	"id": "scene_15_party_reckoning",
+	"start_node": "evening_fire",
+	"nodes": {
+		"evening_fire": {
+			"lines": [
+				{"speaker": "Zi", "text": "We need to talk about what happens next.", "lens": "Five people around a fire. Each one processing at a different speed. Suri already has numbers. Lex already has history. Rynn already has a map."},
+				{"speaker": "Suri", "text": "The Solenné grain exchange is gone. Not struggling — gone. Three more weeks and the coastal villages start rationing. Six weeks after that, it stops being about money."},
+				{"speaker": "Rynn", "text": "I mapped what's left of the northern route. It's still passable if you go through the Ereivyn canopy, but the canopy is thinning. Things grow wrong near the distortion."}
+			],
+			"next_node": "lex_history"
+		},
+		"lex_history": {
+			"lines": [
+				{"speaker": "Lex", "text": "The archive records show this happened before. Three hundred and forty years ago. Same pattern. Same progression. The records end because the people writing them stopped existing.", "monologue": "He said it carefully. Not for drama. Because he wanted to be precise about the weight of it."},
+				{"speaker": "Caelan", "text": "The threshold is getting thinner. I can feel it when I close my eyes now. I couldn't before.", "monologue": "He's not afraid. That's the part that's hard to understand. He's not afraid of it the way the rest of us are."},
+				{"speaker": "Suri", "text": "So what are we calculating here? The cost of going toward it, or the cost of not?", "monologue": "She asked it like a trade evaluation. What's the margin. What's the risk. What's the loss if we walk away."}
+			],
+			"next_node": "decision"
+		},
+		"decision": {
+			"lines": [
+				{"speaker": "Rynn", "text": "I've packed for three days of hard travel. Four if we ration. The route back to Naevoria is still clear but it won't be for long."},
+				{"speaker": "Zi", "text": "...", "monologue": "They're all looking at me. Not because I have an answer. Because I'm the one who starts walking."},
+				{"speaker": "Narrator", "text": "Zi stands and begins checking her pack.", "choices": [
+					{"text": "We go back to the ruins.", "next": "agree"},
+					{"text": "I'm not sure this is something we can fix.", "next": "doubt"}
+				]}
+			],
+			"next_node": ""
+		},
+		"agree": {
+			"lines": [
+				{"speaker": "Zi", "text": "We leave at first light."},
+				{"speaker": "Lex", "text": "I'll bring the archive notes. Whatever we find, someone should write it down this time.", "monologue": "His hands were steady. That surprised her."},
+				{"speaker": "Suri", "text": "I'll handle supplies. Three days of hard travel, you said?", "monologue": "She was already counting. She counts when she's scared. It helps."}
+			],
+			"next_node": ""
+		},
+		"doubt": {
+			"lines": [
+				{"speaker": "Caelan", "text": "You're right that we might not be able to fix it. But I think I'm supposed to be there when it happens.", "monologue": "He said 'supposed to' like someone remembering the shape of a word they'd forgotten."},
+				{"speaker": "Zi", "text": "Then we go.", "monologue": "Not because she believed him. Because she believed he needed to be there, and she wasn't going to let him go alone."},
+				{"speaker": "Rynn", "text": "First light. I'll have the packs ready."}
+			],
+			"next_node": ""
+		}
+	}
+}

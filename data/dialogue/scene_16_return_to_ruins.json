@@ -1,0 +1,31 @@
+{
+	"id": "scene_16_return_to_ruins",
+	"start_node": "approach",
+	"nodes": {
+		"approach": {
+			"lines": [
+				{"speaker": "Zi", "text": "This isn't how I remember it.", "lens": "The distances are wrong. The path to the main chamber should be forty meters but my count puts it at sixty. Or thirty. The numbers shift when I'm not looking at them."},
+				{"speaker": "Lex", "text": "The markings are gone. Not worn away — absorbed. The stone consumed them.", "monologue": "He touched the wall where his grid had been. Four hours of work. Three hundred years of history. Just... taken back into the rock."},
+				{"speaker": "Rynn", "text": "The bramble outside is growing inward. Toward the center. Plants don't do that."}
+			],
+			"next_node": "deeper"
+		},
+		"deeper": {
+			"lines": [
+				{"speaker": "Caelan", "text": "The threshold is wider here. I can almost see through it.", "monologue": "He's walking ahead now. Not leading — being drawn. Like water finding a drain."},
+				{"speaker": "Zi", "text": "...", "lens": "I can't navigate here. Angles lie. Corners that should be right angles are something else. I'm counting my steps and the numbers mean nothing. This is the first time my eyes have failed me.", "monologue": "She's navigating by instinct. By feel. It's terrifying because she's never had to. She has always had geometry."},
+				{"speaker": "Suri", "text": "Zi. Your hands are shaking.", "monologue": "She said it quietly. Not to draw attention. To let Zi know someone noticed."},
+				{"speaker": "Zi", "text": "I know."}
+			],
+			"next_node": "center"
+		},
+		"center": {
+			"lines": [
+				{"speaker": "Lex", "text": "The central chamber. It's larger than before. Or the walls moved. I measured this room.", "monologue": "He's still trying to be precise. Still trying to be the scholar. It's how he holds on."},
+				{"speaker": "Rynn", "text": "Air's different in here. Tastes like the hour before a storm but the sky is underground.", "monologue": "She's cataloguing. Temperature, humidity, pressure. The forest in her reads weather even when weather doesn't make sense."},
+				{"speaker": "Caelan", "text": "It's here. The thin place. I can hear it breathing.", "monologue": "He said 'hear' but that wasn't quite right. He was perceiving something that wasn't sound. Wasn't sight. Was something the human body doesn't have a word for."}
+			],
+			"next_node": ""
+		}
+	}
+}

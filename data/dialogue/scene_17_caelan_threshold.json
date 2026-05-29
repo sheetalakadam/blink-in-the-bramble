@@ -1,0 +1,31 @@
+{
+	"id": "scene_17_caelan_threshold",
+	"start_node": "realization",
+	"nodes": {
+		"realization": {
+			"lines": [
+				{"speaker": "Caelan", "text": "I understand now. I'm not connected to the threshold.", "monologue": "He's standing very still. Not from fear. From recognition. The way you go still when you see your own reflection in unexpected water."},
+				{"speaker": "Lex", "text": "What do you mean?"},
+				{"speaker": "Caelan", "text": "I am one. A threshold. A place between. That's what I've always been.", "monologue": "He said it like remembering a color he'd forgotten the name of. Not dramatic. Just... oh. That's what that was."}
+			],
+			"next_node": "understanding"
+		},
+		"understanding": {
+			"lines": [
+				{"speaker": "Lex", "text": "The sealed places in the ruins. The markings that no language matches. They weren't writing about thresholds — they were writing to one.", "monologue": "He sat down. Not from weakness. From the weight of understanding something that rearranged everything he'd spent his life studying."},
+				{"speaker": "Suri", "text": "Caelan. Were you human? Before?", "monologue": "She asked it gently. The way you ask someone if they're okay when you can see they're not."},
+				{"speaker": "Caelan", "text": "I was something else. I don't remember what. But I remember choosing to step back. To be small again. To have a name and hands and forgetting.", "monologue": "His palms were glowing faintly. Nobody mentioned it."}
+			],
+			"next_node": "response"
+		},
+		"response": {
+			"lines": [
+				{"speaker": "Lex", "text": "...", "monologue": "He was crying. Not from sadness. From the weight of understanding a thing so large it pressed on every thought he'd ever had about the people who built these places. They knew. They always knew."},
+				{"speaker": "Rynn", "text": "Does it hurt? Being what you are?", "monologue": "She asked it practically. The way you ask someone if a wound needs treatment."},
+				{"speaker": "Caelan", "text": "Not the being. The forgetting. But I think I chose that too."},
+				{"speaker": "Zi", "text": "...", "monologue": "She took his hand. She didn't say anything. There was nothing tactical about it. Nothing geometric. Just one person holding the hand of another person who was also something impossibly large, and choosing to be here anyway."}
+			],
+			"next_node": ""
+		}
+	}
+}
