@@ -1,0 +1,33 @@
+{
+	"id": "boss_03_ereivyn_spirit_post",
+	"start_node": "calming",
+	"nodes": {
+		"calming": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "The corruption broke away like ice in spring. Dark veins cracking, dissolving, falling to the forest floor as ash. Underneath: light. Not bright. Gentle. The way sunlight looks through leaves when the wind moves them just right.", "lens": "The spirit's form is stabilizing. Branches settling into patterns that make sense again. The frantic movement slowing to something deliberate. Something that looks like breathing."},
+				{"speaker": "Caelan", "text": "It's still here.", "monologue": "The pain was fading. In its place: a presence. Vast and quiet and old. Not frightening. Patient. The way a forest is patient. The way centuries are patient."},
+				{"speaker": "Lex", "text": "...", "monologue": "He was standing directly below it. Looking up. His notebook was in his hand but he wasn't writing. Some things are too present to record. You have to be in them before you can be about them."}
+			],
+			"next_node": "the_memory"
+		},
+		"the_memory": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "The light changed. The spirit was showing them something. Not telling — showing. The way a tree shows its age in its rings.", "lens": "The clearing is shifting. The translucent bark on every tree is glowing with images. Not projected. Grown. Like tree rings made of light instead of wood."},
+				{"speaker": "Caelan", "text": "...", "monologue": "The forest when it was whole. Green that had no name in any language he'd heard in this life. Trees so old their roots had become geography. The spirit moving through them like wind, like water, like the idea of care given physical form. Tending. Always tending. A gardener whose garden was the world."},
+				{"speaker": "Lex", "text": "...", "monologue": "He saw it. Three hundred years of growing. A canopy that was a cathedral. Moss that was a library. Roots that were a conversation between trees that had been talking to each other since before humans built cities. All of it. Whole. And now this — this remnant, this echo, showing them what it remembered being."},
+				{"speaker": "Suri", "text": "...", "monologue": "She didn't calculate anything. For once, she just looked."}
+			],
+			"next_node": "fading"
+		},
+		"fading": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "The light dimmed. The spirit's form loosened. Branches separating. Returning to the trees they came from. Not dying — redistributing. Going back to being part of the forest instead of apart from it.", "lens": "The translucent bark is solidifying. Color returning. The trees are becoming trees again. The spirit isn't gone. It's just no longer gathered into a shape we can see."},
+				{"speaker": "Lex", "text": "...", "monologue": "He wept. Not the way he wept in the archive — controlled, private. This was open. The tears of someone who has just watched something irreplaceable choose to trust them with its most precious memory and then leave."},
+				{"speaker": "Rynn", "text": "...", "monologue": "She knelt where the spirit had stood. The ground was soft, dark, rich — the best soil any of them had ever seen. She reached into her belt pouch and took out a seed. She always carried seeds. The way other people carry weapons or coin or letters from home. She pressed it into the earth and covered it with her hands and didn't say a word."},
+				{"speaker": "Caelan", "text": "...", "monologue": "He felt the seed take root. Not with his eyes. With whatever part of him remembered being vast. A small green life beginning in the place where something old had rested. The forest would grow back. Not the same. But it would grow."},
+				{"speaker": "Zi", "text": "...", "monologue": "Nobody spoke for a long time. Rynn stood up and brushed the soil from her hands. Lex wiped his face with his sleeve and opened his notebook. Suri shouldered her pack. We kept walking. The forest behind us was a little greener than the forest ahead."}
+			],
+			"next_node": ""
+		}
+	}
+}

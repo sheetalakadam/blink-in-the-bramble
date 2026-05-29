@@ -1,0 +1,54 @@
+{
+	"id": "scene_14b_aftermath_camp",
+	"start_node": "no_sleep",
+	"nodes": {
+		"no_sleep": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Nobody's sleeping. We're all pretending to try. The fire is too bright or too dim depending on which of us you ask. The angel field was six hours ago and the air still tastes like static.", "lens": "Rynn: awake, sitting up, hands busy. Suri: awake, staring at nothing, doing math in her head. Lex: awake, notebook open, pen not moving. Caelan: awake. Calm. The only one whose breathing hasn't changed since we got back."},
+				{"speaker": "Rynn", "text": "Tea.", "monologue": "She didn't ask if anyone wanted it. She boiled water. She measured dried leaves from a pouch she kept in the inside pocket of her coat, the one that never got wet. Chamomile and something sharper underneath. The smell reached them before the cups did."},
+				{"speaker": "Suri", "text": "I don't want tea."},
+				{"speaker": "Rynn", "text": "Drink it anyway."},
+				{"speaker": "Suri", "text": "...", "monologue": "She drank it. It was good. Rynn's tea was always good because Rynn treated tea the way she treated supply routes — with the seriousness it deserved."}
+			],
+			"next_node": "lex_writing"
+		},
+		"lex_writing": {
+			"lines": [
+				{"speaker": "Lex", "text": "...", "monologue": "He wrote a sentence. Read it. Drew a line through it. Wrote another. Drew a line through that. The page was filling with crossed-out attempts. Every description was wrong. Every word was too small or too specific or too human."},
+				{"speaker": "Lex", "text": "I can't write about it.", "monologue": "He said it to the notebook. Not to anyone."},
+				{"speaker": "Rynn", "text": "Then don't. Not yet."},
+				{"speaker": "Lex", "text": "If I don't write it now I'll lose the — the texture of it. The way it felt. And that's the part that matters, not what it looked like.", "monologue": "He tried again. Wrote three words. Stopped. Closed the notebook. Opened it. Wrote a different three words."},
+				{"speaker": "Suri", "text": "What did you write?"},
+				{"speaker": "Lex", "text": "Light without source.", "monologue": "He said it like an apology. Like three words were a failure when he needed three hundred. Or maybe three thousand. Or maybe none."}
+			],
+			"next_node": "suri_calculates"
+		},
+		"suri_calculates": {
+			"lines": [
+				{"speaker": "Suri", "text": "If anyone else knows about that field, the political situation in Velundrath changes completely. The Valdrihn border policy, the trade restrictions, the militia deployments — all of it was based on the assumption that the distortion is destructive.", "monologue": "She was doing what she always did when she was frightened. She was working."},
+				{"speaker": "Suri", "text": "What we saw wasn't destructive. Which means either they don't know, or they know and they're lying about it. Both options are expensive."},
+				{"speaker": "Zi", "text": "Expensive how?", "lens": "She means in lives. She says expensive because the other word is harder."},
+				{"speaker": "Suri", "text": "Maret's bakery expensive. Three kids who lost their apprenticeships expensive. Every person who rerouted their life around a threat that might not be what anyone said it was.", "monologue": "She put down the cup. Her hands were steady. Her voice was steady. Everything about her was steady because she'd decided it would be."}
+			],
+			"next_node": "caelan_undisturbed"
+		},
+		"caelan_undisturbed": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Caelan hasn't spoken. He's been watching the fire. Not avoiding them. Just present in a way that doesn't require words.", "lens": "His vitals: stable. No headache. No tension. His hands are open and still. He's the only one of us who isn't afraid. That should worry me. It doesn't."},
+				{"speaker": "Lex", "text": "Caelan. In the field. You weren't surprised."},
+				{"speaker": "Caelan", "text": "No."},
+				{"speaker": "Lex", "text": "Why not?"},
+				{"speaker": "Caelan", "text": "...", "monologue": "Because it felt like remembering a room you've slept in. Not the details. Just the knowledge that you've been safe there before."},
+				{"speaker": "Caelan", "text": "I don't know how to explain it."},
+				{"speaker": "Rynn", "text": "You don't have to.", "monologue": "She refilled his cup. He hadn't asked. She'd noticed it was empty. The small machinery of care, running quietly beneath everything else."}
+			],
+			"next_node": "quiet"
+		},
+		"quiet": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Lex opened his notebook again. Wrote something. Didn't cross it out. Suri leaned back and closed her eyes. Rynn banked the fire lower. Caelan sat with his tea and the dark and whatever it was he carried instead of fear.", "lens": "Nobody slept well. But they slept near each other. That was the part that mattered, though none of them would have said so."}
+			],
+			"next_node": ""
+		}
+	}
+}

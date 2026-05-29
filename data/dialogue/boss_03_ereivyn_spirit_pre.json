@@ -1,0 +1,34 @@
+{
+	"id": "boss_03_ereivyn_spirit_pre",
+	"start_node": "the_clearing",
+	"nodes": {
+		"the_clearing": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "The trees stopped being trees about fifty meters back. They're still standing but the bark is translucent. The leaves glow with something that isn't sunlight. The ground is soft in a way that has nothing to do with rain.", "lens": "Movement in the canopy. Not wind — the branches are moving against the wind. Something is in the trees. Something large. Thermal signature is cold where it should be warm. Reversed biology. Or not biology at all."},
+				{"speaker": "Lex", "text": "Wait. Please. Wait.", "monologue": "He stopped walking. His hand was on the nearest trunk. He pressed his palm against the translucent bark and his breath caught."},
+				{"speaker": "Lex", "text": "This tree is alive. Not sick — alive. But the life in it is wrong. Like a song played in a key the instrument wasn't built for.", "monologue": "He knew what this was. He'd read about grove spirits in seventeen different archives. He'd never believed he'd stand in one's home."},
+				{"speaker": "Caelan", "text": "It hurts.", "monologue": "Not him. It. He could feel the spirit the way he felt thresholds — a pressure in his chest, a tightness behind his eyes. But this was different. This was pain. Old pain. The kind that has forgotten its own beginning."}
+			],
+			"next_node": "emergence"
+		},
+		"emergence": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "lens": "There. The canopy is moving. Branches weaving together, separating, re-forming. It's building a body from the forest itself. Not solid — a shape made of wood and light and the memory of leaves. Thirty feet tall. Moving like water through a broken pipe. No pattern. No intention. Just force and pain."},
+				{"speaker": "Lex", "text": "That's a grove spirit. An old one. They tend forests. They aren't — they're not aggressive. They garden. They coax. They spend centuries encouraging a single species of moss.", "monologue": "His voice was breaking. Not with fear. With the specific grief of watching something gentle become something wounded."},
+				{"speaker": "Caelan", "text": "The corruption is inside it. Deep. It doesn't know what's wrong. It just knows something is wrong and it can't make it stop.", "monologue": "He could feel it reaching. Not for them. For the trees. Trying to tend them the way it always had. But its reach was corrupted and everything it touched twisted. A gardener whose hands had become poison without its knowledge."},
+				{"speaker": "Lex", "text": "Can we help it?"},
+				{"speaker": "Zi", "text": "It's coming toward us.", "lens": "Not charging. Lurching. The way a wounded animal moves toward sound — not predatory. Confused. Looking for something familiar in a body that no longer works right."}
+			],
+			"next_node": "engage"
+		},
+		"engage": {
+			"lines": [
+				{"speaker": "Lex", "text": "Don't kill it. Please.", "monologue": "He said it to Zi because Zi was the one who would make the tactical decision. He said it knowing it might not be possible. He said it anyway."},
+				{"speaker": "Zi", "text": "I'll try.", "lens": "Subdue, not destroy. Target the corrupted sections — the dark veins running through its structure. If we can sever the corruption from the host form, the spirit might stabilize. If. Large if."},
+				{"speaker": "Caelan", "text": "I can feel where the corruption is thickest. I'll guide you.", "monologue": "He stepped forward. Not bravely. Simply. The way you step toward something in pain because stepping away isn't something your body will let you do."},
+				{"speaker": "Rynn", "text": "Watch the roots. It's pulling them up.", "monologue": "She was already moving, positioning the group. Not a commander. A logistics expert who understood that even compassion needs a supply line."}
+			],
+			"next_node": ""
+		}
+	}
+}

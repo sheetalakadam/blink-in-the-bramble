@@ -1,0 +1,35 @@
+{
+	"id": "boss_02_valdrihn_commander_post",
+	"start_node": "aftermath",
+	"nodes": {
+		"aftermath": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "He yielded. Not because we beat him — because his soldiers stopped fighting first. They looked at him and he looked at them and something passed between them that had nothing to do with us. A unit that had been waiting for permission to stop.", "lens": "No casualties. Disarmed, not broken. The commander sat on a supply crate and set his weapon across his knees. Not surrender. Conclusion."},
+				{"speaker": "Commander Edris", "text": "Fine. Fine.", "monologue": "He said it twice. The first one was to his soldiers. The second one was to himself."},
+				{"speaker": "Rynn", "text": "Your people need supplies. I can see it from here.", "monologue": "She was already looking at their camp. Low rations. Worn equipment. She couldn't help it. She saw a logistics problem and her hands started solving it."},
+				{"speaker": "Commander Edris", "text": "Last resupply was three weeks ago. We've been rationing since."}
+			],
+			"next_node": "the_orders"
+		},
+		"the_orders": {
+			"lines": [
+				{"speaker": "Commander Edris", "text": "The closure orders. They came from Valdrihn central command, but the intelligence briefing — the one that justified the containment — it came from someone outside the chain.", "monologue": "He was talking now. The way a dam talks when the first crack appears. Not a flood. A steady pressure finding release."},
+				{"speaker": "Zi", "text": "Outside the chain.", "lens": "Irregular command structure. Someone with enough authority to generate a military deployment but not enough to appear on the official orders. That's either very high rank or very deep influence."},
+				{"speaker": "Commander Edris", "text": "Someone who described the distortion in detail. Not what it looks like from outside — what it looks like inside. How it moves. What it does to the ground."},
+				{"speaker": "Suri", "text": "Someone who's been inside the zone."},
+				{"speaker": "Commander Edris", "text": "Someone who's been inside and wants it closed. Not studied. Not understood. Closed.", "monologue": "He looked up. The tiredness was still there but underneath it something else. The anger of a man who realized he'd been used as a lock on a door he didn't understand."}
+			],
+			"next_node": "passage"
+		},
+		"passage": {
+			"lines": [
+				{"speaker": "Commander Edris", "text": "Go. Take the road. I'll hold the checkpoint because that's what I was told to do, but I won't chase you if you walk through it.", "monologue": "A compromise that satisfied no one and resolved everything. The currency of people who are tired of pretending."},
+				{"speaker": "Zi", "text": "Your soldiers need to eat.", "monologue": "I looked at Rynn. She was already pulling rations from her pack. Enough for a few days. Not enough to fix the problem. Enough to acknowledge it."},
+				{"speaker": "Rynn", "text": "Three days' rations. Stretch it to five if you're careful.", "monologue": "She set the pack on the crate next to him. He didn't thank her. He nodded. The nod carried more weight than gratitude."},
+				{"speaker": "Commander Edris", "text": "The road past the checkpoint — it changes about four miles in. The trees go wrong. You'll know it when you see it.", "monologue": "He said it like advice. Like a soldier briefing another soldier. Like whatever had just happened between them was already filed under professional courtesy."},
+				{"speaker": "Zi", "text": "...", "monologue": "We walked through the checkpoint. His soldiers watched us go. Nobody reached for a weapon. The commander sat on his crate and looked at the rations Rynn had left and the road he'd been ordered to close, and he stayed where he was because staying was the only order he could still follow."}
+			],
+			"next_node": ""
+		}
+	}
+}

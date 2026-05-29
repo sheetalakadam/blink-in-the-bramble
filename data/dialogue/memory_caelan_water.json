@@ -1,0 +1,20 @@
+{
+	"id": "memory_caelan_water",
+	"start_node": "rain",
+	"nodes": {
+		"rain": {
+			"lines": [
+				{"speaker": "Caelan", "text": "...", "monologue": "Rain. Not here — somewhere else. Somewhere with no ground. The water fell through space that had no direction, no down, and he held out hands that weren't his and felt each drop arrive like a word he almost understood."},
+				{"speaker": "Caelan", "text": "...", "monologue": "The hands were larger. Not in size — in reach. They could hold more than water. They could hold the idea of water. The pattern of it. Every rain that had ever fallen, all at once, on palms that were wide enough to catch all of it."}
+			],
+			"next_node": "return"
+		},
+		"return": {
+			"lines": [
+				{"speaker": "Caelan", "text": "...", "monologue": "Then these hands. Small. Five fingers. Specific. A single drop of rain on the back of his left wrist, cooling in the morning air. One drop. Not every drop. Just this one. He watched it slide down to his knuckle and fall."},
+				{"speaker": "Caelan", "text": "...", "monologue": "It was better. He didn't know why. One drop that he could feel completely was better than all the rain in the world held loosely. He closed his hand around the wet place on his wrist and kept walking."}
+			],
+			"next_node": ""
+		}
+	}
+}

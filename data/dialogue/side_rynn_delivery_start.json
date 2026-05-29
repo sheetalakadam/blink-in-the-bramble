@@ -1,0 +1,36 @@
+{
+	"id": "side_rynn_delivery_start",
+	"start_node": "practical_problem",
+	"nodes": {
+		"practical_problem": {
+			"lines": [
+				{"speaker": "Rynn", "text": "I have a problem. Not a dangerous problem. A logistics problem.", "monologue": "She'd been checking her supply manifest for the third time. The numbers hadn't changed but she checked them anyway because that's what you do when the numbers are bad."},
+				{"speaker": "Zi", "text": "Go ahead.", "lens": "Three crates she's been hauling since Solenné. Weight doesn't match standard trade goods. Perishable, based on the way she's been positioning them in shade at every stop."},
+				{"speaker": "Rynn", "text": "I've got salt-cured fish and preserved fruit bound for the Velundrath coast. My contact there — Nessa — she serves the fishing villages south of the port. Those villages don't have a reliable supplier anymore."},
+				{"speaker": "Suri", "text": "Because of the route closures."},
+				{"speaker": "Rynn", "text": "Because of the route closures. I've been holding this stock for two weeks. It'll keep another five days, maybe six in this weather. After that it's waste."}
+			],
+			"next_node": "the_route"
+		},
+		"the_route": {
+			"lines": [
+				{"speaker": "Rynn", "text": "The coast road is clear. I checked. It's not short — day and a half each way — and there's a section through the Drennan pass that gets narrow. Narrow enough that bandits like it.", "monologue": "She laid out her map. The route was already drawn in, with annotations in her small, precise handwriting. Rest points. Water sources. The narrow section marked with a small x."},
+				{"speaker": "Zi", "text": "How narrow?", "lens": "The pass. Two-person width at the chokepoint. High walls on both sides. Textbook ambush terrain. But also textbook defensive terrain if you know it's coming."},
+				{"speaker": "Rynn", "text": "Narrow enough that I wouldn't run it alone. Which is why I'm asking."},
+				{"speaker": "Suri", "text": "What does Nessa pay?"},
+				{"speaker": "Rynn", "text": "She doesn't pay. She feeds the villages. I eat the transport cost.", "monologue": "She said it like a line item. Not a sacrifice. A cost she'd already accounted for."},
+				{"speaker": "Suri", "text": "...", "monologue": "Suri didn't argue with the economics. She understood the kind of ledger that doesn't balance in coin."}
+			],
+			"next_node": "decision"
+		},
+		"decision": {
+			"lines": [
+				{"speaker": "Zi", "text": "We can make the detour. Day and a half isn't bad if the road's clear.", "lens": "True assessment: it costs us time we might not have. But Rynn doesn't ask for things. The fact that she's asking means the stock is close to turning and the people on the other end are close to needing it."},
+				{"speaker": "Lex", "text": "I'd like to see the coast. The archival sites near the fishing villages are supposed to have tide-carved inscriptions."},
+				{"speaker": "Rynn", "text": "You want to come because of inscriptions."},
+				{"speaker": "Lex", "text": "I want to come because you asked. The inscriptions are a bonus.", "monologue": "He meant it. The inscriptions were also genuinely a bonus. Both things were true. He was learning that both things could be true."}
+			],
+			"next_node": ""
+		}
+	}
+}
