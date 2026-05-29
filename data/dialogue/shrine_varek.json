@@ -23,8 +23,8 @@
 		"choice": {
 			"lines": [
 				{"speaker": "Narrator", "text": "The shrine waits.", "choices": [
-					{"text": "Make an offering", "next": "offering"},
-					{"text": "Leave quietly", "next": "departure"}
+					{"text": "Make an offering", "next_node":"offering"},
+					{"text": "Leave quietly", "next_node":"departure"}
 				]}
 			],
 			"next_node": "departure"

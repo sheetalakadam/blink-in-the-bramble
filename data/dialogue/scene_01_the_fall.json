@@ -99,12 +99,12 @@
       ],
       "choices": [
         {
-          "label": "That makes two of us.",
+          "text": "That makes two of us.",
           "next_node": "response_dry",
           "affinity_change": {}
         },
         {
-          "label": "What do you remember?",
+          "text": "What do you remember?",
           "next_node": "response_direct",
           "affinity_change": {}
         }

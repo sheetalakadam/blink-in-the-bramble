@@ -32,8 +32,28 @@
 			"lines": [
 				{"speaker": "Rynn", "text": "I need to get stock to the Velundrath coast. Route's been bad — things in the deep forest got restless. You look like you can handle restless things."},
 				{"speaker": "Suri", "text": "She's proposing a trade. Protection for knowledge of the route."},
-				{"speaker": "Rynn", "text": "Quick. I like her too.", "monologue": "She's already repacking her traps. Decision made before she finished the sentence. Logistics mind — she planned this conversation three moves ago."},
-				{"speaker": "Zi", "text": "Deal."}
+				{"speaker": "Rynn", "text": "Quick. I like her too.", "monologue": "She's already repacking her traps. Decision made before she finished the sentence. Logistics mind — she planned this conversation three moves ago."}
+			],
+			"choices": [
+				{"text": "Deal. We could use someone who knows the ground.", "next_node": "accept_deal", "affinity_change": {}},
+				{"text": "Protection's expensive. What else are you offering?", "next_node": "negotiate_terms", "affinity_change": {}}
+			],
+			"next_node": "accept_deal"
+		},
+		"accept_deal": {
+			"lines": [
+				{"speaker": "Zi", "text": "Deal. We could use someone who knows the ground.", "monologue": "Clean trade. No hidden costs. I respect that more than I should admit."},
+				{"speaker": "Rynn", "text": "Good. I've got three days of dried provisions and a map with the bad stretches marked. You won't regret this.", "monologue": "She said it like a weather report. Factual. The kind of confidence that comes from always being prepared."},
+				{"speaker": "Zi", "text": "...", "monologue": "She was already walking. I matched her pace without thinking about it. Some people you fall in step with before you decide to."}
+			],
+			"next_node": ""
+		},
+		"negotiate_terms": {
+			"lines": [
+				{"speaker": "Zi", "text": "Protection's expensive. What else are you offering?", "monologue": "Not greed. Due diligence. Three more people to keep fed means the math has to work."},
+				{"speaker": "Rynn", "text": "Fair. I know the water sources for the next sixty kilometers. I know which game trails are still safe and which ones the restless things have claimed. And I carry my own weight — always have.", "monologue": "She listed it like inventory. No salesmanship. Just the contents of what she was worth."},
+				{"speaker": "Suri", "text": "Take the deal, Zi. She's undervaluing herself and she knows it.", "monologue": "Suri smiled at Rynn. One merchant recognizing another."},
+				{"speaker": "Zi", "text": "Deal.", "monologue": "Suri was right. She was worth more than she was asking. People like that are rare enough to keep close."}
 			],
 			"next_node": ""
 		}

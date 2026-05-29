@@ -23,8 +23,8 @@
 				{"speaker": "Rynn", "text": "I've packed for three days of hard travel. Four if we ration. The route back to Naevoria is still clear but it won't be for long."},
 				{"speaker": "Zi", "text": "...", "monologue": "They're all looking at me. Not because I have an answer. Because I'm the one who starts walking."},
 				{"speaker": "Narrator", "text": "Zi stands and begins checking her pack.", "choices": [
-					{"text": "We go back to the ruins.", "next": "agree"},
-					{"text": "I'm not sure this is something we can fix.", "next": "doubt"}
+					{"text": "We go back to the ruins.", "next_node":"agree"},
+					{"text": "I'm not sure this is something we can fix.", "next_node":"doubt"}
 				]}
 			],
 			"next_node": ""

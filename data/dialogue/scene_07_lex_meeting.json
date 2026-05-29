@@ -40,9 +40,27 @@
 			"lines": [
 				{"speaker": "Lex", "text": "I've been working alone for seven months. It's not sustainable and my notes are getting circular. If you're traveling and encountering old places, I'd like to come along."},
 				{"speaker": "Zi", "text": "We attract trouble."},
-				{"speaker": "Lex", "text": "I know. I found your campfire ash from two nights ago. You also attract attention from the kind of places I want to study. It's a reasonable exchange.", "monologue": "He's already packing his notebooks. Organized. Methodical. He decided three sentences ago and spent the rest of the time being polite about it."},
-				{"speaker": "Zi", "text": "Welcome aboard, then."},
-				{"speaker": "Lex", "text": "Thank you. Please don't step on the grid on your way out."}
+				{"speaker": "Lex", "text": "I know. I found your campfire ash from two nights ago. You also attract attention from the kind of places I want to study. It's a reasonable exchange.", "monologue": "He's already packing his notebooks. Organized. Methodical. He decided three sentences ago and spent the rest of the time being polite about it."}
+			],
+			"choices": [
+				{"text": "Welcome aboard, then.", "next_node": "joins_welcome", "affinity_change": {}},
+				{"text": "Another person to feed. Another person to protect.", "next_node": "joins_concern", "affinity_change": {}}
+			],
+			"next_node": "joins_welcome"
+		},
+		"joins_welcome": {
+			"lines": [
+				{"speaker": "Zi", "text": "Welcome aboard, then.", "monologue": "He knows things we need to know. And he's survived alone here for seven months. That's not nothing."},
+				{"speaker": "Lex", "text": "Thank you. Please don't step on the grid on your way out.", "monologue": "He said it like someone who has just been given something he didn't expect and is covering the weight of it with manners."}
+			],
+			"next_node": ""
+		},
+		"joins_concern": {
+			"lines": [
+				{"speaker": "Zi", "text": "Another person to feed. Another person to protect.", "monologue": "I said it aloud so it would sound as small as it was. The real objection — that I'm collecting people I'll have to keep alive — I kept to myself.", "lens": "Current provisions: twelve days at four. Nine days at five. Manageable. Barely."},
+				{"speaker": "Lex", "text": "I forage. I cook, passably. And I don't need protecting — I need company. There's a difference.", "monologue": "He didn't look hurt. He looked like someone who has had to justify his own usefulness before and has made peace with the exercise."},
+				{"speaker": "Rynn", "text": "Take him, Zi. Anyone who survives seven months alone in ruins and his biggest complaint is circular notes — that's someone worth having.", "monologue": "She'd already made room in the walking order. Logistics mind. Always three steps ahead."},
+				{"speaker": "Zi", "text": "Fine. But watch the grid on your way out."}
 			],
 			"next_node": ""
 		}

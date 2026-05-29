@@ -22,8 +22,27 @@
 			"lines": [
 				{"speaker": "Lex", "text": "...", "monologue": "He was crying. Not from sadness. From the weight of understanding a thing so large it pressed on every thought he'd ever had about the people who built these places. They knew. They always knew."},
 				{"speaker": "Rynn", "text": "Does it hurt? Being what you are?", "monologue": "She asked it practically. The way you ask someone if a wound needs treatment."},
-				{"speaker": "Caelan", "text": "Not the being. The forgetting. But I think I chose that too."},
-				{"speaker": "Zi", "text": "...", "monologue": "She took his hand. She didn't say anything. There was nothing tactical about it. Nothing geometric. Just one person holding the hand of another person who was also something impossibly large, and choosing to be here anyway."}
+				{"speaker": "Caelan", "text": "Not the being. The forgetting. But I think I chose that too."}
+			],
+			"choices": [
+				{"text": "What does this mean for us? Tactically.", "next_node": "response_tactical", "affinity_change": {}},
+				{"text": "Take his hand. Say nothing.", "next_node": "response_emotional", "affinity_change": {}}
+			],
+			"next_node": "response_emotional"
+		},
+		"response_tactical": {
+			"lines": [
+				{"speaker": "Zi", "text": "What does this mean for us? For what's coming?", "lens": "He's a threshold. The distortion zones are thresholds. The angels move through thresholds. If he's connected to all of it, he's either our best weapon or our biggest liability. I need to know which.", "monologue": "I hated the question as I asked it. He just told us what he is and my first instinct is to calculate his operational value. But someone has to think this way. Someone always has to think this way."},
+				{"speaker": "Caelan", "text": "I don't know yet. I can feel the sealed places. I think I can open them. Or close them. I'm not sure which one I'm supposed to do.", "monologue": "He didn't flinch at the question. He understood why she asked it. That was the part that hurt — not that she needed tactics, but that he could see she needed them to keep breathing."},
+				{"speaker": "Zi", "text": "...", "monologue": "Then she took his hand. After the question. Not instead of it. Because she could be both things — the person who calculates and the person who stays. She had to be."}
+			],
+			"next_node": ""
+		},
+		"response_emotional": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "She took his hand. She didn't say anything. There was nothing tactical about it. Nothing geometric. Just one person holding the hand of another person who was also something impossibly large, and choosing to be here anyway."},
+				{"speaker": "Caelan", "text": "...", "monologue": "Her hand was small and calloused and warm. He could feel the pulse in her wrist. Human. Finite. Certain. Everything he wasn't sure he was anymore."},
+				{"speaker": "Zi", "text": "You chose to be small. You chose hands and a name and forgetting. That's not nothing, Caelan. That's everything.", "monologue": "I meant it. Whatever he was before — vast, ancient, incomprehensible — he walked away from it. To be here. To be confused and hurt and afraid. That takes more courage than anything I've ever calculated."}
 			],
 			"next_node": ""
 		}

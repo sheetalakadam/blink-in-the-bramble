@@ -43,6 +43,26 @@
 				{"speaker": "Lex", "text": "This isn't ruins being corrupted. This is the corruption using the ruins as a starting point and growing outward. The infrastructure — roads, trade, agriculture — it's all downstream of the same cause."},
 				{"speaker": "Rynn", "text": "Then we need to understand the cause. Because the effect is going to reach everywhere eventually.", "monologue": "She folded the map. Not carefully — urgently. The first time any of them had seen her handle her supplies with anything other than precision."}
 			],
+			"choices": [
+				{"text": "People first. Help Solenne survive the week.", "next_node": "help_people", "affinity_change": {}},
+				{"text": "The source. If we don't stop it, helping here just delays the collapse.", "next_node": "investigate_cause", "affinity_change": {}}
+			],
+			"next_node": "help_people"
+		},
+		"help_people": {
+			"lines": [
+				{"speaker": "Zi", "text": "People first. Solenne needs supply lines reopened before we chase the cause.", "lens": "Immediate threat: starvation timeline is seven days. Investigation timeline: unknown. Triage says address the certain harm before the uncertain one.", "monologue": "I can't save everyone from something I don't understand yet. But I can keep people fed for another week. That's enough. It has to be enough."},
+				{"speaker": "Rynn", "text": "I can reroute through the southern pass. It adds two days to the grain run but it avoids the dead zone entirely.", "monologue": "She was already unfolding the map again. The urgency was still there, but it had a shape now. A problem she could solve with rope and distance and knowing which trails were still good."},
+				{"speaker": "Suri", "text": "I'll talk to Dalla. If we can get even partial shipments moving, the market stabilizes enough to buy time.", "monologue": "Time. That was the real currency here. Not grain, not coin. Time before the thing none of them understood finished rewriting the ground beneath them."}
+			],
+			"next_node": ""
+		},
+		"investigate_cause": {
+			"lines": [
+				{"speaker": "Zi", "text": "The source. If we don't stop whatever's causing this, Solenne starves anyway — just slower.", "lens": "Strategic assessment: treating symptoms extends the timeline but doesn't change the outcome. The dead zone is expanding. Every day we spend on relief, the problem grows.", "monologue": "It's the harder call. People will go hungry while we chase something we can't name. But the alternative is coming back to a town that's already gone."},
+				{"speaker": "Rynn", "text": "Then we move fast. I'll leave supply notes with Dalla — alternate routes, cache locations, contingency stores. It's not a solution but it's a bandage.", "monologue": "She didn't argue. She prepared. That's how Rynn disagrees — by making sure the plan she doesn't love still has the best chance of working."},
+				{"speaker": "Caelan", "text": "I can feel where it's strongest. East. Whatever's there, it's not hiding.", "monologue": "He said it quietly. The ground under his feet hummed and he listened to it the way you listen to someone telling you something they need you to hear."}
+			],
 			"next_node": ""
 		}
 	}
