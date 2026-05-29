@@ -1,0 +1,46 @@
+{
+	"id": "side_rynn_delivery_complete",
+	"start_node": "arrival",
+	"nodes": {
+		"arrival": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "The cottage sat at the edge of the village like it had grown there. Stone walls, salt-weathered. Nets drying on hooks. A garden that was more practical than beautiful — root vegetables, herbs, nothing decorative.", "lens": "Woman in the doorway. Seventies, maybe older. Hands that have done real work for decades. She saw Rynn and didn't smile. Just opened the door wider."},
+				{"speaker": "Rynn", "text": "Nessa. Three crates. Fish and fruit. All good."},
+				{"speaker": "Nessa", "text": "You're late."},
+				{"speaker": "Rynn", "text": "Route closures. Had to go through Drennan."},
+				{"speaker": "Nessa", "text": "Drennan. With these?", "monologue": "She looked at the party the way you look at something that doesn't fit in your kitchen."},
+				{"speaker": "Rynn", "text": "With these."}
+			],
+			"next_node": "the_meal"
+		},
+		"the_meal": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Nessa didn't say thank you. She didn't say come in. She turned around and started cooking. The door stayed open. That was the invitation.", "lens": "The kitchen: organized the way Rynn's supply packs are organized. Everything in reach. Nothing wasted. These two learned from the same school of thought, or one learned from the other."},
+				{"speaker": "Suri", "text": "...", "monologue": "Fish stew. Fresh bread — Nessa baked this morning, before she knew they were coming. Or maybe she did know. Roasted root vegetables with salt and an herb Suri couldn't name. Simple. Perfect. The kind of food that makes you realize you've been hungry for weeks, not hours."},
+				{"speaker": "Lex", "text": "This is the best thing I've eaten since I left the university.", "monologue": "He said it without thinking. Then looked embarrassed. Then ate more. The embarrassment lost."},
+				{"speaker": "Caelan", "text": "...", "monologue": "He ate slowly. Tasting everything. The salt. The heat. The texture of bread that someone made with their hands that morning. Each sensation a small proof of being here."}
+			],
+			"next_node": "prices"
+		},
+		"prices": {
+			"lines": [
+				{"speaker": "Nessa", "text": "Price of salt is up again."},
+				{"speaker": "Rynn", "text": "I know. I'm holding stock. Should stabilize when the eastern pass reopens."},
+				{"speaker": "Nessa", "text": "If it reopens."},
+				{"speaker": "Rynn", "text": "It'll reopen.", "monologue": "She didn't know that. She said it because Nessa needed to hear it. Because Nessa fed a village and the village needed salt and someone had to say the supply would hold even when nobody knew if it would."},
+				{"speaker": "Nessa", "text": "The Holt family. Fourth house from the pier. The father's been out of work since the boats stopped running the northern route. Three months.", "monologue": "She said it the way she'd say the weather. Flat. Factual. But she ladled an extra portion into a clay pot and set it by the door."},
+				{"speaker": "Rynn", "text": "I'll drop it off."},
+				{"speaker": "Nessa", "text": "You'll stay for seconds first.", "monologue": "Not a request. Rynn sat. She knew better than to argue with someone who expressed love exclusively through feeding people."}
+			],
+			"next_node": "leaving"
+		},
+		"leaving": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Nessa didn't walk them out. She stood at the stove washing the pot. Rynn left the clay pot at the Holt house without knocking. Just set it on the step and kept walking.", "lens": "Rynn's pack is lighter. Not just because of the crates. Something in the way she's carrying herself. A task completed. A line in her private ledger settled."},
+				{"speaker": "Suri", "text": "She never said thank you."},
+				{"speaker": "Rynn", "text": "She cooked.", "monologue": "That was all she said. It was enough. It was more than enough."}
+			],
+			"next_node": ""
+		}
+	}
+}

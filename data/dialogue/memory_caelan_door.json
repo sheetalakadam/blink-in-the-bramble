@@ -1,0 +1,20 @@
+{
+	"id": "memory_caelan_door",
+	"start_node": "the_threshold",
+	"nodes": {
+		"the_threshold": {
+			"lines": [
+				{"speaker": "Caelan", "text": "...", "monologue": "Not a door. A place where the rules changed. On one side: everything, all at once, without sequence, without ending. On the other side: one thing at a time, in order, with an end. He stood at the boundary and felt both."},
+				{"speaker": "Caelan", "text": "...", "monologue": "He chose. He didn't remember why. The reason was on the other side of the threshold, in the larger place, where reasons were too big to carry through the opening. What came through was the choosing itself. The muscle memory of deciding. Yes. This. The small world. The one where things happen one at a time."}
+			],
+			"next_node": "after"
+		},
+		"after": {
+			"lines": [
+				{"speaker": "Caelan", "text": "...", "monologue": "Stepping through was like closing a fist. Everything that had been open — infinite, directionless, boundless — compressed into fingers, joints, a palm. Specific. Limited. Complete."},
+				{"speaker": "Caelan", "text": "...", "monologue": "He didn't remember why he chose to be small. But he remembered the feeling of choosing. It felt like relief."}
+			],
+			"next_node": ""
+		}
+	}
+}

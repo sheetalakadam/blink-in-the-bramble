@@ -1,0 +1,35 @@
+{
+	"id": "side_lex_records_found",
+	"start_node": "the_wall",
+	"nodes": {
+		"the_wall": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "The inscription was behind a load-bearing column in the lowest level. Not hidden — placed. The way you place something where only someone looking for it would find it.", "lens": "The stonework around the inscription is different. Newer by decades. Someone opened this wall, placed records inside, sealed it, and then carved the inscription over the seal. Workmanship is excellent. This took time and care."},
+				{"speaker": "Lex", "text": "This is it. The final marker. The records are behind this wall.", "monologue": "His voice was steady. His hands were not. He pressed his palm flat against the inscription and read it with his fingers and his eyes at the same time, the way he always did with texts that mattered."},
+				{"speaker": "Rynn", "text": "I can open it. The mortar's old enough to chisel without damaging the inscription if I'm careful.", "monologue": "She was already taking tools from her pack. She was always already doing the next thing."},
+				{"speaker": "Lex", "text": "Please. Carefully."}
+			],
+			"next_node": "the_records"
+		},
+		"the_records": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Rynn worked for twenty minutes. Nobody spoke. The mortar came away in clean pieces. Behind it: a cavity in the wall, dry and dark. Inside: twenty-two scrolls in sealed cases. Lex's hands didn't shake when he opened the first one. He went very still instead. The opposite of shaking.", "lens": "Lex's breathing has changed. Slow. Controlled. The way someone breathes when they're reading something that rearranges what they know."},
+				{"speaker": "Suri", "text": "Lex?"},
+				{"speaker": "Lex", "text": "...", "monologue": "He read. He read for a long time. The scroll was written in the same notation system as the catalogue, but clearer. More personal. Not a record. A testimony. Someone had met what Caelan is. Met one, observed, documented. With the precision of a scholar and the tenderness of someone who was afraid for their subject."},
+				{"speaker": "Lex", "text": "They knew.", "monologue": "His voice was very quiet. The quietest it had ever been."}
+			],
+			"next_node": "what_they_say"
+		},
+		"what_they_say": {
+			"lines": [
+				{"speaker": "Lex", "text": "An archivist. Three hundred years ago. She documented a threshold crossing. Not theoretically. She witnessed one. A being that chose to step from one state of existence into another. From vast to small. From boundless to — to a body. Hands and breath and a name that wasn't its name.", "monologue": "He was reading directly from the scroll now. Translating in real time. His voice held the particular steadiness of someone refusing to break."},
+				{"speaker": "Lex", "text": "She wrote: 'It chose limitation the way a river chooses a channel. Not to be less. To be specific.'"},
+				{"speaker": "Caelan", "text": "...", "monologue": "He didn't react. Not visibly. But his hands closed. Not fists. Just closed. The way you hold something you've been given that you didn't know you were missing."},
+				{"speaker": "Lex", "text": "She sealed the records because the political authorities wanted to use what she'd found. She hid them to protect — to protect what had come through. What had chosen to be here.", "monologue": "He closed the scroll. Set it down with the care of someone handling a living thing. Took off his glasses. Cleaned them on his shirt. Put them back on. Didn't look at anyone."},
+				{"speaker": "Rynn", "text": "...", "monologue": "She put her hand on Lex's shoulder. Brief. The kind of touch that says I see what this costs you. Then she stepped back and started carefully repacking the other scrolls for transport."},
+				{"speaker": "Zi", "text": "...", "monologue": "Lex wept. Not dramatically. Not loudly. The way rain falls on stone — quietly, with weight. Nobody told him to stop. Nobody told him it was okay. They just stayed in the room with him while he held three hundred years of someone's courage in his hands."}
+			],
+			"next_node": ""
+		}
+	}
+}

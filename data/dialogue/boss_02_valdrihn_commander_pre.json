@@ -1,0 +1,34 @@
+{
+	"id": "boss_02_valdrihn_commander_pre",
+	"start_node": "checkpoint",
+	"nodes": {
+		"checkpoint": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Soldiers. Eight of them. Standard Valdrihn border patrol formation — except they're forty miles inside Velundrath territory. That's not a patrol. That's an occupation.", "lens": "Commander in front. Field rank insignia, third division. Equipment well-maintained but mismatched — supply chain issues. The soldiers are tired. They've been here too long for a rotation. These are people who were told to hold a position and then forgotten about by whoever gave the order."},
+				{"speaker": "Commander Edris", "text": "Road is closed. Turn around.", "monologue": "He said it without hostility. The way you say something you've said two hundred times. An order that stopped meaning anything to him weeks ago but still has to be said."},
+				{"speaker": "Zi", "text": "On whose authority?"},
+				{"speaker": "Commander Edris", "text": "Valdrihn border command. Distortion containment protocol.", "monologue": "He looked at Zi when he said it. Then looked again. Something in the way she stood."}
+			],
+			"next_node": "recognition"
+		},
+		"recognition": {
+			"lines": [
+				{"speaker": "Commander Edris", "text": "You're military.", "monologue": "Not a question. He recognized the posture. The weight distribution. The way her eyes had already counted his soldiers and mapped the terrain."},
+				{"speaker": "Zi", "text": "Was.", "lens": "He knows. The way I'm standing, the way I assessed his unit before he finished his first sentence. He's doing the same thing to me. Two people reading the same language on each other's bodies."},
+				{"speaker": "Commander Edris", "text": "Valdrihn?"},
+				{"speaker": "Zi", "text": "Does it matter?"},
+				{"speaker": "Commander Edris", "text": "It matters to me. I've been holding a checkpoint on a road nobody uses based on orders that stopped making sense three weeks ago. If you're Valdrihn-trained, you know what that feels like.", "monologue": "He was tired. Not the kind of tired that sleep fixes. The kind that comes from doing a job you no longer believe in because nobody has told you to stop."}
+			],
+			"next_node": "standoff"
+		},
+		"standoff": {
+			"lines": [
+				{"speaker": "Zi", "text": "Let us through. We're not a threat to your containment.", "lens": "His soldiers don't want to fight. Three of them have their hands away from their weapons. The two in the back are looking at their commander, not at us. They'll follow his lead. The question is which direction he leads."},
+				{"speaker": "Commander Edris", "text": "I can't. Orders are orders. Even the ones that don't make sense, you follow until someone with rank tells you to stop.", "monologue": "He meant it. That was the worst part. He was a good soldier. Good soldiers follow orders. Good soldiers also recognize when orders are wrong. The space between those two things is where wars happen."},
+				{"speaker": "Zi", "text": "Then we have a problem.", "monologue": "I don't want to fight him. He's not wrong. He's not right either. He's a man standing in a doorway because someone told him to, and I need to get through the door."},
+				{"speaker": "Commander Edris", "text": "We do.", "monologue": "He drew his weapon. Not aggressively. With the resignation of someone completing a form. Procedure. Protocol. The machinery of command grinding forward because no one has turned it off."}
+			],
+			"next_node": ""
+		}
+	}
+}

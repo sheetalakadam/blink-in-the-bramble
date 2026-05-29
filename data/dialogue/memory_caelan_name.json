@@ -1,0 +1,20 @@
+{
+	"id": "memory_caelan_name",
+	"start_node": "the_name",
+	"nodes": {
+		"the_name": {
+			"lines": [
+				{"speaker": "Caelan", "text": "...", "monologue": "He woke up knowing. Not remembering — knowing, the way you know which hand is yours. The name wasn't his. Had never been his. Whatever he was before, it didn't have a name. It didn't need one. Names are for things that can be lost."},
+				{"speaker": "Caelan", "text": "...", "monologue": "Zi gave it to him. In the ruins, when he couldn't answer the question 'What's your name?' She looked at him and said 'Caelan, then. Until you remember.' Like she was lending him a coat. Temporary. Practical. Warm."}
+			],
+			"next_node": "keeping_it"
+		},
+		"keeping_it": {
+			"lines": [
+				{"speaker": "Caelan", "text": "...", "monologue": "He wanted to keep it. Not because it was right. Because it was given. The first thing anyone in this life had given him without asking what he was first. She didn't know what he was. She named him anyway."},
+				{"speaker": "Caelan", "text": "...", "monologue": "Before the name, he was everything. After the name, he was someone. The difference was the difference between the ocean and a glass of water. The glass was smaller. The glass was his."}
+			],
+			"next_node": ""
+		}
+	}
+}

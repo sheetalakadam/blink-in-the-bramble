@@ -1,0 +1,36 @@
+{
+	"id": "side_lex_records_start",
+	"start_node": "discovery",
+	"nodes": {
+		"discovery": {
+			"lines": [
+				{"speaker": "Lex", "text": "...", "monologue": "The catalogue index was wrong. Not damaged — wrong. Entries 4,071 through 4,093 were listed but their shelf references pointed to locations that didn't exist. Not missing. Never built. Someone catalogued records and then removed them before the shelves were constructed."},
+				{"speaker": "Lex", "text": "Twenty-two entries. Removed before the archive was finished. Not after. Before.", "monologue": "His hands were shaking. Not with fear. With the particular tremor of finding a seam in something everyone else thought was solid."},
+				{"speaker": "Zi", "text": "Removed by who?", "lens": "Lex's pupils are dilated. Breathing rapid but controlled. This isn't panic. This is what excitement looks like on someone who's spent his life in archives."},
+				{"speaker": "Lex", "text": "By the archivists who built this place. They catalogued the records, assigned them indices, and then deliberately hid them. The catalogue still lists the titles. They wanted someone to know the records existed. They just didn't want anyone to find them easily."}
+			],
+			"next_node": "the_titles"
+		},
+		"the_titles": {
+			"lines": [
+				{"speaker": "Suri", "text": "What are the titles?"},
+				{"speaker": "Lex", "text": "I can only read fragments. The index uses an older notation system. But several entries reference threshold events. Documented encounters with — with entities that crossed between states of being.", "monologue": "He didn't look at Caelan when he said it. He was careful about that. Deliberate."},
+				{"speaker": "Caelan", "text": "Entities like me.", "monologue": "He said it simply. Without weight. Like identifying himself in a census."},
+				{"speaker": "Lex", "text": "...", "monologue": "He looked at Caelan then. Not as a subject. As a person whose history might be written in a wall somewhere in this building."},
+				{"speaker": "Lex", "text": "Maybe. I need to find where they put them. The archivists who hid these records did it deliberately and carefully. They left enough trail to follow but not enough to follow quickly."},
+				{"speaker": "Rynn", "text": "How long?"},
+				{"speaker": "Lex", "text": "I don't know. The reference system uses spatial markers — inscriptions that correspond to physical locations in the building. I need to find the first marker."}
+			],
+			"next_node": "commitment"
+		},
+		"commitment": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "He needs this. Not wants — needs. The way he needs to catalogue things, to record, to understand. This is the same instinct that makes him carry nine notebooks. Except this time the thing he's trying to understand might understand him back.", "lens": "The archive is structurally sound. No signs of corruption this deep. We can spare the time."},
+				{"speaker": "Zi", "text": "We'll help you look."},
+				{"speaker": "Lex", "text": "You don't have to."},
+				{"speaker": "Zi", "text": "I know.", "monologue": "Same words Caelan said to me once. Different weight. Same meaning: I'm here because I chose to be."}
+			],
+			"next_node": ""
+		}
+	}
+}

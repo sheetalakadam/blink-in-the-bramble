@@ -1,0 +1,48 @@
+{
+	"id": "scene_09b_between_cities",
+	"start_node": "walking",
+	"nodes": {
+		"walking": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Third hour of walking. Nobody's talking. The road surface changed a mile back — maintained stone to packed dirt. We crossed the boundary of someone's budget.", "lens": "Rynn is drawing in her notebook as she walks. Not writing. Drawing lines. Roads. She's been doing it since Velundrath."},
+				{"speaker": "Suri", "text": "There's a baker in Solenné. Maret. She makes this flatbread with rosemary that she grows on her windowsill because she can't afford the market price for it anymore."},
+				{"speaker": "Zi", "text": "Okay."},
+				{"speaker": "Suri", "text": "She has three kids. The youngest one helps with the oven because the older two started apprenticeships in Velundrath. Started. Past tense.", "monologue": "She wasn't telling a sad story. She was stating an inventory."}
+			],
+			"next_node": "trade_collapse"
+		},
+		"trade_collapse": {
+			"lines": [
+				{"speaker": "Suri", "text": "When the trade routes closed, Velundrath recalled apprentices to reduce costs. Both of Maret's older kids came back. Now she's feeding five people on a bakery that lost its flour supplier."},
+				{"speaker": "Rynn", "text": "Supplier out of Velundrath?"},
+				{"speaker": "Suri", "text": "Out of the eastern mills. Route goes through the distortion zone now. Nobody runs it."},
+				{"speaker": "Rynn", "text": "...", "monologue": "She drew another line in her notebook. Then crossed it out. Then drew a different one that went further south, through the hill passes. Longer. Slower. Possible."},
+				{"speaker": "Rynn", "text": "There's a hill pass. Adds two days to the run. But it's clear."},
+				{"speaker": "Suri", "text": "Two days of extra transport costs on every sack of flour. You know what that does to bread price?"},
+				{"speaker": "Rynn", "text": "I know what it does to bread price."}
+			],
+			"next_node": "caelan_headache"
+		},
+		"caelan_headache": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Caelan pressed his hand against his temple. Third time today.", "lens": "Pattern: the headaches started at the Velundrath gate. Frequency increasing. Intervals shortening — every two hours, then ninety minutes, now just over an hour. Correlates with proximity to the distortion zone."},
+				{"speaker": "Zi", "text": "Caelan. Water."},
+				{"speaker": "Caelan", "text": "I'm fine."},
+				{"speaker": "Zi", "text": "That wasn't a question.", "monologue": "He took the water. He didn't drink it. He held it against his forehead. The cool of the leather flask against skin. After a moment, his hand steadied."},
+				{"speaker": "Lex", "text": "How close are we to the zone boundary?"},
+				{"speaker": "Zi", "text": "Why?", "lens": "I already know why. He's noticed the same pattern I have. The headaches are a compass."},
+				{"speaker": "Lex", "text": "Just wondering.", "monologue": "He wasn't just wondering. He was looking at Caelan the way he looked at inscriptions. With the careful attention of someone who knows the text is important but can't read it yet."}
+			],
+			"next_node": "rynn_mapping"
+		},
+		"rynn_mapping": {
+			"lines": [
+				{"speaker": "Rynn", "text": "I've got three alternative routes mapped. None of them are good. The southern pass works for trade but it won't get us where we're going.", "monologue": "She showed the notebook to nobody in particular. The lines were clean, precise. She'd marked water sources, shelter points, estimated travel times. All in the margins of what she was already doing."},
+				{"speaker": "Suri", "text": "After we're done with whatever we're doing, I'm taking that map to Maret."},
+				{"speaker": "Rynn", "text": "I'll make you a clean copy."},
+				{"speaker": "Suri", "text": "...", "monologue": "She didn't say thank you. She adjusted Rynn's pack strap, which had been sliding for the last half mile. Rynn hadn't mentioned it. Suri hadn't asked."}
+			],
+			"next_node": ""
+		}
+	}
+}

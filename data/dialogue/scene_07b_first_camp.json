@@ -1,0 +1,55 @@
+{
+	"id": "scene_07b_first_camp",
+	"start_node": "settling_in",
+	"nodes": {
+		"settling_in": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Five people. One wolf. One fire. Nobody knows where to sit.", "lens": "Rynn has already divided the clearing into zones without saying anything. Bedrolls here. Fire there. Supply packs against the rock face where moisture won't reach them. She's good."},
+				{"speaker": "Rynn", "text": "Wood goes on the left. Wet wood on the right. If you don't know which is which, ask.", "monologue": "She said it to no one in particular. She said it to everyone."},
+				{"speaker": "Suri", "text": "She's been organizing for four minutes. I've been counting."},
+				{"speaker": "Rynn", "text": "You could help instead of counting."},
+				{"speaker": "Suri", "text": "Counting is helping. Someone has to audit.", "monologue": "She's already unpacking dried fruit and flatbread. Enough for six. She packed for six before she knew there would be five."}
+			],
+			"next_node": "lex_notebooks"
+		},
+		"lex_notebooks": {
+			"lines": [
+				{"speaker": "Lex", "text": "Sorry. Sorry about — the notebooks. They spread.", "monologue": "Three notebooks open around his bedroll already. A fourth tucked under his knee. Charcoal sticks in a pattern only he understands."},
+				{"speaker": "Zi", "text": "You've been here ten minutes.", "lens": "Seven notebooks visible. Two more in his pack based on the weight distribution. He carries more paper than water."},
+				{"speaker": "Lex", "text": "I know. They do this. I've tried — it doesn't matter. They spread."},
+				{"speaker": "Suri", "text": "Is that a drawing of the gate we passed?"},
+				{"speaker": "Lex", "text": "The inscription above it. The third glyph from the left is from a system I've never seen. That's — that doesn't happen to me. I've catalogued every known glyph system in the northern provinces.", "monologue": "He looked up. The excitement in his face was the first unguarded thing any of them had seen from him."},
+				{"speaker": "Suri", "text": "So you're having a good day.", "monologue": "She said it gently. Like she understood that for some people, a new alphabet was the equivalent of a sunrise."}
+			],
+			"next_node": "food_distribution"
+		},
+		"food_distribution": {
+			"lines": [
+				{"speaker": "Suri", "text": "Eat. All of you. I rationed for three days at this pace, four if we skip midday meals, which we shouldn't.", "monologue": "She handed food around in an order that seemed random but wasn't. Rynn first, because Rynn wouldn't eat until everyone else did, so you had to trick her into going first."},
+				{"speaker": "Rynn", "text": "I already ate."},
+				{"speaker": "Suri", "text": "You ate a strip of jerky while setting up the perimeter. That's not eating, that's maintenance."},
+				{"speaker": "Rynn", "text": "...", "monologue": "She took the bread. She didn't argue. She knew the difference between someone being pushy and someone paying attention."},
+				{"speaker": "Zi", "text": "I'll take first watch.", "lens": "High ground to the north, treeline provides cover from the east. Only approach is the path we came in on. Defensible enough."},
+				{"speaker": "Suri", "text": "Of course you will."}
+			],
+			"next_node": "caelan_apart"
+		},
+		"caelan_apart": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Caelan is at the edge of the firelight. Close enough to see. Far enough to not be part of it. Vyn got up from beside me and walked to him without hesitation.", "lens": "Vyn's body language: not protective. Companionable. She lay down next to him with her back against his leg. Chose him over the warmth of the fire."},
+				{"speaker": "Caelan", "text": "...", "monologue": "The wolf's weight against his leg. Warm. Real. He put his hand on her back and felt her breathing. Slow. Certain. She wasn't worried about anything."},
+				{"speaker": "Lex", "text": "Does the wolf always do that?"},
+				{"speaker": "Zi", "text": "Vyn goes where she wants."},
+				{"speaker": "Rynn", "text": "Smart wolf.", "monologue": "She said it quietly, banking the fire. She'd already noticed Caelan sitting alone. She'd noticed and decided not to fix it. Some distances are chosen."}
+			],
+			"next_node": "settling"
+		},
+		"settling": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "The fire settled. Suri fell asleep mid-sentence, which Lex said was a talent. Rynn checked the perimeter once more and then lay down with her pack under her head, boots still on. Lex's pen scratched for another hour before it stopped.", "lens": "Five people breathing at different rhythms. One wolf. One fire going to coals. The clearing held them the way a cupped hand holds water. Loosely. For now."},
+				{"speaker": "Caelan", "text": "...", "monologue": "He didn't sleep. But he stayed. He listened to the sound of other people being alive near him, and he didn't move away from it."}
+			],
+			"next_node": ""
+		}
+	}
+}
