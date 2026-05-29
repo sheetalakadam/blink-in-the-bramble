@@ -1,0 +1,34 @@
+GIMP Palette
+Name: Blink in the Bramble
+Columns: 4
+#
+ 15  12  20	bg_dark
+ 30  25  40	bg_mid
+ 35  55  35	grass
+ 50  75  45	grass_light
+ 60  55  65	stone
+ 85  80  90	stone_light
+ 25  40  70	water
+ 40  60  95	water_light
+ 75  65  45	sand
+ 55  35  25	wood
+ 50  15  35	corruption
+ 80  70 120	threshold
+ 70  85 110	zi_body
+120 140 170	zi_accent
+ 40  35  50	zi_hair
+ 90  75 120	caelan_body
+140 120 180	caelan_accent
+ 60  50  80	caelan_hair
+110  80  55	suri_body
+160 120  80	suri_accent
+ 45  30  20	suri_hair
+ 55  80  55	rynn_body
+ 85 120  75	rynn_accent
+ 35  50  30	rynn_hair
+ 80  80  95	lex_body
+120 115 140	lex_accent
+ 55  55  65	lex_hair
+ 70  65  60	vyn_body
+100  95  85	vyn_accent
+ 50  45  40	vyn_hair
