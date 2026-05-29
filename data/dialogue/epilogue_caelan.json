@@ -1,0 +1,50 @@
+{
+	"id": "epilogue_caelan",
+	"start_node": "the_wall",
+	"nodes": {
+		"the_wall": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The chamber where the threshold used to be. The walls are just walls now — stone and moss and the slow work of water finding its way down."},
+				{"speaker": "Caelan", "text": "...", "monologue": "I put my hand on the stone. It's cold. Just cold. There's no hum underneath, no sense of something vast pressing against the other side. It's a wall. It does what walls do."},
+				{"speaker": "Caelan", "text": "...", "monologue": "I wait for something. I don't know what. A flicker. A memory surfacing. The feeling I used to get — like standing at the edge of a cliff, except the cliff was in every direction and I was the edge."},
+				{"speaker": "Caelan", "text": "...", "monologue": "Nothing. Just stone under my palm and moss under my fingers and the sound of dripping water counting out seconds that belong to me now."}
+			],
+			"next_node": "the_smile"
+		},
+		"the_smile": {
+			"lines": [
+				{"speaker": "Caelan", "text": "...", "monologue": "I smile. It surprises me. Not the smiling — I do that now, more than I used to — but the reason for it. I thought I'd feel loss here. I thought I'd stand in this place and grieve for the vastness I gave up. The knowing. The being-between."},
+				{"speaker": "Caelan", "text": "...", "monologue": "Instead I feel the cold of the stone. And that's enough. Cold is specific. Cold is here. Cold is something that happens to a body that chose to have nerve endings."},
+				{"speaker": "Zi", "text": "Do you miss it?", "monologue": "She's standing in the doorway. Of course she is. She followed me. She didn't say she would. She just appeared, the way she does — like she'd always been standing there and I just hadn't looked."}
+			],
+			"next_node": "",
+			"choices": [
+				{"text": "No. (Honest)", "next_node":"answer_no"},
+				{"text": "I miss the knowing. But I'd rather choose.", "next_node":"answer_choose"}
+			]
+		},
+		"answer_no": {
+			"lines": [
+				{"speaker": "Caelan", "text": "No."},
+				{"speaker": "Zi", "text": "...", "lens": "His pulse is steady. His weight is balanced. He's not leaning toward the wall or away from it. He's just standing near a wall.", "monologue": "He's telling the truth. I don't know why that makes my chest tight."},
+				{"speaker": "Caelan", "text": "I thought I would. I came here to see if I would. But it's just a wall.", "monologue": "And I'm just a person standing next to it. That's the whole story."},
+				{"speaker": "Zi", "text": "Good.", "monologue": "I don't say the rest. That I was afraid he'd touch the wall and disappear. That I walked an hour behind him ready to grab his arm. That 'good' is the largest word I can manage right now."},
+				{"speaker": "Caelan", "text": "Zi."},
+				{"speaker": "Zi", "text": "What."},
+				{"speaker": "Caelan", "text": "I'm hungry. Is that a problem for all of us?", "monologue": "She almost laughs. Almost. Her mouth does something that isn't quite a smile but is close enough."},
+				{"speaker": "Zi", "text": "Come on. Rynn left stew."}
+			],
+			"next_node": ""
+		},
+		"answer_choose": {
+			"lines": [
+				{"speaker": "Caelan", "text": "I miss the knowing. When I was between, I could feel everything at once. Every threshold, every edge, every place where one thing became another. It was like seeing the whole map instead of one road.", "monologue": "That's true. He holds it carefully, the way you hold a glass thing that's already broken — not to fix it, just to look at the shape of it."},
+				{"speaker": "Caelan", "text": "But I'd rather choose.", "monologue": "To eat bread. To sleep badly. To not know what's coming next. To have hands that get cold."},
+				{"speaker": "Zi", "text": "...", "lens": "His hand is on the wall. His other hand is at his side. Open. Not reaching for anything. Just available.", "monologue": "I take his hand. The open one. I don't say anything. There's nothing to say that my hand isn't already saying."},
+				{"speaker": "Caelan", "text": "...", "monologue": "Her hand is warm. That's specific. That's here. That's what choosing feels like."},
+				{"speaker": "Zi", "text": "Let's go home.", "monologue": "I said 'home' without thinking. It's not a place. It's a camp with too many people and not enough chairs. But I said it and I meant it."}
+			],
+			"next_node": ""
+		}
+	}
+}

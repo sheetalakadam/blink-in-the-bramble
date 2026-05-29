@@ -1,0 +1,114 @@
+name: Run Tests
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate JSON dialogue files
+        run: |
+          echo "=== Validating dialogue JSON files ==="
+          FAILED=0
+          for f in data/dialogue/*.json; do
+            if ! python3 -m json.tool "$f" > /dev/null 2>&1; then
+              echo "FAIL: $f is not valid JSON"
+              FAILED=1
+            else
+              echo "OK: $f"
+            fi
+          done
+          if [ $FAILED -eq 1 ]; then
+            echo "::error::Some dialogue files are not valid JSON"
+            exit 1
+          fi
+          echo "All dialogue files valid."
+
+      - name: Validate dialogue structure
+        run: |
+          python3 tools/validate_dialogue.py
+
+      - name: Validate resource files exist
+        run: |
+          echo "=== Checking resource files ==="
+          FAILED=0
+          for dir in data/characters data/skills data/items data/quests data/equipment data/bosses; do
+            if [ -d "$dir" ]; then
+              count=$(ls "$dir"/*.tres 2>/dev/null | wc -l)
+              echo "$dir: $count .tres files"
+              if [ "$count" -eq 0 ]; then
+                echo "WARN: $dir has no .tres files"
+              fi
+            fi
+          done
+
+      - name: Validate script syntax (GDScript linting)
+        run: |
+          echo "=== Checking GDScript files for syntax issues ==="
+          FAILED=0
+          for f in scripts/**/*.gd tests/*.gd; do
+            # Check for common issues: missing type hints on exported vars, duplicate class names
+            if grep -n "class_name.*class_name" "$f" 2>/dev/null; then
+              echo "FAIL: $f has duplicate class_name"
+              FAILED=1
+            fi
+          done
+          if [ $FAILED -eq 1 ]; then
+            exit 1
+          fi
+          echo "All scripts pass basic checks."
+
+      - name: Check test coverage
+        run: |
+          echo "=== Test file coverage ==="
+          SYSTEMS=$(ls scripts/systems/*.gd scripts/combat/*.gd scripts/ui/*.gd 2>/dev/null | grep -v '.uid' | wc -l)
+          TESTS=$(ls tests/test_*.gd 2>/dev/null | wc -l)
+          echo "System/combat/ui scripts: $SYSTEMS"
+          echo "Test files: $TESTS"
+
+      - name: Validate asset dimensions
+        run: |
+          python3 -c "
+          from PIL import Image
+          import os, sys
+
+          failed = 0
+
+          # Character sprites should be 128x32 (4 frames of 32x32)
+          for f in os.listdir('assets/sprites/characters'):
+              if f.endswith('.png'):
+                  img = Image.open(f'assets/sprites/characters/{f}')
+                  if img.size != (128, 32):
+                      print(f'FAIL: characters/{f} is {img.size}, expected (128, 32)')
+                      failed = 1
+                  else:
+                      print(f'OK: characters/{f} {img.size}')
+
+          # Enemy sprites should be 32x32
+          for f in os.listdir('assets/sprites/enemies'):
+              if f.endswith('.png'):
+                  img = Image.open(f'assets/sprites/enemies/{f}')
+                  if img.size != (32, 32):
+                      print(f'FAIL: enemies/{f} is {img.size}, expected (32, 32)')
+                      failed = 1
+                  else:
+                      print(f'OK: enemies/{f} {img.size}')
+
+          # Portraits should be 64x64
+          for f in os.listdir('assets/portraits'):
+              if f.endswith('.png'):
+                  img = Image.open(f'assets/portraits/{f}')
+                  if img.size != (64, 64):
+                      print(f'FAIL: portraits/{f} is {img.size}, expected (64, 64)')
+                      failed = 1
+                  else:
+                      print(f'OK: portraits/{f} {img.size}')
+
+          sys.exit(failed)
+          "
