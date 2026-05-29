@@ -12,6 +12,9 @@ var active_region: String = "NONE":
 			active_region = val
 			region_changed.emit(active_region)
 			print("[WorldManager] Region changed to: ", active_region)
+			# Play region BGM if AudioManager is available
+			if get_node_or_null("/root/AudioManager"):
+				AudioManager.play_region_bgm(active_region.to_lower())
 
 @export var chunk_size: Vector2i = Vector2i(64, 64)
 @export var tile_size: int = 32

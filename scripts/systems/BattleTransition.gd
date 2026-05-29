@@ -63,6 +63,12 @@ func start_transition(enemy_node: CharacterBody2D) -> void:
 		_player_position = player.global_position
 
 	transition_started.emit()
+
+	# Store current region BGM and switch to combat music
+	if Engine.has_singleton("AudioManager") or get_node_or_null("/root/AudioManager"):
+		AudioManager.store_region_bgm()
+		AudioManager.play_bgm("combat")
+
 	_fade_to_black()
 
 
@@ -254,6 +260,10 @@ func _load_overworld() -> void:
 	# Fade in
 	var tween = create_tween()
 	tween.tween_property(_overlay, "color:a", 0.0, FADE_DURATION)
+
+	# Restore region BGM after combat
+	if Engine.has_singleton("AudioManager") or get_node_or_null("/root/AudioManager"):
+		AudioManager.restore_region_bgm()
 
 	_is_transitioning = false
 	battle_finished.emit()
