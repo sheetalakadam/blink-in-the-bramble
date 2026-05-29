@@ -165,6 +165,9 @@ func _enemy_turn(entity: Dictionary) -> void:
 	_vyn_passive_intercept(entity, target, damage)
 
 	CombatVFXManager.trigger_screen_shake(3.0, 0.15)
+	# Play hit SFX for enemy attacks
+	if get_node_or_null("/root/AudioManager"):
+		AudioManager.play_sfx("hit")
 	_update_displays()
 
 	if _check_end_conditions():
@@ -387,6 +390,9 @@ func _on_ally_target_selected(target: Dictionary) -> void:
 		var item_res = load(_pending_item_path) as ItemData
 		var item_name = item_res.name if item_res else _pending_item_path
 		_log("%s uses %s on %s!" % [current_entity.name, item_name, target.name])
+		# Play heal SFX for item use on allies
+		if get_node_or_null("/root/AudioManager"):
+			AudioManager.play_sfx("heal")
 	else:
 		_log("Could not use item.")
 	_pending_item_path = ""
@@ -573,6 +579,9 @@ func _execute_attack(attacker: Dictionary, target: Dictionary, skill) -> void:
 					DialogueManager.start_dialogue(boss_data.dialogue_on_phase_change)
 
 	CombatVFXManager.trigger_hit_stop(0.08)
+	# Play hit SFX on damage
+	if get_node_or_null("/root/AudioManager"):
+		AudioManager.play_sfx("hit")
 	_update_displays()
 
 	if not _check_end_conditions():
