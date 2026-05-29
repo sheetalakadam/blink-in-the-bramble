@@ -1,0 +1,41 @@
+{
+	"id": "scene_19_resolution",
+	"start_node": "closing",
+	"nodes": {
+		"closing": {
+			"lines": [
+				{"speaker": "Caelan", "text": "I need to close it. The threshold. That's what I'm for.", "monologue": "He said 'what I'm for' without sadness. Like a door understanding its purpose. Not diminished by it. Defined."},
+				{"speaker": "Zi", "text": "Will it hurt?"},
+				{"speaker": "Caelan", "text": "I don't think so. I think it will feel like remembering.", "monologue": "He looked at each of them. Not goodbye. Just... seeing them. Making sure he'd remember this part. The small part. The human part."}
+			],
+			"next_node": "between"
+		},
+		"between": {
+			"lines": [
+				{"speaker": "Narrator", "text": "Caelan stepped forward and for a moment he was what he had been — vast, between, neither here nor there. The chamber filled with light that was also absence. Every person in the room felt the edges of something too large for perception."},
+				{"speaker": "Narrator", "text": "Then he stepped back."},
+				{"speaker": "Narrator", "text": "He chose to be Caelan again. Small. Named. Forgetting. The threshold sealed behind him like water closing over a stone."},
+				{"speaker": "Rynn", "text": "...", "monologue": "The pressure dropped. The air tasted like air again. Her ears popped, the way they do when you descend from altitude."}
+			],
+			"next_node": "aftermath"
+		},
+		"aftermath": {
+			"lines": [
+				{"speaker": "Lex", "text": "It's not gone. The damage. The corruption that already spread — it's still there.", "monologue": "He was right. What was damaged stayed damaged. But it wasn't growing anymore. The tide had stopped."},
+				{"speaker": "Suri", "text": "Then we rebuild the routes around it. Map what's lost. Start from what's left.", "monologue": "She was already calculating. New routes. New trade lines. The cost of rebuilding versus the cost of starting over. She would choose the one that fed more people."},
+				{"speaker": "Rynn", "text": "I can map the safe paths. It'll take weeks but the forest will tell me where the ground is solid.", "monologue": "She'd already started. In her head she was walking the Ereivyn canopy, reading the bark for signs of health, counting the birds that hadn't come back yet."}
+			],
+			"next_node": "morning"
+		},
+		"morning": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The next morning. The camp. Breakfast."},
+				{"speaker": "Lex", "text": "I'm going to write about what happened. No one will believe it. That's fine. The archivists three hundred years ago stopped writing. I won't.", "monologue": "He opened a new notebook. The first line was: 'This is what happened, as best as one person can describe a thing that is larger than description.'"},
+				{"speaker": "Caelan", "text": "...", "monologue": "He was eating bread. Slowly. Tasting it. He still didn't remember everything. He was okay with that now. Some things are better left as shapes in water."},
+				{"speaker": "Zi", "text": "...", "lens": "He's eating. His hands are steady. His color is good. His breathing is even.", "monologue": "She watched him eat breakfast and didn't say anything. There was nothing to say. He was here. He chose to be here. That was enough."},
+				{"speaker": "Suri", "text": "More bread?", "monologue": "She asked it the way she always did. Offering without being asked. Probably didn't think of it as kindness. It was."}
+			],
+			"next_node": ""
+		}
+	}
+}
