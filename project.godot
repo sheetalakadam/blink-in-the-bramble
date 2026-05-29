@@ -35,6 +35,7 @@ ShrineManager="*res://scripts/systems/ShrineManager.gd"
 InventoryManager="*res://scripts/systems/InventoryManager.gd"
 QuestManager="*res://scripts/systems/QuestManager.gd"
 AudioManager="*res://scripts/systems/AudioManager.gd"
+GameWiring="*res://scripts/systems/GameWiring.gd"
 
 [display]
 

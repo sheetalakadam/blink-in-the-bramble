@@ -9,6 +9,8 @@ script/source = "extends Node2D
 
 func _ready() -> void:
 	print(\"[EreivynPath] Ready\")
+	if not GlobalFlags.get_flag(\"reached_ereivyn\"):
+		GlobalFlags.set_flag(\"reached_ereivyn\", true)
 	_connect_enemies()
 	await get_tree().create_timer(0.5).timeout
 	if not GlobalFlags.get_flag(\"ereivyn_threshold_dialogue_done\"):
