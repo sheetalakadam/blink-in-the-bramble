@@ -17,6 +17,7 @@ var _is_transitioning: bool = false
 const FADE_DURATION: float = 0.5
 const COMBAT_SCENE_PATH: String = "res://scenes/combat/CombatScene.tscn"
 const PARTY_SELECT_SCENE: String = "res://scenes/ui/PartySelectUI.tscn"
+const GAME_OVER_SCENE: String = "res://scenes/ui/GameOverScreen.tscn"
 const VYN_PATH: String = "res://data/characters/vyn.tres"
 const MAX_PARTY_SIZE: int = 4  # Vyn + 3 companions
 
@@ -220,8 +221,30 @@ func _on_victory() -> void:
 
 
 func _on_defeat() -> void:
-	print("[BattleTransition] Defeat...")
-	_fade_to_overworld()
+	print("[BattleTransition] Defeat — showing game over screen")
+	_fade_to_game_over()
+
+
+func _fade_to_game_over() -> void:
+	var tween = create_tween()
+	tween.tween_property(_overlay, "color:a", 1.0, FADE_DURATION)
+	tween.tween_callback(_load_game_over)
+
+
+func _load_game_over() -> void:
+	var tree = get_tree()
+	var old_scene = tree.current_scene
+	tree.root.remove_child(old_scene)
+	old_scene.queue_free()
+
+	var game_over = load(GAME_OVER_SCENE).instantiate()
+	tree.root.add_child(game_over)
+	tree.current_scene = game_over
+
+	# Fade in
+	var tween = create_tween()
+	tween.tween_property(_overlay, "color:a", 0.0, FADE_DURATION)
+	_is_transitioning = false
 
 
 func _fade_to_overworld() -> void:
