@@ -36,12 +36,12 @@
 			],
 			"choices": [
 				{
-					"label": "Tell me when it happens again.",
+					"text": "Tell me when it happens again.",
 					"next_node": "response_practical",
 					"affinity_change": {}
 				},
 				{
-					"label": "Stay quiet. Just be here.",
+					"text": "Stay quiet. Just be here.",
 					"next_node": "response_quiet",
 					"affinity_change": {}
 				}

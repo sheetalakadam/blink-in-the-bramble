@@ -47,12 +47,12 @@
 			],
 			"choices": [
 				{
-					"label": "We go. Now.",
+					"text": "We go. Now.",
 					"next_node": "departure_immediate",
 					"affinity_change": {}
 				},
 				{
-					"label": "Give Caelan one more minute.",
+					"text": "Give Caelan one more minute.",
 					"next_node": "departure_delayed",
 					"affinity_change": {}
 				}

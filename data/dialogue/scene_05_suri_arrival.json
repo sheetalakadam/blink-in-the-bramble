@@ -32,9 +32,27 @@
 			"lines": [
 				{"speaker": "Suri", "text": "I'm heading north anyway. Market dried up here. Too many things with teeth and not enough with coin."},
 				{"speaker": "Zi", "text": "That's not an offer to come with us."},
-				{"speaker": "Suri", "text": "No, it's me telling you my schedule so you can make the offer. You were always bad at asking for things, Zi."},
+				{"speaker": "Suri", "text": "No, it's me telling you my schedule so you can make the offer. You were always bad at asking for things, Zi."}
+			],
+			"choices": [
+				{"text": "Fine. Come with us.", "next_node": "offer_direct", "affinity_change": {}},
+				{"text": "What's in it for you, Suri?", "next_node": "offer_let_play", "affinity_change": {}}
+			],
+			"next_node": "offer_direct"
+		},
+		"offer_direct": {
+			"lines": [
 				{"speaker": "Zi", "text": "Fine. Come with us.", "monologue": "She hasn't changed. She makes you ask for what she was already going to give you."},
-				{"speaker": "Suri", "text": "See? That wasn't hard."}
+				{"speaker": "Suri", "text": "See? That wasn't hard.", "monologue": "She was already repacking. The negotiation was a formality. The decision lived somewhere older than words."},
+				{"speaker": "Zi", "text": "...", "monologue": "It wasn't. That's what bothers me."}
+			],
+			"next_node": ""
+		},
+		"offer_let_play": {
+			"lines": [
+				{"speaker": "Zi", "text": "What's in it for you, Suri? You never walk anywhere without knowing the price.", "monologue": "I know her. She's already calculated every angle of this. I want to hear which one she picks to show me."},
+				{"speaker": "Suri", "text": "Honestly? Traveling alone got expensive. Not coin — the other kind.", "monologue": "She looked away when she said it. The only honest tell she has. The cost she meant was silence. Eating alone. Waking up to no one's breathing but your own."},
+				{"speaker": "Zi", "text": "...", "monologue": "I didn't make her say more. Some prices you recognize because you've paid them yourself."}
 			],
 			"next_node": ""
 		}
