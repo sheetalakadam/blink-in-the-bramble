@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestData" format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/QuestData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+quest_id = "side_01"
+title = "Trading Route"
+description = "Rynn needs to deliver goods to the Velundrath coast. The route has gotten dangerous."
+quest_type = 1
+objectives = [{"id": "reach_coast", "text": "Escort Rynn to Velundrath", "flag": "rynn_reached_velundrath"}, {"id": "deliver", "text": "Complete the delivery", "flag": "rynn_delivery_done"}]
+reward_text = "Rynn's contacts may prove useful later."

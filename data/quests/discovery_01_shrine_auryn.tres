@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestData" format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/QuestData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+quest_id = "discovery_01"
+title = "Auryn's Shrine"
+description = "A place of cold clarity. The god of sight waits for those willing to see."
+quest_type = 2
+objectives = [{"id": "find_shrine", "text": "Discover Auryn's shrine", "flag": "found_shrine_auryn"}, {"id": "offer", "text": "Make an offering", "flag": "offered_shrine_auryn"}]
+reward_text = "Auryn's sight lingers. You see angles you couldn't before."
