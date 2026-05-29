@@ -137,8 +137,13 @@ func _load_battle_scene() -> void:
 	# Reset momentum for fresh battle
 	MomentumSystem.reset()
 
-	# Start combat
-	var enemy_list: Array[Dictionary] = [enemy_combat_data]
+	# Build enemy formation from encounter table or fallback
+	var region: String = _enemy_data.get("region", "")
+	var enemy_list: Array[Dictionary] = []
+	if region != "":
+		enemy_list = EncounterTable.get_encounter(region)
+	else:
+		enemy_list = [enemy_combat_data]
 	combat_scene.start(party_data, enemy_list)
 
 	# Apply god boon if active
