@@ -9,6 +9,8 @@ script/source = "extends Node2D
 
 func _ready() -> void:
 	print(\"[SolenneTrade] Ready\")
+	if not GlobalFlags.get_flag(\"reached_solenne\"):
+		GlobalFlags.set_flag(\"reached_solenne\", true)
 	_connect_enemies()
 	await get_tree().create_timer(0.5).timeout
 	if not GlobalFlags.get_flag(\"solenne_arrival_dialogue_done\"):

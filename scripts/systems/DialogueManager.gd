@@ -2,9 +2,11 @@ extends Node
 
 signal dialogue_started(id: String)
 signal dialogue_ended
+signal dialogue_completed(scene_id: String)
 signal line_presented(line_data: Dictionary)
 
 var current_dialogue: Dictionary = {}
+var current_dialogue_id: String = ""
 var current_node_id: String = ""
 var current_line_index: int = 0
 var is_active: bool = false
@@ -25,6 +27,7 @@ func start_dialogue(dialogue_id: String) -> void:
 		return
 		
 	is_active = true
+	current_dialogue_id = dialogue_id
 	current_node_id = current_dialogue.get("start_node", "")
 	current_line_index = 0
 	print("[DialogueManager] Dialogue loaded, emitting started signal")
@@ -57,6 +60,8 @@ func _handle_node_completion(node: Dictionary) -> void:
 		_present_current_line()
 	else:
 		is_active = false
+		var completed_id := current_dialogue_id
+		dialogue_completed.emit(completed_id)
 		dialogue_ended.emit()
 
 # Convenience for player input
