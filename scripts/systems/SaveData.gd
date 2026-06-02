@@ -9,4 +9,5 @@ class_name SaveData
 @export var affinity_data: Dictionary = {}
 @export var inventory_data: Dictionary = {}
 @export var current_scene_path: String = ""
+@export var defeated_enemies: Array[Dictionary] = []
 @export var timestamp: String = ""

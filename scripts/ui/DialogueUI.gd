@@ -52,6 +52,8 @@ func _on_line_presented(line_data: Dictionary) -> void:
 			portrait_rect.visible = true
 		else:
 			portrait_rect.visible = false
+			if speaker != "":
+				print("[DialogueUI] Portrait not found: %s/%s" % [speaker, portrait_state])
 	else:
 		portrait_rect.visible = false
 

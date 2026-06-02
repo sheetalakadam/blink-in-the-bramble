@@ -165,6 +165,8 @@ func _enemy_turn(entity: Dictionary) -> void:
 	_vyn_passive_intercept(entity, target, damage)
 
 	CombatVFXManager.trigger_screen_shake(3.0, 0.15)
+	CombatVFXManager.show_damage_number(damage, _get_target_screen_pos(target))
+	CombatVFXManager.flash_screen(Color(1, 0.3, 0.3, 0.25), 0.1)
 	# Play hit SFX for enemy attacks
 	if get_node_or_null("/root/AudioManager"):
 		AudioManager.play_sfx("hit")
@@ -199,12 +201,14 @@ func _vyn_turn(entity: Dictionary) -> void:
 	if target.get("defending", false):
 		defense *= 2
 
+	var vyn_total_damage: int = 0
 	match action:
 		"wild_strike":
 			var variance = VynCombatAI.calculate_wild_strike_variance()
 			var raw_damage = base_atk * variance * damage_mult
 			var final_damage = maxi(1, int(raw_damage) - defense)
 			target.hp -= final_damage
+			vyn_total_damage = final_damage
 			MomentumSystem.add_momentum(5.0)
 			_log("[Vyn] Wild Strike! %d damage to %s!" % [final_damage, target.name])
 
@@ -212,17 +216,21 @@ func _vyn_turn(entity: Dictionary) -> void:
 			var raw_damage = base_atk * 0.5 * damage_mult
 			var final_damage = maxi(1, int(raw_damage) - defense)
 			target.hp -= final_damage
+			vyn_total_damage = final_damage
 			StatusEffectSystem.apply_effect(target, "rooted", 2, 0)
 			MomentumSystem.add_momentum(3.0)
 			_log("[Vyn] Root! %s is rooted for 2 turns! %d damage." % [target.name, final_damage])
 
 		"pack_instinct":
-			var raw_damage = base_atk * 0.7 * damage_mult  # Each hit of double-hit
+			var raw_damage = base_atk * 0.7 * damage_mult
 			var hit1 = maxi(1, int(raw_damage) - defense)
 			var hit2 = maxi(1, int(raw_damage) - defense)
 			target.hp -= (hit1 + hit2)
+			vyn_total_damage = hit1 + hit2
 			MomentumSystem.add_momentum(8.0)
 			_log("[Vyn] Pack Instinct! Double hit on %s for %d + %d damage!" % [target.name, hit1, hit2])
+
+	CombatVFXManager.show_damage_number(vyn_total_damage, _get_target_screen_pos(target))
 
 	# Clear attacked_last_turn flags after Vyn acts
 	for enemy in enemies:
@@ -390,6 +398,8 @@ func _on_ally_target_selected(target: Dictionary) -> void:
 		var item_res = load(_pending_item_path) as ItemData
 		var item_name = item_res.name if item_res else _pending_item_path
 		_log("%s uses %s on %s!" % [current_entity.name, item_name, target.name])
+		if item_res and item_res.effect_value > 0:
+			CombatVFXManager.show_damage_number(item_res.effect_value, _get_target_screen_pos(target), true)
 		# Play heal SFX for item use on allies
 		if get_node_or_null("/root/AudioManager"):
 			AudioManager.play_sfx("heal")
@@ -579,6 +589,8 @@ func _execute_attack(attacker: Dictionary, target: Dictionary, skill) -> void:
 					DialogueManager.start_dialogue(boss_data.dialogue_on_phase_change)
 
 	CombatVFXManager.trigger_hit_stop(0.08)
+	CombatVFXManager.show_damage_number(final_damage, _get_target_screen_pos(target))
+	CombatVFXManager.flash_screen(Color(1, 0.2, 0.2, 0.3), 0.1)
 	# Play hit SFX on damage
 	if get_node_or_null("/root/AudioManager"):
 		AudioManager.play_sfx("hit")
@@ -640,15 +652,22 @@ func _pick_enemy_target() -> Dictionary:
 # --- Enemy intent ---
 
 func _telegraph_enemy_intent() -> void:
-	var next_enemies = all_combatants.filter(func(e): return e.get("is_enemy", false) and e.hp > 0)
-	if next_enemies.is_empty():
+	# Find the next enemy in the turn queue
+	var next: Dictionary = {}
+	for i in range(1, CombatManager.turn_queue.size()):
+		var idx = (CombatManager.active_entity_index + i) % CombatManager.turn_queue.size()
+		var entity = CombatManager.turn_queue[idx]
+		if entity.get("is_enemy", false) and entity.get("hp", 0) > 0:
+			next = entity
+			break
+	if next.is_empty():
 		enemy_intent_label.text = ""
 		return
-	var next = next_enemies[0]
 	if next.get("is_boss", false):
 		enemy_intent_label.text = _boss_controller.get_boss_telegraph(next)
 	else:
-		enemy_intent_label.text = "%s: preparing Attack" % next.name
+		var attack_name: String = next.get("_current_attack_name", "Attack")
+		enemy_intent_label.text = "%s: preparing %s" % [next.name, attack_name]
 
 # --- Win/loss ---
 
@@ -785,6 +804,16 @@ func _on_rewards_acknowledged() -> void:
 		_reward_ui.queue_free()
 		_reward_ui = null
 	rewards_acknowledged.emit()
+
+
+## Returns a screen position for floating damage based on combatant index.
+func _get_target_screen_pos(target: Dictionary) -> Vector2:
+	if target.get("is_enemy", false):
+		var idx := enemies.find(target)
+		return Vector2(450 + idx * 60, 120 + idx * 30)
+	else:
+		var idx := party.find(target)
+		return Vector2(100, 120 + idx * 40)
 
 
 func _log(msg: String) -> void:

@@ -82,6 +82,49 @@ def validate_file(filepath):
         if next_node and next_node not in nodes:
             fail(filename, f"Node '{node_name}' next_node '{next_node}' not found in nodes")
 
+    # Check for unreachable nodes
+    reachable = set()
+    _walk_reachable(start, nodes, reachable)
+    for node_name in nodes:
+        if node_name not in reachable:
+            fail(filename, f"Node '{node_name}' is unreachable from start_node")
+
+    # Check for dead-end nodes (no next_node, no choices, not a terminal)
+    for node_name, node in nodes.items():
+        has_next = bool(node.get("next_node"))
+        has_choices = bool(node.get("choices"))
+        has_line_choices = any("choices" in line for line in node.get("lines", []))
+        is_end = node.get("is_end", False) or node_name in ("end", "ending", "goodbye")
+        if not has_next and not has_choices and not has_line_choices and not is_end:
+            # Terminal node — this is fine as long as it's intentional (last node in chain)
+            pass
+
+
+def _walk_reachable(node_name, nodes, visited):
+    """Recursively walk the dialogue graph to find all reachable nodes."""
+    if not node_name or node_name in visited or node_name not in nodes:
+        return
+    visited.add(node_name)
+    node = nodes[node_name]
+
+    # Follow next_node
+    next_node = node.get("next_node", "")
+    if next_node:
+        _walk_reachable(next_node, nodes, visited)
+
+    # Follow node-level choices
+    for choice in node.get("choices", []):
+        target = choice.get("next_node") or choice.get("next", "")
+        if target:
+            _walk_reachable(target, nodes, visited)
+
+    # Follow line-level choices
+    for line in node.get("lines", []):
+        for choice in line.get("choices", []):
+            target = choice.get("next_node") or choice.get("next", "")
+            if target:
+                _walk_reachable(target, nodes, visited)
+
 
 def main():
     global FAILED

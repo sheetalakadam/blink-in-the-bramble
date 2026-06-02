@@ -25,10 +25,20 @@ static func choose_action(vyn: Dictionary, party: Array, enemies: Array, last_ta
 
 	# Priority 2: Pack Instinct if an ally just attacked a target and it's still alive
 	if not last_target.is_empty() and last_target.get("hp", 0) > 0:
-		# Find matching enemy in alive list
 		for enemy in alive_enemies:
 			if enemy.get("name", "") == last_target.get("name", "") and enemy.get("hp", 0) > 0:
 				return {"action": "pack_instinct", "target": enemy}
+
+	# Priority 3: Finish off low-HP enemies (below 25% max HP)
+	for enemy in alive_enemies:
+		var hp_ratio = float(enemy.get("hp", 0)) / float(enemy.get("max_hp", 1))
+		if hp_ratio < 0.25:
+			return {"action": "wild_strike", "target": enemy}
+
+	# Priority 4: Target corrupted enemies (Ancient Pulse is strong vs corrupted)
+	var corrupted = alive_enemies.filter(func(e): return e.get("armor_type", "") in ["Magic", "Corrupted"])
+	if not corrupted.is_empty():
+		return {"action": "wild_strike", "target": corrupted[0]}
 
 	# Default: Wild Strike on highest HP enemy
 	var sorted_hp = alive_enemies.duplicate()
