@@ -18,6 +18,25 @@ var _sanctum_used: bool = false
 
 func _ready() -> void:
 	_sync_party_hp()
+	_check_camp_story_triggers()
+
+
+## Checks GameWiring.CAMP_TRIGGERS for any camp dialogue that should fire on entry.
+func _check_camp_story_triggers() -> void:
+	var triggers: Dictionary = GameWiring.CAMP_TRIGGERS
+	for dialogue_id in triggers.keys():
+		var required_flag: String = triggers[dialogue_id]
+		var done_flag := dialogue_id + "_done"
+		if GlobalFlags.get_flag(done_flag):
+			continue
+		if required_flag != "" and not GlobalFlags.get_flag(required_flag):
+			continue
+		# Fire this camp dialogue
+		await get_tree().create_timer(1.0).timeout
+		DialogueManager.start_dialogue(dialogue_id)
+		await DialogueManager.dialogue_ended
+		StoryTriggerSystem.mark_done(dialogue_id)
+		break
 
 
 ## Sync party HP from PartyManager. Initializes current HP to max if not tracked.

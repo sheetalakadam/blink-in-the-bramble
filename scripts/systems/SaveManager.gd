@@ -13,10 +13,12 @@ func save_game(slot: int) -> void:
 	data.affinity_data = AffinityManager.get_all_affinity()
 	data.inventory_data = InventoryManager.get_save_data()
 
-	# Save player position
+	# Save player position and current scene
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		data.player_position = players[0].global_position
+	if get_tree().current_scene:
+		data.current_scene_path = get_tree().current_scene.scene_file_path
 
 	data.timestamp = Time.get_datetime_string_from_system()
 
@@ -42,6 +44,32 @@ func load_game(slot: int) -> SaveData:
 		PartyManager._granted_milestones = data.granted_milestones
 		AffinityManager.set_all_affinity(data.affinity_data)
 		InventoryManager.load_save_data(data.inventory_data)
+
+		# Store pending position for the world scene to restore
+		_pending_position = data.player_position
+		_has_pending_position = true
+
+		# Change to the saved scene
+		if data.current_scene_path != "":
+			get_tree().change_scene_to_file(data.current_scene_path)
+
 		return data
 
 	return null
+
+
+## Pending player position from a loaded save. World scenes call consume_pending_position()
+## in _ready() to restore the player's location.
+var _pending_position: Vector2 = Vector2.ZERO
+var _has_pending_position: bool = false
+
+
+func consume_pending_position() -> Vector2:
+	if _has_pending_position:
+		_has_pending_position = false
+		return _pending_position
+	return Vector2.ZERO
+
+
+func has_pending_position() -> bool:
+	return _has_pending_position
