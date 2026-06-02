@@ -1,0 +1,67 @@
+{
+	"id": "camp_09_full_party",
+	"start_node": "dinner",
+	"nodes": {
+		"dinner": {
+			"lines": [
+				{"speaker": "Narrator", "text": "Evening. The camp. For once, nobody is on watch, nobody is planning, and nothing is on fire either literally or metaphorically."},
+				{"speaker": "Rynn", "text": "It's ready. Eat it while it's hot or don't eat it.", "monologue": "She says this the way she says everything — like a fact, not a request. The stew is rabbit and root vegetables. She spent two hours on it and will deny spending more than twenty minutes."},
+				{"speaker": "Suri", "text": "You didn't use juniper again, did you?"},
+				{"speaker": "Rynn", "text": "It's a root stew. Why would I use juniper in a root stew?"},
+				{"speaker": "Suri", "text": "Because you use juniper in everything. You put juniper in the dried meat, the tea, the poultice you made for Lex's blisters—"},
+				{"speaker": "Rynn", "text": "Juniper is antibacterial. That's not seasoning, that's medicine."},
+				{"speaker": "Suri", "text": "It's seasoning when you put it in food, Rynn."}
+			],
+			"next_node": "the_argument"
+		},
+		"the_argument": {
+			"lines": [
+				{"speaker": "Suri", "text": "The proper way to season dried meat is salt, black pepper, and a thyme rub. Three ingredients. Simple. The Verath way."},
+				{"speaker": "Rynn", "text": "The Verath way makes it taste like a dock worker's boot."},
+				{"speaker": "Suri", "text": "You've never been to Verath."},
+				{"speaker": "Rynn", "text": "I've tasted your cooking."},
+				{"speaker": "Lex", "text": "...", "monologue": "He is reading and also listening. His eyes haven't moved on the page in forty seconds. He's tracking the argument the way he tracks historical debates — noting positions, cataloguing rhetorical strategies, privately amused by both sides."},
+				{"speaker": "Caelan", "text": "...", "monologue": "He's petting Vyn. Slow, steady strokes behind the ears. Vyn has his head in Caelan's lap and his eyes half-closed. Neither of them is following the argument. They don't need to. They're in the warm part of the circle and that's enough."}
+			],
+			"next_node": "escalation"
+		},
+		"escalation": {
+			"lines": [
+				{"speaker": "Suri", "text": "Lex. Settle this. What does the archive say about proper meat preservation?"},
+				{"speaker": "Lex", "text": "The Velundrath archive has a fourteen-page treatise on curing methods from the Third Administrative Period. It recommends a brine of salt, vinegar, and—"},
+				{"speaker": "Rynn", "text": "Nobody asked for a treatise."},
+				{"speaker": "Lex", "text": "Suri literally just asked for a treatise."},
+				{"speaker": "Suri", "text": "I asked for backup. There's a difference."},
+				{"speaker": "Zi", "text": "...", "lens": "Five people around a fire. No tension in anyone's shoulders. Rynn is gesturing with her ladle, which means she's enjoying this. Suri is leaning forward — combat posture for argument, not danger. Lex's mouth is doing the thing it does when he's trying not to smile. Caelan's hand on Vyn hasn't stopped moving.", "monologue": "I'm watching them. All of them. Not for threats. Not for tactical positioning. Just watching them be people in the same place at the same time, arguing about meat seasoning like it matters, and it does matter, somehow, because this is what it looks like when nobody is afraid."},
+				{"speaker": "Narrator", "text": "Zi is sitting slightly outside the circle. Close enough to hear. Far enough to see all of them at once.", "choices": [
+					{"text": "Join the argument.", "next_node": "join"},
+					{"text": "Sit and watch.", "next_node": "watch"}
+				]}
+			],
+			"next_node": ""
+		},
+		"join": {
+			"lines": [
+				{"speaker": "Zi", "text": "The meat doesn't matter. You both over-season because you're compensating for field conditions.", "monologue": "Every head turns. I don't usually contribute to food debates. Or any debates."},
+				{"speaker": "Suri", "text": "Did Zi just have a culinary opinion?"},
+				{"speaker": "Rynn", "text": "That wasn't an opinion. That was an insult to both of us simultaneously."},
+				{"speaker": "Zi", "text": "I'm saying the base ingredient is fine. You don't need to add twelve things to it."},
+				{"speaker": "Suri", "text": "This from the woman who eats ration bars without complaint."},
+				{"speaker": "Zi", "text": "They're efficient.", "monologue": "Caelan is laughing. Quietly, into Vyn's fur, the way he does when he doesn't want anyone to notice. I notice."},
+				{"speaker": "Rynn", "text": "Eat your stew, Zi. It has exactly the right amount of seasoning and no juniper."},
+				{"speaker": "Zi", "text": "...", "monologue": "I eat the stew. It's good. It has juniper in it. I don't say anything."}
+			],
+			"next_node": ""
+		},
+		"watch": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "I stay where I am. Watching. This is what I'm good at — the perimeter of things. The edges. Seeing the whole picture while the people inside it are too close to see anything but each other."},
+				{"speaker": "Zi", "text": "...", "monologue": "Suri is using her hands now. Big gestures. She does that when she's happy and doesn't know it. Rynn is shaking her head but her shoulders are loose. Lex gave up pretending to read and is contributing data points that help neither side. Caelan looked up from Vyn and found my eyes across the fire."},
+				{"speaker": "Caelan", "text": "...", "monologue": "He doesn't wave me over. He doesn't ask why I'm sitting apart. He just looks at me and then back at Vyn, and his hand keeps moving, and the space he's in gets a little wider. Like he made room. In case."},
+				{"speaker": "Zi", "text": "...", "lens": "Party status: fed, warm, uninjured, arguing about seasoning. Threat assessment: none. Operational readiness: irrelevant. Current tactical priority: none. Current priority: this.", "monologue": "How strange it is to have people. Not soldiers. Not a unit. People. Who argue about juniper and save each other food and fall asleep by the fire because they trust the person on watch. I don't know when this happened. I don't know when five strangers and a wolf became the thing I check the perimeter for."},
+				{"speaker": "Zi", "text": "...", "monologue": "The stew is getting cold. I should eat it. I will. In a minute. I'm busy."}
+			],
+			"next_node": ""
+		}
+	}
+}

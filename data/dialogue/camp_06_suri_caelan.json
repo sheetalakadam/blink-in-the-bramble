@@ -1,0 +1,51 @@
+{
+	"id": "camp_06_suri_caelan",
+	"start_node": "the_lesson",
+	"nodes": {
+		"the_lesson": {
+			"lines": [
+				{"speaker": "Suri", "text": "Okay. I'm the merchant. You're the buyer. I have a wool blanket. I say it's worth fifteen copper. What do you say?"},
+				{"speaker": "Caelan", "text": "Is it worth fifteen copper?"},
+				{"speaker": "Suri", "text": "That's not — you don't ask that. You say it's worth eight. Then I say twelve. Then you say ten. Then I sigh dramatically and say fine, eleven, and we both walk away feeling like we won."},
+				{"speaker": "Caelan", "text": "But if it's worth fifteen, why would I say eight?"},
+				{"speaker": "Suri", "text": "Because that's how haggling works.", "monologue": "He's looking at me like I just explained that gravity goes sideways on Tuesdays."}
+			],
+			"next_node": "attempt_one"
+		},
+		"attempt_one": {
+			"lines": [
+				{"speaker": "Suri", "text": "Let's try again. I'm selling dried fish. I say twenty copper. Go."},
+				{"speaker": "Caelan", "text": "How long ago was it caught?"},
+				{"speaker": "Suri", "text": "That's — okay, that's actually a good question, but you're supposed to—"},
+				{"speaker": "Caelan", "text": "Because if it was caught more than four days ago the salt content has to be higher to prevent spoilage, which means the actual nutritional value per copper is lower. So either it's fresh and worth twenty, or it's older and worth twelve based on what you're actually getting."},
+				{"speaker": "Suri", "text": "...", "monologue": "I stare at him. He just deconstructed my asking price using food science. He's not haggling. He's doing quality assessment."}
+			],
+			"next_node": "attempt_two"
+		},
+		"attempt_two": {
+			"lines": [
+				{"speaker": "Suri", "text": "Fine. New item. A candle. I say five copper. It's a normal candle. There's nothing to analyze. Just tell me it's worth three."},
+				{"speaker": "Caelan", "text": "Five copper seems fair for a candle."},
+				{"speaker": "Suri", "text": "Caelan."},
+				{"speaker": "Caelan", "text": "What?"},
+				{"speaker": "Suri", "text": "You're supposed to lie about what you think it's worth."},
+				{"speaker": "Caelan", "text": "Why would I lie to someone I'm trying to have a relationship with?", "monologue": "He says it simply. Not philosophically. Like it's obvious. Like lying to a merchant is the same as lying to a friend and he can't tell the difference because to him there isn't one."},
+				{"speaker": "Suri", "text": "...", "monologue": "This is infuriating. This is also the most honest conversation I've had in years and I don't know what to do with that."}
+			],
+			"next_node": "giving_up"
+		},
+		"giving_up": {
+			"lines": [
+				{"speaker": "Suri", "text": "You are the worst negotiator I've ever met."},
+				{"speaker": "Caelan", "text": "I know."},
+				{"speaker": "Suri", "text": "If you ever go to a market alone, you'll come back with no money and twelve things you overpaid for."},
+				{"speaker": "Caelan", "text": "Probably.", "monologue": "He's smiling. Small. Like he knows he's bad at this and he's okay with that."},
+				{"speaker": "Suri", "text": "...", "monologue": "I'm going to have to go to every market with him for the rest of our lives. This is a business expense. I'm categorizing it as loss prevention."},
+				{"speaker": "Suri", "text": "Same time tomorrow. We're going to work on your facial expressions. When someone names a price, you can't just accept it with your whole face."},
+				{"speaker": "Caelan", "text": "I'll try."},
+				{"speaker": "Suri", "text": "You won't. But I appreciate the lie.", "monologue": "Look at that. He's learning already."}
+			],
+			"next_node": ""
+		}
+	}
+}

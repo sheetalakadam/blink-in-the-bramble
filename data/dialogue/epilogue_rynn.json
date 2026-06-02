@@ -1,0 +1,34 @@
+{
+	"id": "epilogue_rynn",
+	"start_node": "replanting",
+	"nodes": {
+		"replanting": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The Ereivyn forest. A clearing where the corruption ate everything down to the mineral layer. The soil is coming back — dark, rich, uncertain of itself, the way new soil is."},
+				{"speaker": "Rynn", "text": "...", "monologue": "I dig the hole the way my mother taught me. Two hands deep, one hand wide. Loosen the bottom so the roots have somewhere to argue with. Drop in the sapling. Don't pack the soil too tight — it needs to breathe. It needs to decide for itself whether it wants to stay."},
+				{"speaker": "Rynn", "text": "...", "monologue": "Forty-three saplings since dawn. My back knows about every one. The juniper is taking well. The birch is stubborn but that's birch for you. The oak I'm not sure about — the soil pH here might be off. I'll check in a week."},
+				{"speaker": "Rynn", "text": "...", "monologue": "I don't need help. I've done this alone a hundred times. The forest doesn't ask for company and neither do I. That's why it works between us."}
+			],
+			"next_node": "arrival"
+		},
+		"arrival": {
+			"lines": [
+				{"speaker": "Narrator", "text": "Movement at the tree line. Not a threat — the weight is wrong. Four legs, deliberate pace, stopping every few steps to check the air."},
+				{"speaker": "Rynn", "text": "...", "monologue": "Vyn. He comes through the underbrush without breaking a single branch. I don't know how something that size moves that quietly. Maybe the forest lets him. Maybe he asks permission in some language I don't speak."},
+				{"speaker": "Rynn", "text": "Hey.", "monologue": "He doesn't answer. Obviously. But his ears go forward and he sits down next to the pile of saplings like he's reporting for duty."},
+				{"speaker": "Rynn", "text": "...", "monologue": "He watches me dig the next hole. Then he starts digging one himself, three feet to my left. Exactly the right distance. Exactly the right depth. I don't know who taught him that. Maybe nobody. Maybe he watched me long enough that his paws learned what my hands know."}
+			],
+			"next_node": "working"
+		},
+		"working": {
+			"lines": [
+				{"speaker": "Rynn", "text": "That one's too shallow. Another half-hand.", "monologue": "He digs deeper. He understood. Of course he understood. Suri was right — he understands everything. He just doesn't think it requires a response."},
+				{"speaker": "Rynn", "text": "...", "monologue": "We work. I plant, he digs. The sun moves across the clearing like it has opinions about our spacing. A nuthatch comes back — the first one I've heard here in months. That's a good sign. They don't come back until the insects come back, and the insects don't come back until the soil is right."},
+				{"speaker": "Rynn", "text": "You know, I talk to you the way Suri does. Just saying things. Not expecting you to say things back.", "monologue": "His tail moves once. Slow. Not a wag — more like an acknowledgment."},
+				{"speaker": "Rynn", "text": "She'd say I'm anthropomorphizing. Zi would say I'm wasting operational focus. Lex would write a paper about interspecies communication patterns.", "monologue": "I set the last sapling. Sixty-one today. My hands are black with soil and my shoulders will hate me tomorrow. Vyn dug fourteen holes. Every one was right."},
+				{"speaker": "Rynn", "text": "Good work.", "monologue": "He leans against my leg. Just for a second. Then he moves to the next clearing, checking the ground, and I follow him because he's already found where the soil is ready."}
+			],
+			"next_node": ""
+		}
+	}
+}

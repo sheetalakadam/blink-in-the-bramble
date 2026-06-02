@@ -1,0 +1,47 @@
+{
+	"id": "camp_08_zi_suri",
+	"start_node": "late_night",
+	"nodes": {
+		"late_night": {
+			"lines": [
+				{"speaker": "Narrator", "text": "Late. The fire is down to embers. Everyone else is asleep or pretending to be. Suri is mending a strap on her trade pack. Zi is cleaning her blade, which doesn't need cleaning."},
+				{"speaker": "Suri", "text": "...", "monologue": "She's been running that cloth over the same spot for ten minutes. She's not cleaning. She's thinking. I know the difference because I do the same thing with inventory counts — you go through the motions while your brain does something else entirely."},
+				{"speaker": "Suri", "text": "Can I ask you something?"},
+				{"speaker": "Zi", "text": "You're going to regardless."},
+				{"speaker": "Suri", "text": "True.", "monologue": "Fair enough. I respect a woman who knows how I operate."}
+			],
+			"next_node": "the_question"
+		},
+		"the_question": {
+			"lines": [
+				{"speaker": "Suri", "text": "Why did you name him?"},
+				{"speaker": "Zi", "text": "...", "lens": "Suri's hands stopped moving on the strap. She's watching me with her trader face — the one that looks casual but is cataloguing every micro-expression."},
+				{"speaker": "Zi", "text": "He needed a name."},
+				{"speaker": "Suri", "text": "Lots of things need names. I don't name my inventory."},
+				{"speaker": "Zi", "text": "He's not inventory."},
+				{"speaker": "Suri", "text": "No. He's not.", "monologue": "There it is. The thing she won't say. The thing that sits in the space between 'he needed a name' and the way she says his name when she thinks nobody is listening. Softer. Like she's being careful with it."}
+			],
+			"next_node": "the_deflection"
+		},
+		"the_deflection": {
+			"lines": [
+				{"speaker": "Zi", "text": "It was a tactical decision. He couldn't function without a name. People need to call you something.", "monologue": "That's not the reason. She knows that's not the reason. I know she knows."},
+				{"speaker": "Suri", "text": "...", "monologue": "I could push. I'm good at pushing. I once talked a harbormaster in Verath into cutting his docking fee by half, and that man was made of stone and spite. But this isn't a negotiation. This is Zi, holding something fragile and private, and I'm not going to be the one who makes her open her hands before she's ready."},
+				{"speaker": "Suri", "text": "It's a good name. Caelan. It fits him.", "monologue": "I go back to the strap. She goes back to the blade. The fire pops once and settles."}
+			],
+			"next_node": "the_silence"
+		},
+		"the_silence": {
+			"lines": [
+				{"speaker": "Narrator", "text": "They sit. The kind of silence that happens between people who understand each other well enough to stop talking. The embers shift. An owl calls from the tree line, and another answers from further away."},
+				{"speaker": "Zi", "text": "...", "monologue": "She didn't push. I expected her to push. Suri always pushes — it's how she's built, the same way I'm built to check perimeters. But she didn't. She just said it was a good name and went back to her strap. That's the kindest thing she's ever done, and she'll never categorize it as kindness."},
+				{"speaker": "Suri", "text": "...", "monologue": "One day she'll tell me. Not because I asked. Because she'll want to. And I'll be sitting right here, mending something, ready to hear it. That's a long position. I'm good at those."},
+				{"speaker": "Zi", "text": "Suri."},
+				{"speaker": "Suri", "text": "Mm."},
+				{"speaker": "Zi", "text": "Thanks.", "monologue": "For not pushing. I don't say that part. She hears it anyway."},
+				{"speaker": "Suri", "text": "Anytime.", "monologue": "I mean it. She knows I mean it. That's enough for tonight."}
+			],
+			"next_node": ""
+		}
+	}
+}

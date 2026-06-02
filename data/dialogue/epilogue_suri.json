@@ -1,0 +1,39 @@
+{
+	"id": "epilogue_suri",
+	"start_node": "the_negotiation",
+	"nodes": {
+		"the_negotiation": {
+			"lines": [
+				{"speaker": "Narrator", "text": "A farmstead east of Solenné. The fields are half what they were — the corruption line ran through the middle of the property like a knife through bread. What's left is growing, but slowly, cautiously, the way things grow when the ground remembers being wrong."},
+				{"speaker": "Suri", "text": "...", "monologue": "The farmer's name is Edda. She's forty, maybe. Hard to tell — this kind of work ages you in the hands first, then the back, then the face. Her daughter is nine and standing behind her like a shadow with braids."},
+				{"speaker": "Edda", "text": "I can do forty bushels by autumn. Maybe fifty if the rain holds. That's half what I did before."},
+				{"speaker": "Suri", "text": "Forty is fine. What's your cost per bushel right now?"},
+				{"speaker": "Edda", "text": "More than it should be. Seed's expensive when everyone needs it at once. I'm paying triple for what used to cost nothing."}
+			],
+			"next_node": "the_price"
+		},
+		"the_price": {
+			"lines": [
+				{"speaker": "Suri", "text": "...", "monologue": "Standard rate for grain out of Solenné is twelve copper per bushel. She should be asking for sixteen, given the supply shortage. She's asking for twelve because she's afraid any higher and I'll walk. She's wrong about that, but she doesn't know she's wrong yet."},
+				{"speaker": "Suri", "text": "I'll give you eighteen."},
+				{"speaker": "Edda", "text": "I said twelve."},
+				{"speaker": "Suri", "text": "I heard you. Eighteen.", "monologue": "She's looking at me like I'm running a scam. Fair. In her experience, nobody gives you more than you ask for unless they're about to take something bigger."},
+				{"speaker": "Suri", "text": "Here's my math. You take twelve, you make it through autumn. Barely. You can't afford new seed for spring, so you borrow from the grain exchange at interest, and by next summer you owe more than the land is worth. I've seen that story. It ends with someone else owning your field."},
+				{"speaker": "Edda", "text": "And at eighteen?"},
+				{"speaker": "Suri", "text": "At eighteen you buy your own seed. You plant a full field. Next year you sell me eighty bushels at fourteen and we both come out ahead. Long-term investment in customer retention.", "monologue": "She doesn't need to know that I'm losing margin on this deal. She doesn't need to know that I calculated the margin I'm losing and decided the math works better if Edda's daughter grows up in a house her mother owns."}
+			],
+			"next_node": "the_handshake"
+		},
+		"the_handshake": {
+			"lines": [
+				{"speaker": "Edda", "text": "...", "monologue": "She's quiet for a long time. She's not calculating. She's trying to figure out why a trader from Verath is standing in her ruined field offering more money than the grain is worth."},
+				{"speaker": "Edda", "text": "Why?"},
+				{"speaker": "Suri", "text": "Because I'm good at my job.", "monologue": "That's not a lie. It's just not the whole truth. The whole truth is that I spent three months watching people be kind for no reason and it ruined my pricing model."},
+				{"speaker": "Edda", "text": "Eighteen per bushel. Forty bushels by autumn."},
+				{"speaker": "Suri", "text": "Done.", "monologue": "We shake on it. Her hand is calloused in the right places. A working hand. A hand that will still be working this field next year, and the year after, because the numbers add up. I made sure they add up."},
+				{"speaker": "Suri", "text": "...", "monologue": "The daughter waves at me as I leave. Small hand. I wave back. That's not in the ledger. Some things aren't."}
+			],
+			"next_node": ""
+		}
+	}
+}

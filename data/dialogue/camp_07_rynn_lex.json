@@ -1,0 +1,44 @@
+{
+	"id": "camp_07_rynn_lex",
+	"start_node": "the_walk",
+	"nodes": {
+		"the_walk": {
+			"lines": [
+				{"speaker": "Rynn", "text": "This one. See the leaves? Three points, serrated edge, alternating on the stem."},
+				{"speaker": "Lex", "text": "Trifoliate arrangement. That's consistent with the Apiaceae family — possibly a wild chervil variant."},
+				{"speaker": "Rynn", "text": "It's food. You can eat the leaves raw or boil the root. Tastes like parsley if parsley were apologetic about existing."},
+				{"speaker": "Lex", "text": "...", "monologue": "She describes flavor profiles the way I describe historical periods. With specificity and without mercy."},
+				{"speaker": "Rynn", "text": "And this one. Don't touch this one."},
+				{"speaker": "Lex", "text": "Same family?"},
+				{"speaker": "Rynn", "text": "Same family, different manners. This one will make you sick for three days. See how the stem is purple at the base? That's how you know."}
+			],
+			"next_node": "the_argument"
+		},
+		"the_argument": {
+			"lines": [
+				{"speaker": "Lex", "text": "So the distinguishing feature between the edible and the toxic variety is stem coloration? That seems like it should be documented more precisely. If I could take a sample back to the archive—"},
+				{"speaker": "Rynn", "text": "It is documented. I just documented it. I said 'purple stem means bad.' That's the document."},
+				{"speaker": "Lex", "text": "But without a formal classification system, how does the knowledge transfer? What if something happens to you?"},
+				{"speaker": "Rynn", "text": "Then someone else who grew up in a forest will look at the purple stem and not eat it. Because they'll be the kind of person who knows that things with purple stems in this region are usually the kind of thing you don't put in your mouth.", "monologue": "He's writing in his notebook. Of course he is. He probably has a section labeled 'Field Botany — Informal Classification Systems.'"},
+				{"speaker": "Lex", "text": "I'm not saying your system is wrong."},
+				{"speaker": "Rynn", "text": "You're saying it's incomplete."},
+				{"speaker": "Lex", "text": "I'm saying it could be more complete."},
+				{"speaker": "Rynn", "text": "And I'm saying it doesn't matter what family the plant is in. It matters if it'll make you sick.", "monologue": "He pauses. His pen stops. That's how I know I've gotten through — when the pen stops."}
+			],
+			"next_node": "the_middle"
+		},
+		"the_middle": {
+			"lines": [
+				{"speaker": "Lex", "text": "...", "monologue": "She's right. And I'm right. The knowledge that keeps you alive in the field is not the same as the knowledge that keeps a civilization from forgetting what it knew. Both kinds matter. I'm just better at one of them."},
+				{"speaker": "Lex", "text": "Teach me the purple stem rule. I'll write it down your way and my way. Both versions."},
+				{"speaker": "Rynn", "text": "...", "monologue": "That's — actually reasonable. I didn't expect reasonable. I expected another ten minutes of him trying to Latinize the word 'root.'"},
+				{"speaker": "Rynn", "text": "Fine. Next one. See the berries on this shrub?"},
+				{"speaker": "Lex", "text": "Vaccinium genus. Ericaceae family."},
+				{"speaker": "Rynn", "text": "Blueberries."},
+				{"speaker": "Lex", "text": "Yes. Those."},
+				{"speaker": "Rynn", "text": "...", "monologue": "I eat three. I hand him three. He eats them with the expression of a man who is fighting very hard not to say 'antioxidant properties.' I appreciate the effort."}
+			],
+			"next_node": ""
+		}
+	}
+}
