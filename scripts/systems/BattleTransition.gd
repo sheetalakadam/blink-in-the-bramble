@@ -125,13 +125,23 @@ func _load_battle_scene() -> void:
 	var enemy_combat_data = _build_enemy_combat_data()
 
 	# Load and instance the real combat scene
-	var combat_scene = load(COMBAT_SCENE_PATH).instantiate()
+	var packed = load(COMBAT_SCENE_PATH) as PackedScene
+	if packed == null:
+		printerr("[BattleTransition] Failed to load CombatScene: %s" % COMBAT_SCENE_PATH)
+		_is_transitioning = false
+		return
+	var combat_scene = packed.instantiate()
 
 	# Switch scene
 	var tree = get_tree()
+	if tree == null or tree.root == null:
+		printerr("[BattleTransition] SceneTree or root is null")
+		_is_transitioning = false
+		return
 	var old_scene = tree.current_scene
-	tree.root.remove_child(old_scene)
-	old_scene.queue_free()
+	if old_scene:
+		tree.root.remove_child(old_scene)
+		old_scene.queue_free()
 
 	tree.root.add_child(combat_scene)
 	tree.current_scene = combat_scene
@@ -184,7 +194,8 @@ func _build_party_data() -> Array[Dictionary]:
 			paths_to_load.append(recruitable[i])
 	else:
 		# Fallback to MVP defaults
-		paths_to_load = Array(PARTY_RESOURCES, TYPE_STRING, &"", null)
+		for p in PARTY_RESOURCES:
+			paths_to_load.append(p)
 
 	for path in paths_to_load:
 		var char_data = load(path) as CharacterData
