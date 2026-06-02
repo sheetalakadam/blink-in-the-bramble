@@ -24,9 +24,9 @@ func _ready() -> void:
 ## Checks GameWiring.CAMP_TRIGGERS for any camp dialogue that should fire on entry.
 func _check_camp_story_triggers() -> void:
 	var triggers: Dictionary = GameWiring.CAMP_TRIGGERS
-	for dialogue_id in triggers.keys():
+	for dialogue_id: String in triggers.keys():
 		var required_flag: String = triggers[dialogue_id]
-		var done_flag := dialogue_id + "_done"
+		var done_flag: String = dialogue_id + "_done"
 		if GlobalFlags.get_flag(done_flag):
 			continue
 		if required_flag != "" and not GlobalFlags.get_flag(required_flag):
