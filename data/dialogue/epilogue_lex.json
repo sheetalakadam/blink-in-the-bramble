@@ -1,0 +1,36 @@
+{
+	"id": "epilogue_lex",
+	"start_node": "the_archive",
+	"nodes": {
+		"the_archive": {
+			"lines": [
+				{"speaker": "Narrator", "text": "The Velundrath archive. Lex's desk — the same one the archivists used three hundred and forty years ago. Their ink stains are still in the wood. His are joining them."},
+				{"speaker": "Lex", "text": "...", "monologue": "I open the notebook. New binding. Good paper — Suri sourced it from a mill near Verath. 'Don't ask what I paid,' she said. I didn't ask. I did calculate it based on current paper costs per ream and her expression when she handed it over. She overpaid. She'll never admit it."},
+				{"speaker": "Lex", "text": "...", "monologue": "The first line. I've been thinking about the first line for six days. The archivists who came before me — the ones who stopped writing — their last entries are all mid-sentence. One of them was cataloguing weather patterns. Another was noting the price of lamp oil. They didn't know they were writing their last words."},
+				{"speaker": "Lex", "text": "...", "monologue": "I know I'm writing my first."}
+			],
+			"next_node": "attempts"
+		},
+		"attempts": {
+			"lines": [
+				{"speaker": "Lex", "text": "...", "monologue": "'In the autumn of the current age, a series of events —' No. That's a report. Reports are what people write when they don't want to be responsible for what happened."},
+				{"speaker": "Lex", "text": "...", "monologue": "I cross it out. Start again."},
+				{"speaker": "Lex", "text": "...", "monologue": "'What follows is an account of the threshold collapse and its resolution, as witnessed by —' No. 'Witnessed.' As if I stood at a distance and took notes. I didn't stand at a distance. I was there. I was afraid. I watched Caelan step into something too large for a person and come back smaller and more real than he'd been before."},
+				{"speaker": "Lex", "text": "...", "monologue": "I cross it out. The paper is getting messy. The archivists would disapprove. I don't care about the archivists. They stopped writing. I won't."},
+				{"speaker": "Lex", "text": "...", "monologue": "'The truth of what happened is —' The truth of what happened is bigger than sentences. That's the problem. Every word I put down is a choice to leave out ten other words. Every sentence is a frame around an experience that had no edges."}
+			],
+			"next_node": "the_line"
+		},
+		"the_line": {
+			"lines": [
+				{"speaker": "Lex", "text": "...", "monologue": "I sit back. I look at the crossed-out lines. I look at the ink stains of the archivists who came before me. I think about Zi, who says everything in three words or fewer. I think about Suri, who talks constantly and means something different from what she says. I think about Rynn, who talks to trees and understands them. I think about Caelan, who was once too vast for language and chose to come back to it anyway."},
+				{"speaker": "Lex", "text": "...", "monologue": "I write two words."},
+				{"speaker": "Narrator", "text": "This happened."},
+				{"speaker": "Lex", "text": "...", "monologue": "Two words. Insufficient. Imprecise. Completely true. The archivists would want more context. Dates. Names. Classifications. They'll get them. Three hundred pages of them, probably, knowing me. But the first line — the foundation the rest of it stands on — has to be the simplest true thing I can say."},
+				{"speaker": "Lex", "text": "...", "monologue": "This happened. We were there. I'm still here, and I'm writing it down, and that's the difference between this time and last time. Someone is left to hold the pen."},
+				{"speaker": "Narrator", "text": "He fills three hundred pages after them. Every one is true. None of them are sufficient. He writes them anyway."}
+			],
+			"next_node": ""
+		}
+	}
+}

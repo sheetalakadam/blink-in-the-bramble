@@ -1,0 +1,35 @@
+{
+	"id": "camp_10_vyn_night",
+	"start_node": "watching",
+	"nodes": {
+		"watching": {
+			"lines": [
+				{"speaker": "Narrator", "text": "Zi wakes at two in the morning. Not from a threat — from the absence of weight at the foot of her bedroll."},
+				{"speaker": "Zi", "text": "...", "lens": "Bedroll: empty impression where Vyn was. Still warm. He left recently. No sounds of distress. No unusual smells on the wind. He's not gone — he's working.", "monologue": "I stay still. I watch."},
+				{"speaker": "Narrator", "text": "Vyn is making his rounds. He moves through the camp the way water moves through a channel — finding the natural path, touching every edge."},
+				{"speaker": "Zi", "text": "...", "lens": "He starts at the perimeter. Counterclockwise. Same direction I walk. Did he learn that from me or did I learn it from him? I don't remember anymore.", "monologue": "He stops at the tree line. His nose goes up. He reads the air the way Lex reads pages — systematically, thoroughly, parsing data I can't perceive. Whatever he finds, it's acceptable. He moves on."}
+			],
+			"next_node": "the_rounds"
+		},
+		"the_rounds": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "lens": "First check: Suri. He stands at the edge of her hammock for three seconds. His ear rotates toward her breathing. Steady, deep. He doesn't touch her. He doesn't need to. He confirmed what he came to confirm and moved on.", "monologue": "I don't know what he's thinking. I don't think he thinks in words. I think he thinks in shapes. The shape of Suri breathing. The shape of a camp that is or isn't safe. The shape of people being where they're supposed to be."},
+				{"speaker": "Zi", "text": "...", "lens": "Second check: Lex. Asleep at his desk again. His lantern is guttering — he fell asleep before he could snuff it. Vyn stands beside him for a moment, then lies down against the desk leg. The warmth of his body will keep Lex's feet from getting cold. He stays for thirty seconds. Then he moves.", "monologue": "He does this. Every night. I didn't know until I started watching. He makes the same circuit I make, checks the same people I check, except he doesn't carry a weapon and he doesn't need one. His assessment tools are older than mine."},
+				{"speaker": "Zi", "text": "...", "lens": "Third check: Rynn. She sleeps outside her tent when the weather allows. Ground sleeper. She's curled on her side with her pack as a pillow. Vyn pauses. He sniffs the air near her — not her, but the space around her. Checking that nothing has changed. Nothing has. He moves on."}
+			],
+			"next_node": "caelan_and_home"
+		},
+		"caelan_and_home": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "lens": "Fourth check: Caelan. This one takes longest. Vyn lies down beside him. Not at his feet — beside him. Close enough that Caelan shifts in his sleep and puts his hand on Vyn's side without waking up. Vyn's breathing changes. Slower. Matching.", "monologue": "He stays with Caelan for two full minutes. I count. It's always longer with Caelan. I think it's because Caelan is the one who was gone, once. The one who almost didn't come back. Vyn checks the others to make sure they're safe. He checks Caelan to make sure he's still here."},
+				{"speaker": "Narrator", "text": "Caelan's hand tightens once in Vyn's fur. A small motion. The grip of someone who doesn't know he's holding on."},
+				{"speaker": "Zi", "text": "...", "monologue": "Vyn lifts his head. He looks directly at me. He knows I'm awake. He's known the whole time. Those eyes — Suri is right, they're too old for his face. Too steady. He's not a wolf and he's not a person and he's not anything I have a word for. He's just Vyn. Doing what Vyn does."},
+				{"speaker": "Narrator", "text": "Vyn completes his circuit. He returns to the foot of Zi's bedroll. He turns twice and lies down."},
+				{"speaker": "Zi", "text": "...", "monologue": "He doesn't understand words. But he understands the shape of people being safe. The weight of a camp that is whole. The difference between a night where everyone is here and a night where someone is missing. He checks because checking is how he says the thing he doesn't have language for."},
+				{"speaker": "Zi", "text": "Good boy.", "monologue": "I whisper it. He doesn't need the words. But I needed to say them."},
+				{"speaker": "Narrator", "text": "The camp breathes. Five people and a wolf. Asleep and accounted for. Safe until morning."}
+			],
+			"next_node": ""
+		}
+	}
+}

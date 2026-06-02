@@ -1,0 +1,32 @@
+{
+	"id": "epilogue_zi",
+	"start_node": "dawn_check",
+	"nodes": {
+		"dawn_check": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "lens": "East perimeter. Tree line clear. No movement in the underbrush. Wind from the south, carrying pollen, not smoke. Ground undisturbed. No tracks that weren't here yesterday.", "monologue": "I'm doing the perimeter check. It's four in the morning and I'm walking the same circuit I've walked for weeks. Left foot, right foot, eyes on the middle distance."},
+				{"speaker": "Zi", "text": "...", "lens": "North perimeter. The ridge is quiet. The birds are back — three species I can hear, maybe four. The corruption line has receded another half-meter since Tuesday. The soil is dark where it should be dark.", "monologue": "Nothing is wrong. That's the thing. Nothing has been wrong for eleven days. The threshold is sealed. The corruption is receding. The supply lines Suri rebuilt are holding. Rynn's replanting is taking root."},
+				{"speaker": "Zi", "text": "...", "monologue": "I stop at the west marker. I'm standing here with my hand on the knife I don't need, scanning a perimeter that doesn't need scanning, looking for threats that aren't coming."}
+			],
+			"next_node": "old_habits"
+		},
+		"old_habits": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "Old habits. That's what Suri would call it. She'd say it like she was diagnosing a market trend. 'You're over-invested in vigilance, Zi. Diminishing returns.'"},
+				{"speaker": "Zi", "text": "...", "monologue": "She'd be right. She usually is, about the things that can be counted."},
+				{"speaker": "Zi", "text": "...", "lens": "My hands. Left hand — three calluses from the sword grip, one new one from helping Rynn dig planting trenches last week. Right hand — the scar from the Sentinel fight is fading. There's dirt under my nails from the garden beds Caelan started behind the camp.", "monologue": "These hands held a sword for so long I forgot they could do other things. Now they dig holes for saplings. They break bread. They held his hand yesterday when he fell asleep by the fire and didn't let go until his breathing evened out."},
+				{"speaker": "Zi", "text": "...", "monologue": "I don't need to be tactical about everything anymore."}
+			],
+			"next_node": "probably_will"
+		},
+		"probably_will": {
+			"lines": [
+				{"speaker": "Zi", "text": "...", "monologue": "But I probably will be anyway."},
+				{"speaker": "Zi", "text": "...", "lens": "Camp status: Rynn's tent, closed, her boots outside — she's sleeping in for once. Lex's lantern, still burning — he's writing again. Suri's hammock, swaying — she moves in her sleep like she's still walking trade routes. Caelan's bedroll, occupied. Vyn curled at his feet, one ear up. Watching me watch them.", "monologue": "I finish the perimeter. I don't need to. But I finish it anyway, because the walking helps me think, and because even when nothing is wrong, someone should be paying attention. That's not paranoia. That's just how I'm built."},
+				{"speaker": "Zi", "text": "...", "monologue": "The sun is coming up. It's the kind of dawn that doesn't ask anything of you. Just light, arriving. I sit down by the dead fire and wait for someone to wake up so I can pretend I wasn't out here checking."},
+				{"speaker": "Zi", "text": "...", "monologue": "Caelan will know. He always knows. He won't say anything. He'll just hand me tea and sit a little closer than necessary. That's how we talk about it."}
+			],
+			"next_node": ""
+		}
+	}
+}
