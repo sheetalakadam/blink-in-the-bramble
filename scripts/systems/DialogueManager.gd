@@ -4,12 +4,14 @@ signal dialogue_started(id: String)
 signal dialogue_ended
 signal dialogue_completed(scene_id: String)
 signal line_presented(line_data: Dictionary)
+signal choices_presented(choices: Array)
 
 var current_dialogue: Dictionary = {}
 var current_dialogue_id: String = ""
 var current_node_id: String = ""
 var current_line_index: int = 0
 var is_active: bool = false
+var awaiting_choice: bool = false
 
 func start_dialogue(dialogue_id: String) -> void:
 	print("[DialogueManager] start_dialogue called with: ", dialogue_id)
@@ -35,7 +37,7 @@ func start_dialogue(dialogue_id: String) -> void:
 	_present_current_line()
 
 func advance_dialogue() -> void:
-	if not is_active:
+	if not is_active or awaiting_choice:
 		return
 		
 	var node = current_dialogue["nodes"][current_node_id]
@@ -52,17 +54,43 @@ func _present_current_line() -> void:
 	print("[DialogueManager] Presenting line: ", line_data.get("text", "NO TEXT"))
 	line_presented.emit(line_data)
 
+func select_choice(index: int) -> void:
+	if not awaiting_choice:
+		return
+	var node = current_dialogue["nodes"][current_node_id]
+	var choices = node.get("choices", [])
+	if index < 0 or index >= choices.size():
+		return
+	awaiting_choice = false
+	var choice = choices[index]
+	var target = choice.get("next_node", choice.get("next", ""))
+	if target and target in current_dialogue["nodes"]:
+		current_node_id = target
+		current_line_index = 0
+		_present_current_line()
+	else:
+		_end_dialogue()
+
 func _handle_node_completion(node: Dictionary) -> void:
+	var choices = node.get("choices", [])
+	if choices.size() > 0:
+		awaiting_choice = true
+		choices_presented.emit(choices)
+		return
 	var next_node = node.get("next_node")
 	if next_node and next_node in current_dialogue["nodes"]:
 		current_node_id = next_node
 		current_line_index = 0
 		_present_current_line()
 	else:
-		is_active = false
-		var completed_id := current_dialogue_id
-		dialogue_completed.emit(completed_id)
-		dialogue_ended.emit()
+		_end_dialogue()
+
+func _end_dialogue() -> void:
+	is_active = false
+	awaiting_choice = false
+	var completed_id := current_dialogue_id
+	dialogue_completed.emit(completed_id)
+	dialogue_ended.emit()
 
 # Convenience for player input
 func _input(event: InputEvent) -> void:

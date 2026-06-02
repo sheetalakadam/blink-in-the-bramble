@@ -66,6 +66,17 @@ def validate_file(filepath):
                     if target and target not in nodes:
                         fail(filename, f"Node '{node_name}' choice target '{target}' not found in nodes")
 
+        # Validate node-level choices
+        if "choices" in node:
+            for j, choice in enumerate(node["choices"]):
+                if "text" not in choice and "label" not in choice:
+                    fail(filename, f"Node '{node_name}' choice {j}: missing 'text' or 'label'")
+                if "next_node" not in choice and "next" not in choice:
+                    fail(filename, f"Node '{node_name}' choice {j}: missing 'next_node' or 'next'")
+                target = choice.get("next_node") or choice.get("next", "")
+                if target and target not in nodes:
+                    fail(filename, f"Node '{node_name}' choice target '{target}' not found in nodes")
+
         # Validate next_node references
         next_node = node.get("next_node", "")
         if next_node and next_node not in nodes:
