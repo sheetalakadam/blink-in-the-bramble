@@ -58,7 +58,7 @@ script = SubResource("GDScript_1")
 [node name="Ground" type="ColorRect" parent="."]
 offset_right = 1000.0
 offset_bottom = 1000.0
-color = Color(0.35, 0.35, 0.4, 1)
+color = Color(0.137, 0.137, 0.176, 1)
 
 [node name="Obstacles" type="Node2D" parent="."]
 

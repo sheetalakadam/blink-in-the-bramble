@@ -40,6 +40,12 @@ var _reward_ui: Node = null
 @onready var enemy_display: VBoxContainer = $UI/EnemyDisplay
 @onready var enemy_intent_label: Label = $UI/EnemyIntent
 @onready var item_menu: Control = $UI/ItemMenu
+@onready var party_sprites: Node2D = $PartySprites
+@onready var enemy_sprites: Node2D = $EnemySprites
+
+# Sprite node references for visual feedback
+var _party_sprite_nodes: Array[Sprite2D] = []
+var _enemy_sprite_nodes: Array[Sprite2D] = []
 
 func _ready() -> void:
 	action_menu.visible = false
@@ -55,6 +61,7 @@ func start(party_data: Array[Dictionary], enemy_data: Array[Dictionary]) -> void
 	all_combatants = party + enemies
 	ComboSystem.reset()
 	StatusEffectSystem.reset()
+	_spawn_combat_sprites()
 	_update_displays()
 	_log("Battle begins!")
 
@@ -92,6 +99,7 @@ func _on_turn_started(entity: Dictionary) -> void:
 	entity.erase("defending")
 	current_entity = entity
 	stance_switched_this_turn = false
+	_highlight_active_sprite(entity)
 	_update_displays()
 	_update_turn_queue()
 
@@ -698,7 +706,8 @@ func _update_displays() -> void:
 	# Party HP
 	for child in party_display.get_children():
 		child.queue_free()
-	for member in party:
+	for i in party.size():
+		var member = party[i]
 		var lbl = Label.new()
 		lbl.text = "%s  HP: %d/%d  [%s]" % [
 			member.name,
@@ -708,12 +717,14 @@ func _update_displays() -> void:
 		]
 		if member.hp <= 0:
 			lbl.modulate = Color(0.5, 0.5, 0.5)
+			_dim_defeated_sprite(member)
 		party_display.add_child(lbl)
 
 	# Enemies
 	for child in enemy_display.get_children():
 		child.queue_free()
-	for enemy in enemies:
+	for i in enemies.size():
+		var enemy = enemies[i]
 		var lbl = Label.new()
 		var effect_str := StatusEffectSystem.get_effect_display(enemy)
 		lbl.text = "%s  HP: %d/%d  [%s]%s" % [
@@ -725,6 +736,7 @@ func _update_displays() -> void:
 		]
 		if enemy.hp <= 0:
 			lbl.modulate = Color(0.5, 0.5, 0.5)
+			_dim_defeated_sprite(enemy)
 		enemy_display.add_child(lbl)
 
 func _update_turn_queue() -> void:
@@ -806,14 +818,93 @@ func _on_rewards_acknowledged() -> void:
 	rewards_acknowledged.emit()
 
 
+## Spawns character and enemy sprites in the combat scene.
+func _spawn_combat_sprites() -> void:
+	_party_sprite_nodes.clear()
+	_enemy_sprite_nodes.clear()
+
+	# Spawn party sprites (left side, facing right)
+	for i in party.size():
+		var member = party[i]
+		var char_name: String = member.get("name", "").to_lower()
+		var tex := SpriteLoader.get_character_sprite(char_name)
+		var sprite := Sprite2D.new()
+		if tex:
+			sprite.texture = tex
+			sprite.hframes = 4
+			sprite.frame = 0
+		else:
+			# Fallback: colored placeholder
+			sprite.texture = _make_placeholder_texture(Color(0.275, 0.333, 0.431))
+		sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		sprite.position = Vector2(i * 50, i * 20)
+		sprite.scale = Vector2(2, 2)
+		party_sprites.add_child(sprite)
+		_party_sprite_nodes.append(sprite)
+
+	# Spawn enemy sprites (right side, facing left)
+	for i in enemies.size():
+		var enemy = enemies[i]
+		var enemy_name: String = enemy.get("name", "")
+		var tex := SpriteLoader.get_enemy_sprite(enemy_name)
+		var sprite := Sprite2D.new()
+		if tex:
+			sprite.texture = tex
+		else:
+			sprite.texture = _make_placeholder_texture(Color(0.5, 0.15, 0.15))
+		sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		sprite.flip_h = true
+		sprite.position = Vector2(i * 60, i * 25)
+		sprite.scale = Vector2(2, 2)
+		enemy_sprites.add_child(sprite)
+		_enemy_sprite_nodes.append(sprite)
+
+
+## Creates a simple 16x16 colored texture as a fallback placeholder.
+func _make_placeholder_texture(color: Color) -> ImageTexture:
+	var img := Image.create(16, 16, false, Image.FORMAT_RGBA8)
+	img.fill(color)
+	return ImageTexture.create_from_image(img)
+
+
+## Highlights the active combatant sprite with a subtle bob animation.
+func _highlight_active_sprite(entity: Dictionary) -> void:
+	# Reset all sprites
+	for s in _party_sprite_nodes:
+		s.modulate = Color.WHITE
+	for s in _enemy_sprite_nodes:
+		s.modulate = Color.WHITE
+
+	if entity.get("is_enemy", false):
+		var idx := enemies.find(entity)
+		if idx >= 0 and idx < _enemy_sprite_nodes.size():
+			_enemy_sprite_nodes[idx].modulate = Color(1.2, 1.1, 1.0)
+	else:
+		var idx := party.find(entity)
+		if idx >= 0 and idx < _party_sprite_nodes.size():
+			_party_sprite_nodes[idx].modulate = Color(1.0, 1.1, 1.2)
+
+
+## Dims the sprite of a defeated combatant.
+func _dim_defeated_sprite(entity: Dictionary) -> void:
+	if entity.get("is_enemy", false):
+		var idx := enemies.find(entity)
+		if idx >= 0 and idx < _enemy_sprite_nodes.size():
+			_enemy_sprite_nodes[idx].modulate = Color(0.3, 0.3, 0.3, 0.5)
+	else:
+		var idx := party.find(entity)
+		if idx >= 0 and idx < _party_sprite_nodes.size():
+			_party_sprite_nodes[idx].modulate = Color(0.3, 0.3, 0.3, 0.5)
+
+
 ## Returns a screen position for floating damage based on combatant index.
 func _get_target_screen_pos(target: Dictionary) -> Vector2:
 	if target.get("is_enemy", false):
 		var idx := enemies.find(target)
-		return Vector2(450 + idx * 60, 120 + idx * 30)
+		return Vector2(450 + idx * 60, 120 + idx * 25)
 	else:
 		var idx := party.find(target)
-		return Vector2(100, 120 + idx * 40)
+		return Vector2(100 + idx * 50, 150 + idx * 20)
 
 
 func _log(msg: String) -> void:
