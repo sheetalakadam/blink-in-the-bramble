@@ -275,7 +275,7 @@ func _show_action_menu(entity: Dictionary) -> void:
 	if boon_container == null:
 		boon_container = VBoxContainer.new()
 		boon_container.name = "BoonButtons"
-		action_menu.get_node("VBoxContainer").add_child(boon_container)
+		action_menu.get_node("List").add_child(boon_container)
 	for child in boon_container.get_children():
 		child.queue_free()
 
