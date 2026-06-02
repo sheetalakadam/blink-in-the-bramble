@@ -74,6 +74,7 @@ jobs:
 
       - name: Validate asset dimensions
         run: |
+          pip install Pillow --quiet
           python3 -c "
           from PIL import Image
           import os, sys
