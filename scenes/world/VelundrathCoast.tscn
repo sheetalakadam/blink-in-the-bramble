@@ -13,6 +13,7 @@ const REGION := \"velundrath\"
 
 func _ready() -> void:
 	print(\"[VelundrathCoast] Ready\")
+	_restore_player_position()
 	if not GlobalFlags.get_flag(\"reached_velundrath\"):
 		GlobalFlags.set_flag(\"reached_velundrath\", true)
 	_connect_enemies()
@@ -37,6 +38,13 @@ func _connect_enemies() -> void:
 func _on_enemy_contact(enemy: CharacterBody2D) -> void:
 	if get_tree().root.has_node(\"BattleTransition\"):
 		BattleTransition.start_transition(enemy)
+
+func _restore_player_position() -> void:
+	if SaveManager.has_pending_position():
+		var pos := SaveManager.consume_pending_position()
+		var player = get_node_or_null(\"Player\")
+		if player and pos != Vector2.ZERO:
+			player.global_position = pos
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_archive"]
