@@ -1,8 +1,41 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/DialogueUI.gd" id="1_ui_script"]
 
+[sub_resource type="StyleBoxFlat" id="dialogue_panel"]
+bg_color = Color(0.059, 0.047, 0.078, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.314, 0.275, 0.471, 0.7)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="monologue_bg"]
+bg_color = Color(0.039, 0.031, 0.059, 0.7)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.196, 0.157, 0.275, 0.5)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+
 [node name="DialogueUI" type="CanvasLayer"]
+layer = 10
 script = ExtResource("1_ui_script")
 
 [node name="MainBox" type="Panel" parent="."]
@@ -11,29 +44,42 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = -120.0
-offset_right = -20.0
-offset_bottom = -20.0
+offset_left = 16.0
+offset_top = -116.0
+offset_right = -16.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("dialogue_panel")
 
 [node name="PortraitRect" type="TextureRect" parent="MainBox"]
 visible = false
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 70.0
-offset_bottom = 70.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 72.0
+offset_bottom = 72.0
 stretch_mode = 5
 texture_filter = 0
 
+[node name="PortraitBorder" type="ColorRect" parent="MainBox"]
+visible = false
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 74.0
+offset_bottom = 74.0
+color = Color(0.314, 0.275, 0.471, 0.5)
+mouse_filter = 2
+
 [node name="SpeakerLabel" type="Label" parent="MainBox"]
 layout_mode = 0
-offset_left = 76.0
-offset_top = -25.0
-offset_right = 176.0
-offset_bottom = 1.0
+offset_left = 80.0
+offset_top = -22.0
+offset_right = 200.0
+offset_bottom = 2.0
+theme_override_colors/font_color = Color(0.549, 0.471, 0.706, 1)
+theme_override_font_sizes/font_size = 10
 text = "Speaker"
 
 [node name="SpokenText" type="RichTextLabel" parent="MainBox"]
@@ -41,30 +87,33 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 76.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = -10.0
+offset_left = 80.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "Spoken text goes here..."
+theme_override_colors/default_color = Color(0.75, 0.72, 0.8, 1)
+text = ""
 
 [node name="InnerMonologue" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(280, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -300.0
+offset_left = -280.0
 offset_top = -50.0
 offset_right = 0.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/normal = SubResource("monologue_bg")
 bbcode_enabled = true
-text = "[i]Internal thoughts appear here...[/i]"
+theme_override_colors/default_color = Color(0.6, 0.55, 0.7, 0.9)
+text = ""
 
 [node name="LensLabel" type="Label" parent="."]
 anchors_preset = 8
@@ -78,7 +127,9 @@ offset_right = 160.0
 offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "[Tactical]"
+theme_override_colors/font_color = Color(0.4, 0.6, 0.5, 0.8)
+theme_override_font_sizes/font_size = 9
+text = ""
 
 [node name="ChoiceContainer" type="VBoxContainer" parent="."]
 anchors_preset = 7
@@ -86,9 +137,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -200.0
-offset_right = 150.0
-offset_bottom = -130.0
+offset_left = -140.0
+offset_top = -210.0
+offset_right = 140.0
+offset_bottom = -125.0
 grow_horizontal = 2
 grow_vertical = 0
