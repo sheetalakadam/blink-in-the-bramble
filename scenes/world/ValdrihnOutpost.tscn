@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/characters/Player.tscn" id="1_player"]
 [ext_resource type="PackedScene" path="res://scenes/characters/OverworldEnemy.tscn" id="2_enemy"]
 [ext_resource type="PackedScene" path="res://scenes/world/ZoneTransition.tscn" id="3_zt"]
+[ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="4_ui"]
 
 [sub_resource type="GDScript" id="GDScript_1"]
 script/source = "extends Node2D
@@ -30,8 +31,13 @@ func _on_enemy_contact(enemy: CharacterBody2D) -> void:
 		print(\"[ValdrihnOutpost] BattleTransition not found, enemy contact ignored\")
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(48, 32)
+
 [node name="ValdrihnOutpost" type="Node2D"]
 script = SubResource("GDScript_1")
+
+[node name="DialogueUI" parent="." instance=ExtResource("4_ui")]
 
 [node name="Ground" type="ColorRect" parent="."]
 offset_right = 1000.0
@@ -50,6 +56,9 @@ offset_right = 24.0
 offset_bottom = 16.0
 color = Color(0.5, 0.5, 0.55, 1)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Wall1"]
+shape = SubResource("RectangleShape2D_1")
+
 [node name="Wall2" type="StaticBody2D" parent="Obstacles"]
 position = Vector2(450, 200)
 
@@ -59,6 +68,9 @@ offset_top = -16.0
 offset_right = 24.0
 offset_bottom = 16.0
 color = Color(0.5, 0.5, 0.55, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Wall2"]
+shape = SubResource("RectangleShape2D_1")
 
 [node name="Player" parent="." instance=ExtResource("1_player")]
 position = Vector2(100, 500)
@@ -82,3 +94,9 @@ position = Vector2(100, 980)
 target_scene_path = "res://scenes/world/NaevoriaRuins.tscn"
 required_flag = ""
 blocked_message = ""
+
+[node name="ZoneExitEast" parent="." instance=ExtResource("3_zt")]
+position = Vector2(985, 300)
+target_scene_path = "res://scenes/world/SolenneTrade.tscn"
+required_flag = "valdrihn_gate_dialogue_done"
+blocked_message = "You should speak with the guards first..."
