@@ -17,7 +17,20 @@ var _is_visible_on_screen: bool = true
 var _defeated: bool = false
 
 func _ready() -> void:
+	_try_load_sprite()
 	_pick_new_roam()
+
+func _try_load_sprite() -> void:
+	var tex := SpriteLoader.get_enemy_sprite(enemy_name)
+	if tex == null:
+		return
+	var placeholder = get_node_or_null("PlaceholderSprite")
+	if placeholder:
+		placeholder.visible = false
+	var sprite := Sprite2D.new()
+	sprite.texture = tex
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	add_child(sprite)
 
 
 func _physics_process(delta: float) -> void:
