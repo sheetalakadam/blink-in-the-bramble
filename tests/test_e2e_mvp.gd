@@ -20,6 +20,9 @@ func _ready() -> void:
 	_test_enemy_data_format()
 	_test_momentum_resets_between_battles()
 	_test_transition_to_combat_contract()
+	_test_defeated_enemy_persistence()
+	_test_vyn_ai_priorities()
+	_test_dialogue_reachability()
 	_report()
 
 func _assert(condition: bool, name: String) -> void:
@@ -167,6 +170,89 @@ func _test_transition_to_combat_contract() -> void:
 	_assert(CombatManager.is_in_combat, "Combat started via real transition data")
 	CombatManager.end_combat()
 	combat.queue_free()
+
+# --- Test 8: Defeated enemy persistence in BattleTransition ---
+func _test_defeated_enemy_persistence() -> void:
+	var bt = get_node_or_null("/root/BattleTransition")
+	if bt == null:
+		_assert(false, "BattleTransition needed for persistence test")
+		return
+
+	var initial_count = bt.defeated_enemies.size()
+	bt.defeated_enemies.append({
+		"scene": "res://scenes/world/NaevoriaRuins.tscn",
+		"name": "Test Slime",
+		"position": Vector2(300, 300),
+	})
+	_assert(bt.defeated_enemies.size() == initial_count + 1, "Defeated enemy recorded")
+
+	# Clean up
+	bt.defeated_enemies.pop_back()
+
+# --- Test 9: Vyn AI targeting priorities ---
+func _test_vyn_ai_priorities() -> void:
+	var vyn = {"name": "Vyn", "hp": 50, "max_hp": 50, "attack": 10}
+	var party_safe = [
+		{"name": "Zi", "hp": 100, "max_hp": 100},
+		vyn,
+	]
+	var enemies_test = [
+		{"name": "Slime A", "hp": 5, "max_hp": 20, "attack": 5, "defense": 0, "armor_type": "Agile"},
+		{"name": "Slime B", "hp": 20, "max_hp": 20, "attack": 5, "defense": 0, "armor_type": "Agile"},
+	]
+
+	# Vyn should target low-HP enemy first (Priority 3: finish off)
+	var decision = VynCombatAI.choose_action(vyn, party_safe, enemies_test, {})
+	_assert(decision.target.name == "Slime A", "Vyn targets low-HP enemy for finishing")
+
+	# With a dangerous party member, Vyn should root instead
+	var party_danger = [
+		{"name": "Zi", "hp": 10, "max_hp": 100},
+		vyn,
+	]
+	var enemies_threat = [
+		{"name": "Knight", "hp": 50, "max_hp": 50, "attack": 15, "defense": 5, "armor_type": "Heavy", "attacked_last_turn": true},
+	]
+	var decision2 = VynCombatAI.choose_action(vyn, party_danger, enemies_threat, {})
+	_assert(decision2.action == "root", "Vyn roots when party member in danger")
+
+# --- Test 10: Dialogue reachability ---
+func _test_dialogue_reachability() -> void:
+	var path = "res://data/dialogue/scene_01_the_fall.json"
+	var file = FileAccess.open(path, FileAccess.READ)
+	if file == null:
+		_assert(false, "Opening dialogue file accessible")
+		return
+	var data = JSON.parse_string(file.get_as_text())
+	if data == null:
+		_assert(false, "Opening dialogue parses")
+		return
+
+	var nodes: Dictionary = data.get("nodes", {})
+	var start: String = data.get("start_node", "")
+	var reachable: Array[String] = []
+	_walk_nodes(start, nodes, reachable)
+
+	_assert(reachable.size() == nodes.size(), "All nodes reachable in scene_01 (reachable: %d, total: %d)" % [reachable.size(), nodes.size()])
+
+func _walk_nodes(node_name: String, nodes: Dictionary, visited: Array[String]) -> void:
+	if node_name == "" or node_name in visited or not nodes.has(node_name):
+		return
+	visited.append(node_name)
+	var node: Dictionary = nodes[node_name]
+	var next: String = node.get("next_node", "")
+	if next != null and next != "":
+		_walk_nodes(next, nodes, visited)
+	for choice in node.get("choices", []):
+		var target: String = choice.get("next_node", choice.get("next", ""))
+		if target != "":
+			_walk_nodes(target, nodes, visited)
+	for line in node.get("lines", []):
+		for choice in line.get("choices", []):
+			var target: String = choice.get("next_node", choice.get("next", ""))
+			if target != "":
+				_walk_nodes(target, nodes, visited)
+
 
 # --- Helper: convert CharacterData resource to combat dict ---
 func _char_to_dict(char_data: CharacterData) -> Dictionary:

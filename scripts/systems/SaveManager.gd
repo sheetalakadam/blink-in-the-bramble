@@ -20,6 +20,10 @@ func save_game(slot: int) -> void:
 	if get_tree().current_scene:
 		data.current_scene_path = get_tree().current_scene.scene_file_path
 
+	# Save defeated enemies
+	if get_node_or_null("/root/BattleTransition"):
+		data.defeated_enemies = BattleTransition.defeated_enemies.duplicate()
+
 	data.timestamp = Time.get_datetime_string_from_system()
 
 	var err = ResourceSaver.save(data, SAVE_PATH % slot)
@@ -44,6 +48,10 @@ func load_game(slot: int) -> SaveData:
 		PartyManager._granted_milestones = data.granted_milestones
 		AffinityManager.set_all_affinity(data.affinity_data)
 		InventoryManager.load_save_data(data.inventory_data)
+
+		# Restore defeated enemies
+		if get_node_or_null("/root/BattleTransition"):
+			BattleTransition.defeated_enemies = data.defeated_enemies.duplicate()
 
 		# Store pending position for the world scene to restore
 		_pending_position = data.player_position

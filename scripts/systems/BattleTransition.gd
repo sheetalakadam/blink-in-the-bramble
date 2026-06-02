@@ -31,6 +31,9 @@ const PARTY_RESOURCES: Array[String] = [
 var _party_select_ui: Node = null
 var _selected_party_paths: Array[String] = []
 
+## Tracks defeated enemies across scene loads. Each entry: { "scene": String, "name": String, "position": Vector2 }
+var defeated_enemies: Array[Dictionary] = []
+
 
 func _ready() -> void:
 	_create_overlay()
@@ -305,13 +308,28 @@ func _load_overworld() -> void:
 
 
 func _remove_defeated_enemy(scene_root: Node) -> void:
+	# Record the defeated enemy for persistence
+	defeated_enemies.append({
+		"scene": _overworld_scene_path,
+		"name": _enemy_data.get("name", ""),
+		"position": _player_position,
+	})
+
 	# Find and remove enemies with matching data in the new scene instance
-	var enemies = scene_root.get_tree().get_nodes_in_group("overworld_enemies")
-	for enemy in enemies:
-		if enemy.has_method("get_enemy_data"):
-			var data = enemy.get_enemy_data()
-			if data.get("name") == _enemy_data.get("name"):
-				if enemy.global_position.distance_to(_player_position) < 100.0:
+	_remove_persisted_enemies(scene_root)
+
+
+## Removes all previously defeated enemies from a scene. Called on scene load.
+func _remove_persisted_enemies(scene_root: Node) -> void:
+	var scene_path: String = scene_root.scene_file_path if scene_root.scene_file_path else _overworld_scene_path
+	var enemies_in_scene = scene_root.get_tree().get_nodes_in_group("overworld_enemies")
+	for enemy in enemies_in_scene:
+		if not enemy.has_method("get_enemy_data"):
+			continue
+		var data = enemy.get_enemy_data()
+		for record in defeated_enemies:
+			if record.scene == scene_path and record.name == data.get("name", ""):
+				if enemy.global_position.distance_to(record.position) < 100.0:
 					enemy.mark_defeated()
 					break
 
