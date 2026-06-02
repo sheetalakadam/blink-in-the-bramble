@@ -1,14 +1,35 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scripts/camps/CampController.gd" id="1_camp"]
+[ext_resource type="PackedScene" path="res://scenes/characters/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="3_ui"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_area"]
+size = Vector2(80, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit"]
+size = Vector2(60, 20)
 
 [node name="CampScene" type="Node2D"]
 script = ExtResource("1_camp")
+
+[node name="DialogueUI" parent="." instance=ExtResource("3_ui")]
 
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0.12, 0.09, 0.08, 1)
+
+[node name="CampLabel" type="Label" parent="."]
+offset_left = 260.0
+offset_top = 10.0
+offset_right = 380.0
+offset_bottom = 30.0
+text = "Base Camp"
+horizontal_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(320, 300)
 
 [node name="Quarters" type="Area2D" parent="."]
 position = Vector2(100, 180)
@@ -29,6 +50,7 @@ text = "Quarters"
 horizontal_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quarters"]
+shape = SubResource("RectangleShape2D_area")
 
 [node name="GlowIndicator" type="ColorRect" parent="Quarters"]
 visible = false
@@ -57,6 +79,7 @@ text = "Forge"
 horizontal_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Forge"]
+shape = SubResource("RectangleShape2D_area")
 
 [node name="Sanctum" type="Area2D" parent="."]
 position = Vector2(540, 180)
@@ -77,6 +100,28 @@ text = "Sanctum"
 horizontal_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sanctum"]
+shape = SubResource("RectangleShape2D_area")
+
+[node name="CampExit" type="Area2D" parent="."]
+position = Vector2(320, 350)
+
+[node name="Visual" type="ColorRect" parent="CampExit"]
+offset_left = -30.0
+offset_top = -5.0
+offset_right = 30.0
+offset_bottom = 5.0
+color = Color(0.4, 0.3, 0.15, 1)
+
+[node name="Label" type="Label" parent="CampExit"]
+offset_left = -30.0
+offset_top = 5.0
+offset_right = 30.0
+offset_bottom = 25.0
+text = "Leave"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CampExit"]
+shape = SubResource("RectangleShape2D_exit")
 
 [node name="ForgePanel" type="PanelContainer" parent="."]
 visible = false
@@ -118,4 +163,5 @@ horizontal_alignment = 1
 [connection signal="body_entered" from="Quarters" to="." method="_on_quarters_body_entered"]
 [connection signal="body_entered" from="Forge" to="." method="_on_forge_body_entered"]
 [connection signal="body_entered" from="Sanctum" to="." method="_on_sanctum_body_entered"]
+[connection signal="body_entered" from="CampExit" to="." method="_on_camp_exit_entered"]
 [connection signal="pressed" from="ForgePanel/VBox/CloseButton" to="." method="_on_forge_close_pressed"]
