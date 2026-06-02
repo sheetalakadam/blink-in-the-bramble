@@ -1,9 +1,17 @@
 class_name EncounterTable
 extends RefCounted
 
+static var _encounters: Dictionary = {}
+
+static func _get_encounters() -> Dictionary:
+	if _encounters.is_empty():
+		_encounters = _build_encounters()
+	return _encounters
+
 ## Returns a randomized enemy formation for the given region.
 static func get_encounter(region: String) -> Array[Dictionary]:
-	var table: Array = ENCOUNTERS.get(region, ENCOUNTERS.get("naevoria", []))
+	var enc := _get_encounters()
+	var table: Array = enc.get(region, enc.get("naevoria", []))
 	if table.is_empty():
 		return [_make("Green Slime", 20, 5, 0, 5, "Agile")]
 	var formation: Array = table[randi() % table.size()]
@@ -21,7 +29,8 @@ static func _make(n: String, hp: int, atk: int, def: int, spd: int, armor: Strin
 	}
 
 
-const ENCOUNTERS: Dictionary = {
+static func _build_encounters() -> Dictionary:
+	return {
 	"naevoria": [
 		[_make("Green Slime", 20, 5, 0, 5, "Agile", ["res://data/items/healing_herb.tres"])],
 		[_make("Green Slime", 20, 5, 0, 5, "Agile"), _make("Green Slime", 20, 5, 0, 5, "Agile")],
