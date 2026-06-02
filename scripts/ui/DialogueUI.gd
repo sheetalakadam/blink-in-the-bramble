@@ -7,6 +7,7 @@ const TYPEWRITER_SPEED := 0.03  # seconds per character
 @onready var portrait_rect: TextureRect = $MainBox/PortraitRect
 @onready var inner_monologue: RichTextLabel = $InnerMonologue
 @onready var lens_label: Label = $LensLabel
+@onready var choice_container: VBoxContainer = $ChoiceContainer
 
 var is_typewriting := false
 var _typewriter_tween: Tween = null
@@ -20,9 +21,11 @@ func _ready() -> void:
 	inner_monologue.visible = false
 	lens_label.visible = false
 	portrait_rect.visible = false
+	choice_container.visible = false
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	DialogueManager.line_presented.connect(_on_line_presented)
+	DialogueManager.choices_presented.connect(_on_choices_presented)
 
 func _on_dialogue_started(id: String) -> void:
 	print("[DialogueUI] dialogue_started signal received: ", id)
@@ -33,6 +36,7 @@ func _on_dialogue_ended() -> void:
 	visible = false
 
 func _on_line_presented(line_data: Dictionary) -> void:
+	_clear_choices()
 	print("[DialogueUI] line_presented signal received for speaker: ", line_data.get("speaker"))
 
 	# Speaker name
@@ -110,6 +114,27 @@ func _fade_monologue_in() -> void:
 func _fade_monologue_out() -> void:
 	if _monologue_tween and _monologue_tween.is_valid():
 		_monologue_tween.kill()
-	# Instant hide for now (fade out would require await which complicates things)
 	inner_monologue.visible = false
 	inner_monologue.modulate.a = 0.0
+
+func _on_choices_presented(choices: Array) -> void:
+	_clear_choices()
+	choice_container.visible = true
+	for i in choices.size():
+		var choice = choices[i]
+		var btn := Button.new()
+		btn.text = choice.get("text", choice.get("label", "..."))
+		btn.pressed.connect(_on_choice_selected.bind(i))
+		choice_container.add_child(btn)
+	# Focus first button for keyboard nav
+	if choice_container.get_child_count() > 0:
+		choice_container.get_child(0).grab_focus()
+
+func _on_choice_selected(index: int) -> void:
+	_clear_choices()
+	DialogueManager.select_choice(index)
+
+func _clear_choices() -> void:
+	choice_container.visible = false
+	for child in choice_container.get_children():
+		child.queue_free()
