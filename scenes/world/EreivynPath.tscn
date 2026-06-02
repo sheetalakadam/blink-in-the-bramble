@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/characters/Player.tscn" id="1_player"]
 [ext_resource type="PackedScene" path="res://scenes/characters/OverworldEnemy.tscn" id="2_enemy"]
 [ext_resource type="PackedScene" path="res://scenes/world/ZoneTransition.tscn" id="3_zt"]
 [ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="4_ui"]
+[ext_resource type="PackedScene" path="res://scenes/world/ShrineNode.tscn" id="5_shrine"]
 
 [sub_resource type="GDScript" id="GDScript_1"]
 script/source = "extends Node2D
+
+const REGION := \"ereivyn\"
 
 func _ready() -> void:
 	print(\"[EreivynPath] Ready\")
@@ -16,8 +19,15 @@ func _ready() -> void:
 	await get_tree().create_timer(0.5).timeout
 	if not GlobalFlags.get_flag(\"ereivyn_threshold_dialogue_done\"):
 		GlobalFlags.set_flag(\"ereivyn_threshold_dialogue_done\", true)
-		if DialogueManager:
-			DialogueManager.start_dialogue(\"scene_04_ereivyn_threshold\")
+		DialogueManager.start_dialogue(\"scene_04_ereivyn_threshold\")
+	else:
+		_check_story_triggers()
+
+func _check_story_triggers() -> void:
+	var dialogue_id := StoryTriggerSystem.check_triggers(REGION)
+	if dialogue_id != \"\":
+		await get_tree().create_timer(0.5).timeout
+		DialogueManager.start_dialogue(dialogue_id)
 
 func _connect_enemies() -> void:
 	for enemy in get_tree().get_nodes_in_group(\"overworld_enemies\"):
@@ -27,8 +37,6 @@ func _connect_enemies() -> void:
 func _on_enemy_contact(enemy: CharacterBody2D) -> void:
 	if get_tree().root.has_node(\"BattleTransition\"):
 		BattleTransition.start_transition(enemy)
-	else:
-		print(\"[EreivynPath] BattleTransition not found, enemy contact ignored\")
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
@@ -101,6 +109,10 @@ position = Vector2(600, 250)
 enemy_name = "Forest Spirit"
 enemy_level = 2
 armor_type = "Spirit"
+
+[node name="Shrine" parent="." instance=ExtResource("5_shrine")]
+position = Vector2(400, 100)
+god_name = "Morrael"
 
 [node name="ZoneExitWest" parent="." instance=ExtResource("3_zt")]
 position = Vector2(10, 500)

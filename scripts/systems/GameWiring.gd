@@ -26,6 +26,13 @@ const DIALOGUE_FLAG_MAP := {
 	"scene_10_first_angel_sign": "investigated_distortion",
 }
 
+# Bridge camp dialogues: these trigger after certain story beats via StoryTriggerSystem
+const CAMP_TRIGGERS := {
+	"scene_07b_first_camp": "met_lex",
+	"scene_09b_between_cities": "velundrath_arrival_dialogue_done",
+	"scene_14b_aftermath_camp": "scene_14_angel_encounter_done",
+}
+
 var _pause_menu: CanvasLayer = null
 
 
@@ -155,6 +162,9 @@ func _on_dialogue_ended_fallback() -> void:
 
 
 func _on_dialogue_completed(scene_id: String) -> void:
+	# Mark story trigger as done
+	StoryTriggerSystem.mark_done(scene_id)
+
 	var flag_name: String = DIALOGUE_FLAG_MAP.get(scene_id, "")
 	if flag_name != "" and not GlobalFlags.get_flag(flag_name):
 		GlobalFlags.set_flag(flag_name, true)

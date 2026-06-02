@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/characters/Player.tscn" id="1_player"]
 [ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="2_ui"]
@@ -6,9 +6,12 @@
 [ext_resource type="PackedScene" path="res://scenes/world/ZoneTransition.tscn" id="4_zt"]
 [ext_resource type="PackedScene" path="res://scenes/characters/BossEnemy.tscn" id="5_boss"]
 [ext_resource type="Resource" path="res://data/bosses/corrupted_sentinel.tres" id="6_sentinel"]
+[ext_resource type="PackedScene" path="res://scenes/world/ShrineNode.tscn" id="7_shrine"]
 
 [sub_resource type="GDScript" id="GDScript_1"]
 script/source = "extends Node2D
+
+const REGION := \"naevoria\"
 
 func _ready() -> void:
 	print(\"[NaevoriaRuins] Ready\")
@@ -18,14 +21,11 @@ func _ready() -> void:
 	await get_tree().create_timer(1.0).timeout
 	if not GlobalFlags.get_flag(\"opening_dialogue_done\"):
 		GlobalFlags.set_flag(\"opening_dialogue_done\", true)
-		if DialogueManager:
-			DialogueManager.start_dialogue(\"scene_01_the_fall\")
-			if DialogueManager.has_signal(\"dialogue_finished\"):
-				await DialogueManager.dialogue_finished
-			_on_opening_dialogue_complete()
-		else:
-			printerr(\"[NaevoriaRuins] DialogueManager not found!\")
-			_on_opening_dialogue_complete()
+		DialogueManager.start_dialogue(\"scene_01_the_fall\")
+		await DialogueManager.dialogue_ended
+		_on_opening_dialogue_complete()
+	else:
+		_check_story_triggers()
 
 func _on_opening_dialogue_complete() -> void:
 	if not GlobalFlags.get_flag(\"caelan_joined\"):
@@ -33,7 +33,12 @@ func _on_opening_dialogue_complete() -> void:
 		var caelan = load(\"res://data/characters/caelan.tres\") as CharacterData
 		if caelan:
 			PartyManager.add_to_party(caelan)
-			print(\"[NaevoriaRuins] Caelan has joined the party.\")
+
+func _check_story_triggers() -> void:
+	var dialogue_id := StoryTriggerSystem.check_triggers(REGION)
+	if dialogue_id != \"\":
+		await get_tree().create_timer(0.5).timeout
+		DialogueManager.start_dialogue(dialogue_id)
 
 func _connect_enemies() -> void:
 	for enemy in get_tree().get_nodes_in_group(\"overworld_enemies\"):
@@ -41,14 +46,19 @@ func _connect_enemies() -> void:
 			enemy.player_contacted.connect(_on_enemy_contact)
 
 func _on_enemy_contact(enemy: CharacterBody2D) -> void:
-	if Engine.has_singleton(\"BattleTransition\") or get_tree().root.has_node(\"BattleTransition\"):
+	if get_tree().root.has_node(\"BattleTransition\"):
 		BattleTransition.start_transition(enemy)
-	else:
-		print(\"[NaevoriaRuins] BattleTransition not found, enemy contact ignored\")
+
+func _on_camp_entered(body: Node2D) -> void:
+	if body.is_in_group(\"player\"):
+		get_tree().change_scene_to_file(\"res://scenes/camps/CampScene.tscn\")
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_camp"]
+size = Vector2(40, 40)
 
 [node name="NaevoriaRuins" type="Node2D"]
 script = SubResource("GDScript_1")
@@ -111,6 +121,33 @@ enemy_level = 1
 [node name="CorruptedSentinel" parent="Enemies" instance=ExtResource("5_boss")]
 position = Vector2(800, 700)
 boss_resource = ExtResource("6_sentinel")
+
+[node name="CampEntrance" type="Area2D" parent="."]
+position = Vector2(150, 800)
+
+[node name="CampVisual" type="ColorRect" parent="CampEntrance"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0.6, 0.4, 0.1, 1)
+
+[node name="CampLabel" type="Label" parent="CampEntrance"]
+offset_left = -20.0
+offset_top = -35.0
+offset_right = 20.0
+offset_bottom = -20.0
+text = "Camp"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CampEntrance"]
+shape = SubResource("RectangleShape2D_camp")
+
+[connection signal="body_entered" from="CampEntrance" to="." method="_on_camp_entered"]
+
+[node name="Shrine" parent="." instance=ExtResource("7_shrine")]
+position = Vector2(850, 150)
+god_name = "Auryn"
 
 [node name="ZoneExitNorth" parent="." instance=ExtResource("4_zt")]
 position = Vector2(500, 5)

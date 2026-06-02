@@ -127,6 +127,19 @@ func _apply_effect(item: ItemData, target: Dictionary) -> void:
 			target["_item_buffs"].append({"stat": "defense", "value": item.effect_value})
 
 
+func get_save_data() -> Dictionary:
+	var result: Dictionary = {}
+	for path in inventory.keys():
+		result[path] = inventory[path]["count"]
+	return result
+
+
+func load_save_data(data: Dictionary) -> void:
+	inventory.clear()
+	for path in data.keys():
+		add_item(path, data[path])
+
+
 func clear() -> void:
 	inventory.clear()
 	inventory_changed.emit()

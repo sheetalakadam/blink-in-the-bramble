@@ -11,6 +11,12 @@ func save_game(slot: int) -> void:
 	data.current_map_chunk = WorldManager.active_chunk_coord
 	data.flags = GlobalFlags.flags
 	data.affinity_data = AffinityManager.get_all_affinity()
+	data.inventory_data = InventoryManager.get_save_data()
+
+	# Save player position
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		data.player_position = players[0].global_position
 
 	data.timestamp = Time.get_datetime_string_from_system()
 
@@ -35,6 +41,7 @@ func load_game(slot: int) -> SaveData:
 		PartyManager.party_level = data.party_level
 		PartyManager._granted_milestones = data.granted_milestones
 		AffinityManager.set_all_affinity(data.affinity_data)
+		InventoryManager.load_save_data(data.inventory_data)
 		return data
 
 	return null

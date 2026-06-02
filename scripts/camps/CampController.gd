@@ -171,3 +171,9 @@ func _update_quarters_glow() -> void:
 	var glow = get_node_or_null("Quarters/GlowIndicator")
 	if glow:
 		glow.visible = is_quarters_conversation_available()
+
+
+func _on_camp_exit_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		# Return to NaevoriaRuins (camp is always accessed from there)
+		get_tree().change_scene_to_file("res://scenes/world/NaevoriaRuins.tscn")
